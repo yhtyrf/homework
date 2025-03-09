@@ -1,0 +1,77 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 8,           % 设置课程次数
+  classname = 电磁学,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+
+\begin{document}
+{\zihao{5}\heiti\color{red} 4-59}
+\begin{sol}
+    (1)插入前：
+    $$E_0=\frac{Q^2}{2C_0}=\frac{Q^2d}{2\varepsilon_0S}$$
+    插入后：
+    $$E=\frac{Q^2}{2C}=\frac{Q^2d}{2\varepsilon\varepsilon_0S}$$
+    故$$\Delta E=E-E_0=\frac{Q^2d}{2\varepsilon_0S}(\frac{1}{\varepsilon}-1)$$\par
+    (2)设介质板面积为$S=ab$插入深度为$x$
+    则$$C=C_1+C_2=\frac{\varepsilon\varepsilon_0 bx}{d}+\frac{\varepsilon_0b(a-x)}{d}=\frac{\varepsilon_0 b}{d} [a+(\varepsilon-1)x ]$$
+    $$W=\frac{Q^2}{2C}=\frac{Q^2d}{2b\varepsilon_0[a+(\varepsilon-1)x ]}$$
+    $$F=-\frac{\d W}{\d x}=\frac{Q^2d(\varepsilon-1)}{2b\varepsilon_0[a+(\varepsilon-1)x ]^2}$$
+    故做功为
+    $$A=\int_0^aF\d x=\frac{Q^2d}{2\varepsilon_0S}(1-\frac{1}{\varepsilon})$$
+\end{sol}\par
+
+
+{\zihao{5}\heiti\color{red} 4-60}
+\begin{sol}
+    (1)插入前：
+    $$E_0=\frac{C_0U^2}{2}=\frac{\varepsilon_0SU^2}{2d}$$
+    插入后：
+    $$E=\frac{C_0U^2}{2}=\frac{\varepsilon\varepsilon_0SU^2}{2d}$$
+    故$$\Delta E=E-E_0=\frac{\varepsilon_0SU^2}{2d}(\varepsilon-1)$$\par
+    (2)$$\Delta Q=CU-C_0U=\frac{\varepsilon_0SU}{\varepsilon-1}$$
+    故电源移动电荷做功为
+    $$W=\Delta Q U=\frac{\varepsilon_0SU^2}{\varepsilon-1}$$\par
+    (3)与上题分析类似可得$$A=\frac{\varepsilon_0SU^2(\varepsilon-1)}{2d}$$
+\end{sol}\par
+
+{\zihao{5}\heiti\color{red} 4-61}
+\begin{sol}
+    $$C=C_1+C_2=\frac{\varepsilon\varepsilon_0 ax}{d}+\frac{\varepsilon_0a(a-x)}{d}=\frac{\varepsilon_0 a}{d} [a+(\varepsilon-1)x ]$$
+    $$W=\frac{Q^2}{2C}=\frac{Q^2d}{2a\varepsilon_0[a+(\varepsilon-1)x ]}$$
+    $$F=-\frac{\d W}{\d x}=\frac{Q^2d(\varepsilon-1)}{2a\varepsilon_0[a+(\varepsilon-1)x ]^2}$$
+    令$x=\frac{a}{2}$得$F=\frac{2(\varepsilon-1)Q^2d}{\varepsilon_0(\varepsilon+1)^2a^3}$
+\end{sol}\par
+
+{\zihao{5}\heiti\color{red} 4-62}
+\begin{sol}
+    并联总电容$C=C_1+C_2=\frac{\varepsilon_0 S}{d}+\frac{\varepsilon \varepsilon_0S}{d}=\frac{\varepsilon_0S}{d}(\varepsilon+1)$
+    则总能量为
+    $$W=\frac{CU^2}{2}=5.4\times 10^{-5}\mathrm{J}$$
+    中间是空气的电容器两端电荷为$Q_1=C_1U=\frac{\varepsilon_0SU}{d}$,中间插入酒精的极板两端电荷为$Q_2=C_2U=\frac{\varepsilon\varepsilon_0SU}{d}$则用导线连接
+    后总电荷为$Q=Q_2-Q_1$,总能量为 
+    $$E=\frac{Q^2}{2C}=4.6\times 10^{-5}\mathrm{J}$$
+    $$\Delta E=W-E=7.8\times 10^{-6}\mathrm{J}$$
+    损失的能量部分转换为导线产生的焦耳热，部分转换为电磁波辐射到了外界
+    $$\mathbb{V},\mathbf{V},\mathrm{V},V,\mathcal{V},\nu,\mathsf{V},\text{V},\mathit{V}$$
+\end{sol}\par
+\end{document}

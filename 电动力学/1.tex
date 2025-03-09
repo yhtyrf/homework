@@ -1,0 +1,242 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 1,           % 设置课程次数
+  classname = 电动力学,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\renewcommand{\i}{\mathrm{i}}
+\makeatother
+
+
+\begin{document}
+
+\begin{sol}[1]
+    (1)\begin{align*}
+        \text{右边}&=b_i\partial _ia_j+a_i\partial _ib_j-\varepsilon_{klm}b_l\varepsilon_{ijk}\partial _ia_j-\varepsilon_{klm}a_l\varepsilon_{ijk}\partial _ib_j\\
+        &=b_i\partial _ia_j+a_i\partial _ib_j+(\delta_{im}\delta_{jl}-\delta_{il}\delta_{jm})b_l\partial _ia_j+(\delta_{im}\delta_{jl}-\delta_{il}\delta_{jm})a_l\partial _ib_j\\
+        &=b_i\partial _ia_j+a_i\partial _ib_j+b_j\partial _ma_j-b_i\partial _ia_m+a_j\partial _mb_j-a_i\partial _ib_m\\
+        &=b_j\partial _ma_j+a_j\partial _mb_j\\
+        &=\text{左边}
+    \end{align*}
+    (2)由(1)知$\nabla(\vec{A}\cdot\vec{A})=2\vec{A}\cdot\nabla\vec{A}+2\vec{A}\times(\nabla\times\vec{A})$
+故
+$$\vec{A}\times(\nabla\times\vec{A})=\frac{1}{2}\nabla(\vec{A}\cdot\vec{A})-\vec{A}\cdot\nabla\vec{A}$$
+\end{sol}\par
+
+\begin{sol}[2]
+    (1)\begin{align*}
+        \nabla r&=\frac{x-x'}{\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}\vec{e}_x+\frac{y-y'}{\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}\vec{e}_y\\
+        &+\frac{z-z'}{\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}\vec{e}_z\\
+        &=\frac{(x-x')\vec{e}_x+(y-y')\vec{e}_y+(z-z')\vec{e}_z}{\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}\\
+        &=\frac{\vec{r}}{r}
+    \end{align*}
+    \begin{align*}
+        \nabla' r&=\frac{x'-x}{\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}\vec{e}_x+\frac{y'-y}{\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}\vec{e}_y\\
+        &+\frac{z'-z}{\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}\vec{e}_z\\
+        &=\frac{(x'-x)\vec{e}_x+(y'-y)\vec{e}_y+(z'-z)\vec{e}_z}{\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}\\
+        &=-\frac{\vec{r}}{r}
+    \end{align*}
+    \begin{align*}
+        \nabla \frac{1}{r}&=-\frac{x-x'}{\left((x-x')^2+(y-y')^2+(z-z')^2\right)^{3/2}}\vec{e}_x-\frac{y-y'}{\left((x-x')^2+(y-y')^2+(z-z')^2\right)^{3/2}}\vec{e}_y\\
+        &-\frac{z-z'}{\left((x-x')^2+(y-y')^2+(z-z')^2\right)^{3/2}}\vec{e}_x\vec{e}_z\\
+        &=\frac{(x'-x)\vec{e}_x+(y'-y)\vec{e}_y+(z'-z)\vec{e}_z}{\left((x-x')^2+(y-y')^2+(z-z')^2\right)^{3/2}}\\
+        &=-\frac{\vec{r}}{r^3}
+    \end{align*}
+    \begin{align*}
+        \nabla '\frac{1}{r}&=\frac{x-x'}{\left((x-x')^2+(y-y')^2+(z-z')^2\right)^{3/2}}\vec{e}_x+\frac{y-y'}{\left((x-x')^2+(y-y')^2+(z-z')^2\right)^{3/2}}\vec{e}_x\\
+        &+\frac{z-z'}{\left((x-x')^2+(y-y')^2+(z-z')^2\right)^{3/2}}\vec{e}_x\vec{e}_z\\
+        &=-\frac{(x'-x)\vec{e}_x+(y'-y)\vec{e}_y+(z'-z)\vec{e}_z}{\left((x-x')^2+(y-y')^2+(z-z')^2\right)^{3/2}}\\
+        &=\frac{\vec{r}}{r^3}
+    \end{align*}
+    \begin{align*}
+        \nabla \times\frac{\vec{r}}{r^3}&=(\nabla \frac{1}{r^3})\times \vec{r}+\frac{1}{r^3}(\nabla\times r)\\
+        &=(\nabla \frac{1}{r^3})\times \vec{r}\\
+        &=-3\frac{\vec{r}}{r^5}\times r\\
+        &=0
+    \end{align*}
+    \begin{align*}
+        \nabla \cdot\frac{\vec{r}}{r^3}&=(\nabla \frac{1}{r^3})\cdot\vec{r}+\frac{1}{r^3}(\nabla\cdot r)\\
+        &=(\nabla \frac{1}{r^3})\cdot\vec{r}+\frac{3}{r^3}\\
+        &=-3\frac{\vec{r}}{r^5}\cdot r+\frac{3}{r^3}\\
+        &=0
+    \end{align*}
+    \begin{align*}
+        \nabla' \cdot\frac{\vec{r}}{r^3}&=(\nabla' \frac{1}{r^3})\cdot\vec{r}+\frac{1}{r^3}(\nabla'\cdot r)\\
+        &=(\nabla' \frac{1}{r^3})\cdot\vec{r}-\frac{3}{r^3}\\
+        &=3\frac{\vec{r}}{r^5}\cdot r-\frac{3}{r^3}\\
+        &=0
+    \end{align*}
+    (2)\begin{align*}
+        \nabla\cdot \vec{r}&=3
+    \end{align*}
+    \begin{align*}
+        \nabla\times \vec{r}&=0
+    \end{align*}
+    \begin{align*}
+        (\vec{a}\cdot\nabla)\times \vec{r}&=0
+    \end{align*}
+    \begin{align*}
+        \nabla(\vec{a}\cdot \vec{r})&=\vec{a}\times(\nabla\times\vec{r})+(\vec{a}\cdot\nabla)\vec{r}+\vec{r}\times(\nabla\times\vec{a})+(\vec{r}\cdot\nabla)\vec{a}\\
+        &=0+0+0+3\vec{a}\\
+        &=3\vec{a}
+    \end{align*}
+    \begin{align*}
+        \nabla\cdot[\vec{E}_0\sin (\vec{k}\cdot\vec{r})]&=\sin (\vec{k}\cdot\vec{r})(\nabla\cdot\vec{E}_0)+\vec{E}_0\cdot(\nabla\sin (\vec{k}\cdot\vec{r}))\\
+        &=0+\vec{E}_0\cdot\vec{k}\cos(\vec{k}\cdot\vec{r})\\
+        &=\vec{E}_0\cdot\vec{k}\cos(\vec{k}\cdot\vec{r})
+    \end{align*}
+    \begin{align*}
+        \nabla\times[\vec{E}_0\sin (\vec{k}\cdot\vec{r})]&=(\nabla\sin (\vec{k}\cdot\vec{r}))\times\vec{E}_0+\sin (\vec{k}\cdot\vec{r})(\nabla\times\vec{E}_0)\\
+        &=\vec{k}\cos(\vec{k}\cdot\vec{r})\times\vec{E}_0\\
+        &=\cos(\vec{k}\cdot\vec{r})\vec{k}\times\vec{E}_0
+    \end{align*}
+\end{sol}\par
+
+\begin{sol}[3]
+    欲证$\int\limits_V\vec{A}\d V=0$，即证式
+    \begin{align*}
+        \vec{c}\cdot\int\limits_V\vec{A}\d V=0
+    \end{align*}
+    对于任意常矢量$\vec{c}$成立，我们构造一个新矢量场$\vec{F}$，定义为
+    \begin{align*}
+        \vec{F}=(\vec{c}\cdot \vec{r})\vec{A}
+    \end{align*}
+    则
+    \begin{align*}
+        \nabla\cdot\vec{F}=(\nabla\cdot\vec{A})(\vec{c}\cdot\vec{r})+\vec{A}\cdot\nabla(\vec{c}\cdot\vec{r})\\
+    \end{align*}
+    又因为$\nabla\cdot\vec{A}=0$，故
+    \begin{align*}
+        \nabla\cdot\vec{F}&=\vec{A}\cdot\nabla(\vec{c}\cdot\vec{r})\\
+        &=\vec{A}\cdot\vec{c}
+    \end{align*}
+    故
+    \begin{align*}
+        \vec{c}\cdot\int\limits_V\vec{A}\d V&=\int\limits_V\vec{c}\cdot\vec{A}\d V\\
+        &=\int\limits_V\nabla\cdot\vec{F}\d V\\
+        &=\int\limits_S\vec{F}\cdot\d \vec{S}\\
+        &=\int\limits_S(\vec{c}\cdot \vec{r})\vec{A}\cdot\d \vec{S}\\
+    \end{align*}
+    又因为$\vec{A}\cdot\d \vec{S}=0$，故$\vec{c}\cdot\int\limits_V\vec{A}\d V=0$，又因为此处$\vec{c}$是任取的，故原式得证。
+\end{sol}\par
+
+\begin{sol}[4]
+    一维波：
+    \begin{align*}
+        \frac{\partial^2u}{\partial x^2}-\frac{1}{c^2}\frac{\partial^2u}{\partial t^2}=0
+    \end{align*}
+    令$v=\frac{\partial u}{\partial t},w=c\frac{\partial u}{\partial x}$，则有
+    \begin{align*}
+        \frac{\partial v}{\partial t}&=c\frac{\partial w}{\partial x}\\
+        c\frac{\partial v}{\partial x}&=\frac{\partial w}{\partial t}
+    \end{align*}
+    一维麦克斯韦方程可写为
+    \begin{align*}
+        \frac{\partial E}{\partial x}&=-\frac{\partial B}{\partial t}\\
+        \frac{\partial B}{\partial x}&=-\varepsilon_0\mu_0\frac{\partial E}{\partial t}\\
+    \end{align*}
+    异：$v,w$代表$u$的时空变化率，而$B,E$表示电磁场强度。\\
+    同：数学结构相同，均允许波动解。
+\end{sol}\par
+
+\begin{sol}[5]
+   \begin{align*}
+    |A-\lambda I|&=\lambda ^4+ \left(-a^2-b^2-c^2+d^2+e^2+f^2\right)\lambda ^2-a^2 f^2-2 a b e f-2 a c d f-b^2 e^2-2 b c d e-c^2 d^2
+   \end{align*}
+   \begin{align*}
+    |B-\lambda I|&=\lambda ^4+\left(a^2+b^2+c^2+d^2+e^2+f^2\right)\lambda ^2 +a^2 f^2+2 a b e f+2 a c d f+b^2 e^2+2 b c d e+c^2 d^2
+   \end{align*}
+\end{sol}\par
+
+\begin{sol}[6]
+    (a)球坐标：设$\rho=c\delta(r-a)$，则有
+    \begin{align*}
+        \int_{0}^{2\pi}\d\varphi\int_{0}^{\pi}\sin\theta\d\theta\int_{0}^{R}r^2c\delta(r-a)\d r&=q\\
+        4\pi a^2c&=q\\
+        c&=\frac{q}{4\pi a^2}
+    \end{align*}
+    即$\rho=\frac{q}{4\pi a^2}\delta(r-a)$\\
+    (b)柱坐标：设$\rho=c\delta(r-a)(0<z<\lambda)$，则有
+    \begin{align*}
+        \int_{0}^{\lambda}\d z \int_{0}^{2\pi}\d\theta\int_{0}^{R}cr\delta(r-a)\d r&=q\\
+        2\pi \lambda ac&=q\\
+        c&=\frac{q}{ 2\pi \lambda a}
+    \end{align*}
+    即$\rho=\frac{q}{2\pi \lambda a}\delta(r-a)(0<z<\lambda)$\\
+    (c)柱坐标：设$\rho=c\delta(z)(0<r<a)$，则有
+    \begin{align*}
+        \int_{-\lambda}^{\lambda}c\delta(z)\d z \int_{0}^{2\pi}\d\theta\int_{0}^{a}r\d r&=q\\
+        \pi a^2c&=q\\
+        c&=\frac{q}{\pi a^2}
+    \end{align*}
+    即$\rho=\frac{q}{\pi a^2}\delta(z)(0<r<a)$
+ \end{sol}\par
+
+ \begin{sol}[7]
+    
+    \begin{align*}
+    I&=\frac{2}{|4-5|}+\frac{3}{|6-5|}\\
+    &=5
+    \end{align*}
+    
+ \end{sol}\par
+ 
+\begin{sol}[8]
+    \begin{align*}
+    T_{ik}a_ib_k-T_{ik}a_kb_i&=T_{ik}a_ib_k-T_{ki}a_ib_k\\
+    &=(T_{ik}-T_{ki})a_ib_k
+    \end{align*}
+    \begin{align*}
+        2\vec{\omega}\cdot(\vec{a}\times\vec{b})&=2\varepsilon_{ijk}\omega_ia_jb_k\\
+        &=2\varepsilon_{jik}\omega_ja_ib_k
+    \end{align*}
+    欲使等式成立即使
+    \begin{align*}
+        2\varepsilon_{jik}\omega_j&=T_{ik}-T_{ki}\\
+        \varepsilon_{jik}\omega_j&=\frac{T_{ik}-T_{ki}}{2}
+    \end{align*}
+    两边均为反对称矩阵故只需为$\omega$选取合适的分量，即可使得等式成立。
+\end{sol}\par
+
+\begin{sol}[9]
+    设三条带电直线交点为$(0,0),(a,0),(b,c)$，选取这三点组成的三角形角平分线的交点为零电势点，则平面上除直线上的任意一点电势可写为
+    \begin{align*}
+        \varphi=k\ln \frac{d_1d_2d_3}{r^3}
+    \end{align*}
+    式子中的$k$为一与电荷线密度相关的常数，$r$为零电势点距这三条直线的距离且为常数。为了方便，我们不妨只考察$\ln d_1d_2d_3$。
+    即\begin{align*}
+        \varphi\cong \ln d_1d_2d_3\cong \ln d_1^2d_2^2d_3^2=\ln \left(y^2 \left(y-\frac{c x}{b}\right)^2 \left(\frac{y (b-a)}{c}+a-x\right)^2\right)
+    \end{align*}
+    则场强为
+    \begin{align*}
+        \vec{E}&=-\nabla\varphi\\
+        &=-\frac{2 c (a (y-c)-2 b y+2 c x)}{(c x-b y) (a (y-c)-b y+c x)}\vec{e}_x-\frac{a \left(4 c y (b+x)-6 b y^2-2 c^2 x\right)+6 b^2 y^2-8 b c x y+2 c^2 x^2}{y (b y-c x) (a (c-y)+b y-c x)}\vec{e}_y\\
+    \end{align*}
+    令$\vec{E}=0$，则解得
+    \begin{align*}
+        x=\frac{a+b}{3},y=\frac{c}{3}
+    \end{align*}
+    即该点位于三线交点所组成的三角形的重心。
+\end{sol}\par
+\end{document}

@@ -1,0 +1,175 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 10,           % 设置课程次数
+  classname = 数学物理方法,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\newcommand{\res}{\text{res}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\F}{\mathcal{F}}
+\allowdisplaybreaks[4]
+\makeatother
+
+
+\begin{document}
+
+\begin{sol}[1]
+    定解条件为
+    \begin{align*}
+        \left\{
+        \begin{aligned}
+            &\frac{\partial}{\partial r}\left( r \frac{\partial u}{\partial r} \right) + \frac{1}{r} \frac{\partial^2 u}{\partial \theta^2} = 0, \\
+            &u|_{r=1} =
+            \begin{cases}
+                1 & (0 < \theta < \pi), \\
+                0 & (\pi < \theta < 2\pi).
+            \end{cases}\\
+            &u(r,\theta)=u(r,\theta+2\pi)
+        \end{aligned}
+        \right.
+    \end{align*}
+    设$u=R(r)\Theta(\theta)$，则得到分离变量后的方程
+    \begin{align*}
+        \left\{\begin{matrix}
+            \Theta''+\lambda\Theta=0\\
+            r^2R''+rR'-\lambda R=0
+        \end{matrix}\right.
+    \end{align*}
+    对于$\Theta''+\lambda\Theta=0$通解为
+    $$\Theta=a\sin\sqrt{\lambda}\theta+b\cos\sqrt{\lambda}\theta$$
+    本征值为
+    $$\lambda=n^2$$
+    将$\lambda=n^2$代入$r^2R''+rR'-\lambda R=0$得到
+    \begin{align*}
+        R=\left\{\begin{matrix}
+            c_0+d_0\ln r&n=0\\
+            c_nr^n+d_nr^{-n}&n\neq 0
+        \end{matrix}\right.
+    \end{align*}
+    故
+    $$u=C_0+D_0\ln r+\sum_{n=1}^{\infty}\left(a_n\sin n\theta+b_n\cos n\theta\right)\left(c_nr^n+d_nr^{-n}\right)$$
+    又因为$r=0$时$u$应有界，故$D_0=0$，$d_n=0$。故
+    $$u=C_0+\sum_{n=1}^{\infty}\left(A_n\sin n\theta+B_n\cos n\theta\right)r^n$$
+    代入\begin{align*}
+        u|_{r=1} =
+            \begin{cases}
+                1 & (0 < \theta < \pi), \\
+                0 & (\pi < \theta < 2\pi).
+            \end{cases}
+    \end{align*}
+    得
+    \begin{align*}
+        C_0&=\frac{1}{2\pi}\int_{0}^{\pi}\d \theta\\
+        &=\frac{1}{2}\\
+        A_n&=\frac{1}{\pi}\int_{0}^{\pi}\sin n\theta\d \theta\\
+        &=\left\{\begin{matrix}
+            \frac{2}{\pi}&n\text{为奇数}\\
+            0&n\text{为偶数}
+        \end{matrix}\right.\\
+        B_n&=\frac{1}{\pi}\int_{0}^{\pi}\cos n\theta\d \theta\\
+        &=0
+    \end{align*}
+    令$n=2m-1$，故
+    $$u=\frac{1}{2}+\sum_{m=1}^{\infty}\frac{2}{\pi}\sin[(2m-1)\theta] r^{2m-1}$$
+\end{sol}\par
+
+\begin{sol}[2]
+    定解条件为
+    \begin{align*}
+        \left\{\begin{matrix}
+            \frac{1}{a^2}\frac{\partial u}{\partial t}=\frac{\partial}{\partial r}\left(r\frac{\partial u}{\partial r}\right)\\
+            u|_{r=1}=0\\
+            u|_{t=0}=1-r^2
+        \end{matrix}\right.
+    \end{align*}
+    设$u=R(r)T(t)$，则得到分离变量后的方程
+    \begin{align*}
+        \left\{\begin{matrix}
+            T'-\lambda a^2T=0\\
+            R'+rR''-\lambda R=0
+        \end{matrix}\right.
+    \end{align*}
+\end{sol}\par
+
+\begin{pf}[3]
+    \begin{equation}
+        \frac{\d}{\d x}\left[p\frac{\d y}{\d x}\right]-qy+\lambda \rho y=0
+        \label{1}
+    \end{equation}
+    将\ref{1}两边取复共轭得到
+    \begin{equation}
+        \frac{\d}{\d x}\left[p\frac{\d y^*}{\d x}\right]-qy^*+\lambda^* \rho y^*=0
+        \label{2}
+    \end{equation}
+    $y^*\cdot\text{式}\ref{1}-y\cdot\text{式}\ref{2}$得
+    \begin{align*}
+        \frac{\d p}{\d x}(yy^{*'}-y^*y')+p(yy^{*''}-y^*y'')&=(\lambda-\lambda^*)\rho y^*y\\
+        \frac{\d}{\d x}[p(yy^{*'}-y^*y')]&=(\lambda-\lambda^*)\rho y^*y\\
+        \int_{0}^{l}\frac{\d}{\d x}[p(yy^{*'}-y^*y')]\d x&=\int_{0}^{l}(\lambda-\lambda^*)\rho |y|^2\d x\\
+        [p(yy^{*'}-y^*y')]|_0^{l}&=(\lambda-\lambda^*)\int_{0}^{l}\rho |y|^2\d x\\
+    \end{align*}
+    代入边界条件
+    \begin{align*}
+        \left\{\begin{matrix}
+            \alpha_1y(0)+\alpha_2y'(0)=\beta_1y(l)+\beta_2y'(l)=0\\
+            \alpha_1y^*(0)+\alpha_2y^{'*}(0)=\beta_1y^*(l)+\beta_2y^{'*}(l)=0\\
+        \end{matrix}\right.
+    \end{align*}
+    得到
+    $$(\lambda-\lambda^*)\int_{0}^{l}\rho |y|^2\d x=[p(yy^{*'}-y^*y')]|_0^{l}=0$$
+    又因为$\int_{0}^{l}\rho |y|^2\d x$不恒为0，故$\lambda-\lambda^*=0$，即$\lambda$为实数。
+\end{pf}
+
+\begin{sol}[4]
+    设$y=a_0\sum_{k=1}^{\infty}a_kx^k$，则有
+    \begin{align*}
+        y''=2a_2+\sum_{k=1}^{\infty}(k+1)(k+2)a_{k+2}x^k
+    \end{align*}
+    故
+    \begin{align*}
+        (k+1)(k+2)a_{k+2}+\omega^2a_k=0
+    \end{align*}
+    可知
+    \begin{align*}
+        a_{2k}&=(-1)^k\frac{\omega^{2k}}{(2k)!}a_0\\
+        a_{2k+1}&=(-1)^k\frac{\omega^{2k}}{(2k+1)!}a_1\\
+    \end{align*}
+    故
+    $$y=a_0\cos\omega x+\frac{a_1}{\omega}\sin\omega x$$
+\end{sol}\par
+
+\begin{sol}[5]
+    (1)在有限远处$p,q$均解析，令$t=\frac{1}{x}$，则原方程可化为
+    \begin{align*}
+        \frac{\d^2y}{\d t^2}+\left(\frac{2}{t}+\frac{2}{t^3}\right)\frac{\d y}{\d t}+\frac{2\lambda}{t^4}y
+    \end{align*}
+    $t=0$时$t\left(\frac{2}{t}+\frac{2}{t^3}\right)$不解析，故无穷远点不为正则奇点。\par
+    (2)原方程可化为
+    \begin{align*}
+        \frac{\d ^2y}{\d x^2}+\frac{1-2x}{2x(1-x)}\frac{\d y}{\d x}+\frac{\lambda+2q-4qx}{4x(1-x)}y=0
+    \end{align*}
+    故$x=0$是正则奇点，$x=1$是正则奇点。因为$t=0$时$\frac{1}{t}\frac{1-\frac{2}{t}}{\frac{2}{t}(1-\frac{1}{t})}=\frac{t-2}{2(t-1)}$故无穷远点为正则奇点。
+\end{sol}\par
+
+\end{document}

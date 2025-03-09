@@ -1,0 +1,102 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 6,           % 设置课程次数
+  classname = 电磁学,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+
+\begin{document}
+{\zihao{5}\heiti\color{red} 附加题1}
+\begin{sol}
+    \begin{figure}[!h]
+        \begin{tikzpicture}
+              
+          \coordinate (a) at (1,0);
+          \coordinate (o) at (0,0);
+          \coordinate (b) at (2,3);
+          \coordinate (c) at (5,3);
+          \coordinate (d) at (2.8,2.2);
+          \draw[->] (o) --(5,0) ;
+          \draw[->] (o) --(1,0) node[right]{$\vec{p}_1$};
+          \draw[->] (o) --(b);
+          \pic["$\theta$", draw=green!40, <->, angle eccentricity=0.6, angle radius=0.5cm]
+            {angle=a--o--b};
+          \node at(1,2) {$\vec{r}$};
+          \draw[loosely dashed] (b)--(c);
+          \draw[->] (b)--(d)node[right]{$\vec{p}_2$};
+          \pic["$\alpha$", draw=green!40, <->, angle eccentricity=0.6, angle radius=0.5cm]
+            {angle=d--b--c};
+      \end{tikzpicture}
+      \end{figure}\par
+$\vec{p}_1$在$\vec{p}_2$处产生的电势为
+$$\begin{aligned}
+    U&=\frac{\vec{p}_1\cdot \vec{r}}{4\pi\varepsilon_0 r^3}\\
+    &=\frac{p_1}{4\pi\varepsilon_0}\frac{ x}{(x^2+y^2)^{\frac{3}{2}}}
+\end{aligned}$$
+故场强为
+$$\begin{aligned}
+    \vec{E}&=-\nabla U\\
+    &=-\frac{\partial U}{\partial x}\hat{x}-\frac{\partial U}{\partial y}\hat{y}\\
+    &=\frac{p_1}{4\pi\varepsilon_0}\frac{2x^2-y^2}{(x^2+y^2)^\frac{5}{2}}\hat{x}+\frac{p_1}{4\pi\varepsilon_0}\frac{3xy}{(x^2+y^2)^\frac{5}{2}}\hat{y}
+\end{aligned}$$
+又$\vec{p}_2=p_2\cos\alpha\hat{x}-p_2\sin\alpha\hat{y}$故相互作用能
+$$\begin{aligned}
+    W&=-\vec{p}_2\cdot \vec{E}\\
+    &=-[\frac{p_1p_2\cos\alpha}{4\pi\varepsilon_0}\frac{2x^2-y^2}{(x^2+y^2)^\frac{5}{2}}-\frac{p_1p_2\sin\alpha}{4\pi\varepsilon_0}\frac{3xy}{(x^2+y^2)^\frac{5}{2}}]
+\end{aligned}$$
+代入$x=r\cos\theta,y=r\sin\theta$得
+$$
+    W=\frac{p_1p_2}{4\pi\varepsilon_0 r^3}\left [ \sin\theta\sin(\theta+\alpha)-2\cos\theta\cos(\theta+\alpha) \right ]
+$$
+故
+$$
+\begin{aligned}
+    \vec{F}&=-\nabla W\\
+    &=-\frac{\partial W}{\partial r}\hat{e}_r-\frac{\partial W}{r\partial\theta}\hat{e}_\theta\\
+    &=\frac{p_1p_2}{4\pi\varepsilon_0 }\frac{3 [\sin \theta  \sin (\alpha +\theta )-2 \cos \theta  \cos (\alpha +\theta )]}{r^4}\hat{e}_r-\frac{p_1p_2}{4\pi\varepsilon_0 }\frac{3 \sin \theta  \cos (\alpha +\theta )+3 \cos \theta  \sin (\alpha +\theta )}{r^4}\hat{e}_\theta
+\end{aligned}
+$$
+\end{sol}\par
+
+
+{\zihao{5}\heiti\color{red} 附加题2}
+\begin{sol}
+设电子经典半径为$a$,因为电荷在其中均匀分布，故其电荷体密度$\rho=\frac{3\mathrm{e}}{4\pi a^3}$
+取半径为$r$的球形高斯面，当$r<a$时可得
+$$4\pi r^2E=\frac{\rho \frac{4\pi r^3}{3}}{\varepsilon_0}\to E=\frac{\rho r}{3\varepsilon_0}$$
+当$r>a$时可得
+$$4\pi r^2E=\frac{\mathrm{e}}{\varepsilon_0}\to E=\frac{\mathrm{e}}{4\pi r^2\varepsilon_0}$$
+则其自能为
+$$\begin{aligned}
+  W&=\frac{\varepsilon_0}{2}\iiint E^2\d V\\
+  &=\int_0^a \frac{\varepsilon_0}{2}(\frac{\rho r}{3\varepsilon_0})^24\pi r^2\d r+\int_a^{\infty}\frac{\varepsilon_0}{2}(\frac{\mathrm{e}}{4\pi\varepsilon_0 r^2})\d r\\
+  &=\frac{3\mathrm{e}^2}{20\pi\varepsilon_0 a}
+\end{aligned}$$
+则
+$$\begin{aligned}
+  W&=m_{\mathrm{e}}\mathrm{c}^2\\
+  \frac{3\mathrm{e}^2}{20\pi\varepsilon_0 a}&=m_{\mathrm{e}}\mathrm{c}^2\\
+  a&=\frac{3\mathrm{e}^2}{20\pi\varepsilon_0 m_{\mathrm{e}}\mathrm{c}^2}=1.69\times 10^{-15}\mathrm{m}
+\end{aligned}$$
+\end{sol}\par
+
+\end{document}

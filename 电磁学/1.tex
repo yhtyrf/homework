@@ -1,0 +1,122 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 1,           % 设置课程次数
+  classname = 电磁学,     % 设置课程名称
+}
+
+\usepackage{listings}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+
+
+
+\begin{document}
+{\zihao{5}\heiti\color{red} 1-4}
+\begin{sol}
+对小球受力分析知
+$$\frac{F_q}{mg}=\tan\theta$$
+又
+$$F_q=\frac{q^2}{4\pi\varepsilon_0(2l\sin\theta)^2}$$
+故$q=\pm \sqrt{16\pi\tan\theta\sin^2\theta l^2\varepsilon_0 mg}$
+\end{sol}\par
+{\zihao{5}\heiti\color{red} 1-5}
+\begin{sol}
+由油滴受力平衡知
+$$Eq=mg=\frac{4}{3}\pi r^3\rho g\to q=\frac{4\pi r^3 \rho g}{3E}$$
+代入数值得
+$$q=-8.03\times 10^{-19}\mathrm{C}$$
+\end{sol}\par
+
+{\zihao{5}\heiti\color{red} 1-8}
+\begin{sol}
+在$(r,\theta)$处电势为
+$$\phi(r,\theta)=\frac{q}{4\pi\varepsilon_0}(\frac{1}{\sqrt{r^2+\dfrac{l^2}{4}-rl\cos\theta}}
+-\frac{1}{\sqrt{r^2+\dfrac{l^2}{4}+rl\cos\theta}})$$
+因为$l\ll r$
+,故略去二阶小量$\frac{l^2}{4}$，且运用近似$(1+x)^k= 1+kx(x\ll 1)$可得
+$$\phi(r,\theta)=\frac{ql\cos\theta}{4\pi \varepsilon_0r^2}$$
+又$\mathbf{E}=-\nabla \phi$,且在极坐标中$\nabla=\frac{\partial }{\partial r}\hat{\mathbf{e}}_r+\frac{\partial }{r \partial\theta}
+\hat{\mathbf{e}}_\theta$
+故
+$$\mathbf{E}(r,\theta)=\frac{ql\cos\theta}{2\pi\varepsilon_0r^3}\hat{\mathbf{e}}_r+\frac{ql\sin\theta}{4\pi\varepsilon_0
+r^3}\hat{\mathbf{e}}_\theta$$
+其径向和角向分量为
+$$
+E_r=\frac{ql\cos\theta}{2\pi\varepsilon_0r^3},
+E_\theta=\frac{ql\sin\theta}{4\pi\varepsilon_0
+r^3}
+$$
+\end{sol}\par
+{\zihao{5}\heiti\color{red} 1-10}
+\begin{sol}
+(1)其场强大小为
+$$E=\frac{q}{4\pi\varepsilon_0}(\frac{1}{(r+l)^2}+\frac{1}{(r-l)^2}-\frac{2}{r^2})$$
+泰勒展开并保留二阶余项后得
+$$\begin{aligned}
+  E&=\frac{q}{4\pi\varepsilon_0r^2}(1-\frac{2l}{r}+\frac{3l^2}{r^2}+1+\frac{2l}{r}+\frac{3l^2}{r^2}-2)\\
+&=\frac{6ql^2}{4\pi\varepsilon_0r^4}\\
+&=\frac{3Q}{4\pi\varepsilon_0r^4}
+\end{aligned}$$\par
+(2)$$\begin{aligned}
+  U(r)&=\frac{q}{4\pi\varepsilon_0}(\frac{1}{r+l}+\frac{1}{r-l}-\frac{2}{r})\\
+  &=\frac{q}{4\pi\varepsilon_0r}\frac{2l^2}{r^2-l^2}
+\end{aligned}$$
+因为$l\ll r$，故略去二阶小量$l^2$得
+$$U(r)=\frac{2ql^2}{4\pi\varepsilon_0r^3}=\frac{Q}{4\pi\varepsilon_0r^3}$$
+\end{sol}\par
+
+{\zihao{5}\heiti\color{red} 1-11}
+\begin{sol}
+  $P$点场强大小为
+  $$\begin{aligned}
+    E&=\frac{ql}{4\pi\varepsilon_0}\left [(x^2+\frac{l^2}{2}-lx)^{-\frac{3}{2}}-(x^2+\frac{l^2}{2}+lx)^{-\frac{3}{2}}\right ]\\
+    &=\frac{ql}{4\pi\varepsilon_0}(x^2+\frac{l^2}{2})^{-\frac{3}{2}}\left[(1-\frac{lx}{x^2+\frac{l^2}{2}})^{-\frac{3}{2}}-(1+\frac{lx}{x^2+\frac{l^2}{2}})^{-\frac{3}{2}}\right]
+  \end{aligned}$$
+  因为$l\ll x$，故
+  $$\begin{aligned}
+    (x^2+\frac{l^2}{2})^{-\frac{3}{2}}\left[(1-\frac{lx}{x^2+\frac{l^2}{2}})^{-\frac{3}{2}}-(1+\frac{lx}{x^2+\frac{l^2}{2}})^{-\frac{3}{2}}\right]&=
+    (x^2+\frac{l^2}{2})^{-\frac{3}{2}}\left [1+\frac{3lx}{2(x^2+\frac{l^2}{2})}-1+\frac{3lx}{2(x^2+\frac{l^2}{2})}\right ]\\
+    &=x^{-3}\frac{3lx}{x^2}\\
+    &=\frac{3l}{x^4}\\
+  \end{aligned}$$
+  故$$
+E=\frac{3ql^2}{4\pi\varepsilon_0x^4}
+  $$
+  方向竖直向上
+\end{sol}
+
+\begin{sol}
+  (1)
+  $$\begin{aligned}
+    C&=\frac{\varepsilon_0S}{d}\\
+    C'&=\frac{\varepsilon_r\varepsilon_0S}{d}\\
+    \Delta Q&=U(C'-C)=\frac{(\varepsilon_r-1U\varepsilon_0S)}{d}
+  \end{aligned}$$
+  (2)$$\begin{aligned}
+    D_1&=D_2\\
+    \varepsilon_r\varepsilon_0E_1&=\varepsilon_0E_2\\
+    E_1d+E_2d&=U\\
+  \end{aligned}$$
+  解得
+  $$\begin{aligned}
+    D=\frac{\varepsilon_r\varepsilon_0U}{d(\varepsilon_r+1)}
+  \end{aligned}$$
+  又因为$D=\sigma$，故
+  $$Q=\sigma S=\frac{\varepsilon_r\varepsilon_0US}{d(\varepsilon_r+1)}$$
+  $$\begin{aligned}
+    W&=U(Q-C'U)\\
+    &=\frac{-\varepsilon_r^2\varepsilon_0U^2S}{(\varepsilon_r+1)d}
+  \end{aligned}$$
+  (3)$$\begin{aligned}
+    C''&=\frac{Q}{U}\\
+    &=\frac{\varepsilon_r\varepsilon_0S}{d(\varepsilon_r+1)}\\
+    C'''&=\frac{\varepsilon_0S}{2d}\\
+  \end{aligned}$$
+  $$\begin{aligned}
+    A&=\frac{Q^2}{2C'''}-\frac{Q^2}{2C''}\\
+    &=\frac{(C''-C''')Q^2}{2C''C'''}\\
+    &=\frac{(\frac{\varepsilon_r\varepsilon_0S}{d(\varepsilon_r+1)}-\frac{\varepsilon_0S}{2d})(\frac{\varepsilon_r\varepsilon_0US}{d(\varepsilon_r+1)})^2}{2\frac{\varepsilon_r\varepsilon_0S}{d(\varepsilon_r+1)}\frac{\varepsilon_0S}{2d}}
+  \end{aligned}$$
+\end{sol}
+\end{document}

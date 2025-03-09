@@ -1,0 +1,196 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 12,           % 设置课程次数
+  classname = 数学物理方法,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\newcommand{\res}{\text{res}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\F}{\mathcal{F}}
+\allowdisplaybreaks[4]
+\makeatother
+
+
+\begin{document}
+
+\begin{sol}[1]
+    \begin{align*}
+        I&=\frac{(-1)^{m+n}}{(2^ll!)^2}\int_{-1}^{1}(1-x^2)^{\frac{m+n}{2}-1}\frac{\d^{l+m}(1-x^2)^l}{\dx^{l+m}}\frac{\d^{l+n}(1-x^2)^l}{\dx^{l+n}}\d x\\
+        &=\frac{(-1)^{m+n}}{(2^ll!)^2}(1-x^2)^{\frac{m+n}{2}-1}\frac{\d^{l+m}(1-x^2)^l}{\dx^{l+m}}\frac{\d^{l+n}(1-x^2)^l}{\dx^{l+n}}|^1_{-1}\\
+        &-\frac{(-1)^{m+n}}{(2^ll!)^2}\int_{-1}^{1}\frac{\d}{\d x}\left[(1-x^2)^{\frac{m+n}{2}-1}\frac{\d^{l+m}(1-x^2)^l}{\dx^{l+m}}\right]\frac{\d^{l+n-1}(1-x^2)^l}{\dx^{l+n-1}}\d x\\
+        &=\frac{(-1)^{m+n-1}}{(2^ll!)^2}\int_{-1}^{1}\frac{\d}{\d x}\left[(1-x^2)^{\frac{m+n}{2}-1}\frac{\d^{l+m}(1-x^2)^l}{\dx^{l+m}}\right]\frac{\d^{l+n-1}(1-x^2)^l}{\dx^{l+n-1}}\d x\\
+        &\overset{\text{再进行}n-1\text{次分部积分}}{=}\frac{(-1)^{m-1}}{(2^ll!)^2}\frac{\d^{n-1}}{\d x^{n-1}}\left[(1-x^2)^{\frac{m+n}{2}-1}\frac{\d^{l+m}(1-x^2)^l}{\dx^{l+m}}\right]\frac{\d^l(1-x^2)^l}{\d x^l}|^1_{-1}\\
+        &-\frac{(-1)^{m-1}}{(2^ll!)^2}\int_{-1}^{1}\frac{\d^{n}}{\d x^{n}}\left[(1-x^2)^{\frac{m+n}{2}-1}\frac{\d^{l+m}(1-x^2)^l}{\dx^{l+m}}\right]\frac{\d^l(1-x^2)^l}{\d x^l}\d x
+    \end{align*}
+    现在考察减号后面一项
+    \begin{align*}
+    &\frac{(-1)^{m-1}}{(2^ll!)^2}\int_{-1}^{1}\frac{\d^{n}}{\d x^{n}}\left[(1-x^2)^{\frac{m+n}{2}-1}\frac{\d^{l+m}(1-x^2)^l}{\dx^{l+m}}\right]\frac{\d^l(1-x^2)^l}{\d x^l}\d x\\
+    =&\frac{(-1)^{m-1}}{2^ll!}\int_{-1}^{1}\frac{\d^{n}}{\d x^{n}}\left[(1-x^2)^{\frac{m+n}{2}-1}\frac{\d^{l+m}(1-x^2)^l}{\dx^{l+m}}\right]P_l(x)\d x\\
+    \end{align*}
+    $\frac{\d^{n}}{\d x^{n}}\left[(1-x^2)^{\frac{m+n}{2}-1}\frac{\d^{l+m}(1-x^2)^l}{\dx^{l+m}}\right]$的次数为$2l-(l+m)+2(\frac{m+n}{2}-1)-n=l-2<l$，故该积分值为0。
+    减号前面一项可写为
+    \begin{align*}
+        \frac{1}{(2^ll!)^2}\delta_{mn}\frac{\d^{m-1}}{\d x^{m-1}}\left[(x^2-1)^{m-1}\frac{\d^{l+m}(x^2-1)^l}{\dx^{l+m}}\right]\frac{\d^l(x^2-1)^l}{\d x^l}\mid ^1_{-1}\\
+    \end{align*}
+    该函数为奇函数，故只需考虑其在1处取值
+    \begin{align*}
+        &\frac{\d^l(x^2-1)^l}{\d x^l}|_{x=1}\\
+        =&\frac{\d^l(x-1)^l(x+1)^l}{\d x^l}|_{x=1}\\
+        =&\frac{\d^l(x-1)^l}{\d x^l}(x+1)^l|_{x=1}\\
+        =&l!2^l
+    \end{align*}
+    \begin{align*}
+        &\frac{\d^{l+m}(x^2-1)^l}{\dx^{l+m}}\\
+        =&\frac{(l+m)!}{m!l!}[(x-1)^l]^{(l)}[(1+x)^l]^{(m)}\\
+        =&\frac{(l+m)!}{m!l!}l!\frac{l!}{(l-m)!}(x+1)^{l-m}\\
+        =&\frac{(l+m)!l!}{m!(l-m)!}(x+1)^{l-m}
+    \end{align*}
+    故
+    \begin{align*}
+        &\frac{\d^{m-1}}{\d x^{m-1}}\left[(x^2-1)^{m-1}\frac{\d^{l+m}(x^2-1)^l}{\dx^{l+m}}\right]\frac{\d^l(x^2-1)^l}{\d x^l}\mid ^1_{-1}\\
+        =&2\frac{\d^{m-1}}{\d x^{m-1}}\left[(x^2-1)^{m-1}\frac{\d^{l+m}(x^2-1)^l}{\dx^{l+m}}\right]\frac{\d^l(x^2-1)^l}{\d x^l}\mid_{x=1}\\
+        =&\frac{2(l+m)!l!}{m!(l-m)!}\frac{\d^{m-1}}{\dx^{m-1}}\left[(x-1)^{m-1}(x+1)^{l-1}\right]\mid_{x=1}\\
+        =&\frac{2(l+m)!l!}{m!(l-m)!}\frac{\d^{m-1}}{\dx^{m-1}}\left[(x-1)^{m-1}\right](x+1)^{l-1}\mid_{x=1}\\
+        =&\frac{2(l+m)!l!}{m!(l-m)!}(m-1)!2^{l-1}
+    \end{align*}
+    故
+    \begin{align*}
+        I&=\frac{1}{(2^ll!)^2}\delta_{mn}\frac{2(l+m)!l!}{m!(l-m)!}(m-1)!2^{l-1}l!2^l\\
+        &=\delta_{mn}\frac{(l+m)!}{m(l-m)!}
+    \end{align*}
+\end{sol}\par
+
+
+\begin{sol}[2]
+    \begin{align*}
+        &\sin^2\theta\cos^2\phi-1\\
+        &=\sin^2\theta\left(\frac{e^{\i\phi}+e^{-\i\phi}}{2}\right)^2-1\\
+        &=\frac{\sin^2\theta}{4}\left(e^{\i2\phi}+e^{-\i2\phi}\right)+\frac{1}{2}\sin^2\theta-1\\
+        &=\frac{4\sqrt{\pi}}{3}Y_{0,0}-\frac{2}{3}\sqrt{\frac{\pi}{5}}Y_{2,0}(\theta,\phi)+\sqrt{\frac{2\pi}{15}}\left[Y_{2,2}(\theta,\phi)+Y_{2,-2}(\theta,\phi)\right]
+    \end{align*}
+\end{sol}\par
+
+\begin{sol}[3]
+    定解条件为
+    \begin{align*}
+        \left\{
+        \begin{matrix}
+            \Delta u=0\\
+            u|_{r=R}=-\sin^2\theta\cos^2\phi+\frac{1}{3}\\
+            u|_{r=0}\text{有限}\\
+            u|_{r=\infty}\text{有限}\\
+        \end{matrix}
+        \right.
+    \end{align*}
+    设$u=R(r)\Theta(\theta)\Phi(\phi)$，则可得到通解
+    \begin{align*}
+        u=\sum_{l,m}(a_lr^l+b_lr^{-l-1})c_{l,m}Y_{l,m}(\theta,\phi)
+    \end{align*}
+    $r<R$时，由于$ u|_{r=0}\text{有限}$故$b_l=0$，有
+    \begin{align*}
+        u=\sum_{l,m}C_{l,m}r^lY_{l,m}(\theta,\phi)
+    \end{align*}
+    代入边界条件$u|_{r=R}=-\sin^2\theta\cos^2\phi+\frac{1}{3}$得
+    \begin{align*}
+        \sum_{l,m}C_{l,m}r^lY_{l,m}(\theta,\phi)&=-\sin^2\theta\cos^2\phi+\frac{1}{3}\\
+        &=-\sqrt{\frac{2\pi}{15}}\left[Y_{2,2}(\theta,\phi)+Y_{2,-2}(\theta,\phi)\right]+\frac{2}{3}\sqrt{\frac{\pi}{5}}Y_{2,0}(\theta,\phi)
+    \end{align*}
+    故
+    \begin{align*}
+        u=\left(-\sqrt{\frac{2\pi}{15}}\left[Y_{2,2}(\theta,\phi)+Y_{2,-2}(\theta,\phi)\right]+\frac{2}{3}\sqrt{\frac{\pi}{5}}Y_{2,0}(\theta,\phi)\right)\frac{r^2}{R^2}
+    \end{align*}
+    $r>R$时，由于$ u|_{r=\infty}\text{有限}$故$a_l=0$，有
+    \begin{align*}
+        u=\sum_{l,m}C_{l,m}r^{-l-1}Y_{l,m}(\theta,\phi)
+    \end{align*}
+    代入边界条件$u|_{r=R}=-\sin^2\theta\cos^2\phi+\frac{1}{3}$得
+    \begin{align*}
+        \sum_{l,m}C_{l,m}r^{-l-1}Y_{l,m}(\theta,\phi)&=-\sin^2\theta\cos^2\phi+\frac{1}{3}\\
+        &=-\sqrt{\frac{2\pi}{15}}\left[Y_{2,2}(\theta,\phi)+Y_{2,-2}(\theta,\phi)\right]+\frac{2}{3}\sqrt{\frac{\pi}{5}}Y_{2,0}(\theta,\phi)
+    \end{align*}
+    故
+    \begin{align*}
+        u=\left(-\sqrt{\frac{2\pi}{15}}\left[Y_{2,2}(\theta,\phi)+Y_{2,-2}(\theta,\phi)\right]+\frac{2}{3}\sqrt{\frac{\pi}{5}}Y_{2,0}(\theta,\phi)\right)\frac{r^{-3}}{R^{-3}}
+    \end{align*}
+\end{sol}\par
+
+\begin{pf}[4]
+    \begin{align*}
+        e^{\frac{x+y}{2}(t-\frac{1}{t})}=\sum_{n=-\infty}^{\infty}J_n(x+y)t^n=\sum_{n=-\infty}^{\infty}J_n(x)t^n\sum_{n=-\infty}^{\infty}J_n(y)t^n
+    \end{align*}
+    考察$t^n$的系数即可得到
+    \begin{align*}
+        J_n(x+y)=\sum_{k=-\infty}^{\infty}J_k(x)J_{n-k}(y)
+    \end{align*}
+    \begin{align*}
+        e^{\frac{x}{2}(t-\frac{1}{t})}e^{\frac{x}{2}(\frac{1}{t})-t}=1
+    \end{align*}
+    故
+    \begin{align*}
+        \sum_{n=-\infty}^{\infty}J_n(x)t^n\sum_{n=-\infty}^{\infty}J_n(x)t^{-n}=1
+    \end{align*}
+    RHS与$t$无关，故LHS中$t$的次数不为0的项和为0，因此有
+    \begin{align*}
+        \sum_{n=-\infty}^{\infty}J_n^2(x)=1
+    \end{align*}
+    又因为$J_{-n}(x)=(-1)^nJ_n(x)$，故
+    \begin{align*}
+        J_0^2(x)+2\sum_{k=1}^{\infty}J^2_k(x)=\sum_{n=-\infty}^{\infty}J_n^2(x)=1
+    \end{align*}
+\end{pf}\par
+
+\begin{pf}[5]
+    (1)
+    \begin{align*}
+        \cos x+\i\sin x&=e^{ix}\\
+        &=\sum_{n=-\infty}^{\infty}J_n(x)\i^n\\
+        &=\sum_{n=-\infty}^{-1}J_n(x)\i^n+J_0(x)+\sum_{n=1}^{\infty}J_n(x)\i^n\\
+        &=\sum_{n=1}^{\infty}J_{-n}(x)\i^{-n}+J_0(x)+\sum_{n=1}^{\infty}J_n(x)\i^n\\
+        &=\sum_{n=1}^{\infty}\left[(-1)^n\frac{1}{\i^n}+\i^n\right]J_n(x)+J_0(x)\\
+        &=J_0(x)+2\sum_{k=1}^{\infty}J_{2k}(x)\i^{2k}+2\sum_{k=0}^{\infty}J_{2k+1}(x)\i^{2k+1}
+    \end{align*}
+    对比实部与虚部可得
+    \begin{align*}
+        \cos x&=J_0(x)+2\sum_{k=1}^{\infty}(-1)^kJ_{2k}(x)\\
+        \sin x&=2\sum_{k=0}^{\infty}(-1)^kJ_{2k+1}(x)\\
+    \end{align*}
+    (2)\begin{align*}
+        \cos(x\sin\theta)+\i\sin(x\sin\theta)&=e^{\i x\sin\theta}\\
+        &=\sum_{n=-\infty}^{\infty}J_n(x)e^{\i n\theta}\\
+        &=\sum_{n=-\infty}^{\infty}J_n(x)\left(\cos n\theta+\i\sin n\theta\right)
+    \end{align*}
+    对比实部与虚部可得
+    \begin{align*}
+        \sin(x\sin\theta)=2\sum_{m=0}^{\infty}J_{2m+1}(x)\sin(2m+1)\theta
+    \end{align*}
+    等式左右同时对$\theta$求导得到
+    \begin{align*}
+        x\cos\theta\cos(x\sin\theta)=2\sum_{m=0}^{\infty}J_{2m+1}(x)(2m+1)\cos(2m+1)\theta
+    \end{align*}
+    令$\theta=0$，则
+    \begin{align*}
+        x=2\sum_{m=0}^{\infty}(2m+1)J_{2m+1}(x)
+    \end{align*}
+\end{pf}\par
+\end{document}

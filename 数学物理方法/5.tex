@@ -1,0 +1,99 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 5,           % 设置课程次数
+  classname = 数学物理方法,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\renewcommand{\i}{\mathrm{i}}
+\newcommand{\res}{\text{res}}
+\allowdisplaybreaks[4]
+\makeatother
+
+
+\begin{document}
+
+\begin{sol}[1]
+(1)
+在积分回路中有$2n$个奇点且均为一阶极点，故
+\begin{align*}
+    I&=4n\pi \i \res(\tan\pi z,\frac{\pi}{2})\\
+    &=4n\pi \i \lim\limits_{z\to\frac{\pi}{2}}(z-\frac{\pi}{2})\frac{\sin\pi z}{\cos\pi z}\\
+    &=4n\pi \i (-\frac{1}{\pi})\\
+    &=-4n\i
+\end{align*}
+(2)令$z=e^{\i x}$，则$\d x=-\i\frac{\d z}{z}$，$\cos x=\frac{z^2+1}{2z}$。
+\begin{align*}
+    I&=\oint\limits_{|z|=1}\frac{-\i \d z}{[a+\frac{b(z^2+1)}{2z}]^2z}\\
+    &=-\i\oint\limits_{|z|=1}\frac{4z\d z}{b^2(z+\frac{a}{b}-\sqrt{\frac{a^2}{b^2}-1})^2(z+\frac{a}{b}+\sqrt{\frac{a^2}{b^2}-1})^2}\\
+\end{align*}
+记$z_1=-\frac{a}{b}+\sqrt{\frac{a^2}{b^2}-1}$，$z_1=-\frac{a}{b}-\sqrt{\frac{a^2}{b^2}-1}$。因为$|z_2|>1>|z_1|$，故
+\begin{align*}
+    I&=2\pi \i\res(\frac{4z}{b^2(z+\frac{a}{b}-\sqrt{\frac{a^2}{b^2}-1})^2(z+\frac{a}{b}+\sqrt{\frac{a^2}{b^2}-1})^2},z_1)\\
+    &=\frac{2a\pi}{(a^2-b^2)^{\frac{3}{2}}}
+\end{align*}
+(3)$$\lim\limits_{z\to\infty}z\frac{1}{(z^2+a^2)(z^2+b^2)}=0$$
+故\begin{align*}
+    I&=2\pi \i[\res(\frac{1}{(z^2+a^2)(z^2+b^2)},ai)+\res(\frac{1}{(z^2+a^2)(z^2+b^2)},-ai)\\
+    &+\res(\frac{1}{(z^2+a^2)(z^2+b^2)},bi)+\res(\frac{1}{(z^2+a^2)(z^2+b^2)},-bi)]\\
+    &=\frac{\pi}{ab(a+b)}
+\end{align*}
+(4)\begin{align*}
+    I&=\int_{-\infty}^{\infty}\frac{e^{\i mx}}{(x+a)^2+b^2}\d x\\
+\end{align*}
+因为$\lim\limits_{x\to\infty}\frac{1}{(x+a)^2+b^2}=0$
+故\begin{align*}
+    I&=2\pi \i\res(\frac{e^{\i mx}}{(x+a)^2+b^2},-a+|b|\i)\\
+    &=\frac{e^{(b-a\i)}\pi}{b}
+\end{align*}
+(4)\begin{align*}
+    I&=\frac{1}{2\i}\int_{-\infty}^{\infty}\frac{e^{\i mx}}{x(x^2+a^2)}\d x\\
+\end{align*}
+因为$\lim\limits_{x\to\infty}\frac{1}{x(x^2+a^2)}=0$
+故\begin{align*}
+    I&=\frac{1}{2\i}[2\pi \i\res(\frac{e^{\i mx}}{x(x^2+a^2)},a\i)+2\pi \i\res(\frac{1}{x(x^2+a^2)},0)]\\
+    &=\frac{(1-e^{-am})\pi}{2a^2}
+\end{align*}
+\end{sol}\par
+
+
+\begin{sol}[2]
+    在$|z-\i|<1$时
+\begin{align*}
+    f_1(z)&=\frac{\frac{1}{\i}}{1-\i(z-\i)}\\
+    &=\frac{1}{z}
+\end{align*}
+$$f_2(z)=\int_0^{\infty}e^{-zt}\d t=\frac{1}{z}=f_1(z)$$
+故$f_1(z)$和$f_2(z)$互为解析延拓。
+\end{sol}\par
+
+\begin{pf}[3]
+    \begin{align*}
+        &|\Gamma(x+iy)|\\
+        =&|\int_{0}^{\infty}e^{-t}t^{1-x-\i y}\d t|\\
+        \leq& \int_{0}^{\infty}e^{-t}t^{1-x}|t^{-\i y}|\d t\\
+    \end{align*}
+    $$|t^{-\i y}|=|e^{\i(-y\ln t)}|=1$$
+    故$$|\Gamma(x+iy)|\leq\int_{0}^{\infty}e^{-t}t^{1-x}\d t=\Gamma(x)$$
+\end{pf}\par
+\end{document}

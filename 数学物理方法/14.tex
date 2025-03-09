@@ -1,0 +1,133 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 14,           % 设置课程次数
+  classname = 数学物理方法,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\newcommand{\res}{\text{res}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\F}{\mathcal{F}}
+\allowdisplaybreaks[4]
+\makeatother
+
+
+\begin{document}
+
+\begin{sol}[1]
+设$u=R(r)T(t)$，有
+\begin{align*}
+    T'-m^2T=0
+\end{align*}
+代入边界条件后可解得
+\begin{align*}
+    T=A_me^{m^2 t}
+\end{align*}
+关于$R$的方程为
+\begin{align*}
+    rR''+R'+\frac{\beta-m^2}{\alpha}rR=0
+\end{align*}
+代入边界条件后可解得
+\begin{align*}
+    R=j_0(\sqrt{\frac{\beta-m^2}{\alpha}}r)
+\end{align*}
+代入$R(a)=0$可得
+\begin{align*}
+    \sqrt{\frac{\beta-m^2}{\alpha}}=\frac{x_m^{\frac{1}{2}}}{a}\to a=\frac{x_m^{\frac{1}{2}}\sqrt{\alpha}}{\sqrt{\beta-m^2}}
+\end{align*}
+又因为$j_0(x)=\frac{\sin x}{x}$，故$x_m^{\frac{1}{2}}=n\pi$，故
+\begin{align*}
+    a=\frac{n\pi\sqrt{\alpha}}{\sqrt{\beta-m^2}}
+\end{align*}
+又因为$m^2\ge 0$，故
+\begin{align*}
+    a\ge \frac{\pi\sqrt{\alpha}}{\sqrt{\beta-m^2}}\ge\frac{\pi\sqrt{\alpha}}{\sqrt{\beta}}
+\end{align*}
+\end{sol}\par
+
+\begin{sol}[2]
+记$\hat{x}(p)=\L(x(t)),\hat{f}(p)=\L(f(t))$对方程两边进行拉普拉斯变换后得
+\begin{align*}
+    p^2\hat{x}-px(0)-x'(0)+2\gamma[p\hat{x}-x(0)]+\omega_0^2\hat{x}&=\hat{f}\\
+    (p^2+2\gamma p+\omega_0^2)\hat{x}-p\phi-\psi-2\gamma\phi&=\hat{f}\\
+    \hat{x}&=\frac{\hat{f}+p\phi+\psi+2\gamma\phi}{p^2+2\gamma p+\omega_0^2}\\
+    \hat{x}&=\frac{\hat{f}+p\phi+\psi+2\gamma\phi}{(p+\gamma)^2+\omega_0^2-\gamma^2}\\
+    \hat{x}&=\L\left(\frac{e^{-\gamma t}\sin\sqrt{\omega^2-\gamma^2}t}{\sqrt{\omega^2-\gamma^2}}\right)(\hat{f}+p\phi+\psi+2\gamma\phi)\\
+\end{align*}
+故
+\begin{align*}
+    \L(x(t))&=\L\left(\frac{e^{-\gamma t}\sin\sqrt{\omega^2-\gamma^2}t}{\sqrt{\omega^2-\gamma^2}}*f(t)\right)+\phi\L\left((\frac{e^{-\gamma t}\sin\sqrt{\omega^2-\gamma^2}t}{\sqrt{\omega^2-\gamma^2}})'\right)+(\psi+2\gamma\phi)\L(\frac{e^{-\gamma t}\sin\sqrt{\omega^2-\gamma^2}t}{\sqrt{\omega^2-\gamma^2}})\\
+    x(t)&=\int_0^tf(\tau)\frac{e^{-\gamma (t-\tau)}\sin\sqrt{\omega^2-\gamma^2} (t-\tau)}{\sqrt{\omega^2-\gamma^2}}\d\tau+\phi\frac{e^{\gamma  (-t)} \cos \left(t \sqrt{\omega_0^2-\gamma ^2}\right)}{\sqrt{\omega_0^2-\gamma ^2}}\\
+    &-\frac{\phi\gamma  e^{\gamma  (-t)} \sin \left(t \sqrt{\omega_0^2-\gamma ^2}\right)}{\omega_0^2-\gamma ^2}+(\psi+2\gamma\phi)\frac{e^{-\gamma t}\sin\sqrt{\omega^2-\gamma^2}t}{\sqrt{\omega^2-\gamma^2}}
+\end{align*}
+\end{sol}\par
+
+\begin{sol}[3]
+记$\tilde{u}(\omega,t)=\F(u(x,t))$对方程两边进行傅里叶变换后得
+\begin{align*}
+   \i\omega\frac{\partial\tilde{u}}{\partial t}&=-\omega^2\tilde{u}\\
+   \frac{\partial\tilde{u}}{\partial t}&=\i\omega\tilde{u}\\
+   \tilde{u}&=\phi(\omega)e^{\i\omega t}
+\end{align*}
+又
+\begin{align*}
+    \tilde{u}(\omega,0)&=\F(e^{-|x|})\\
+    &=\frac{2}{\omega^2+1}
+\end{align*}
+故
+\begin{align*}
+    \tilde{u}&=\frac{2}{\omega^2+1}e^{\i\omega t}\\
+    &=\F(e^{-|x+t|})
+\end{align*}
+故
+\begin{align*}
+    u=e^{-|x+t|}
+\end{align*}
+\end{sol}\par
+
+\begin{sol}[4]
+记$\hat{u}(x,p)=\L(u(x,t)),\hat{f}(p)=\L(f(t))$对方程两边进行拉普拉斯变换后得
+\begin{align*}
+    p^2\hat{u}-pu(x,0)-\frac{\partial u}{\partial t}(x,0)-a^2\frac{\partial^2\hat{u}}{\partial x^2}&=\hat{f}\\
+    p^2\hat{u}-a^2\frac{\partial^2\hat{u}}{\partial x^2}&=\hat{f}\\
+\end{align*}
+$u(\infty,p)$有界，故
+\begin{align*}
+    \hat{u}=\phi(p)e^{-\frac{p}{a}x}+\frac{\hat{f}}{p^2}
+\end{align*}
+又
+\begin{align*}
+    \hat{u}(0,p)=\phi(p)+\frac{\hat{f}}{p^2}=0\to \phi(p)=-\frac{\hat{f}}{p^2}
+\end{align*}
+故
+\begin{align*}
+    \hat{u}=-\frac{\hat{f}}{p^2}e^{-\frac{p}{a}x}+\frac{\hat{f}}{p^2}
+\end{align*}
+故
+\begin{align*}
+    u&=\int_0^t\int_{0}^{\tau}f(x)\d x\d \tau-\int_{0}^{t-\frac{x}{a}}\int_{0}^{\tau}f(x)\d x\d\tau\\
+    &=\int_{t-\frac{x}{a}}^t\int_{0}^{\tau}f(x)\d x\d \tau
+\end{align*}
+\end{sol}\par
+
+\end{document}

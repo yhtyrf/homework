@@ -1,0 +1,127 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 11,           % 设置课程次数
+  classname = 电磁学,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+
+\begin{document}
+
+\begin{sol}[2-21]
+(1)取半径为$r$$(\frac{D_2}{2}<r<\frac{D_1}{2})$的环形回路，
+由对称性知该环路上的磁感应强度均沿切向，则由安培环路定理
+知
+$$
+2\pi r B=\mu_0 NI
+$$
+则
+$$
+B=\frac{\mu_0NI}{2\pi r}
+$$
+(2)$$\begin{aligned}
+    \Phi_B&=\int_{\frac{D_2}{2}}^{\frac{D_1}{2}}Bh\d r\\
+    &=\int_{\frac{D_2}{2}}^{\frac{D_1}{2}}\frac{\mu_0NI}{2\pi r}h\d r\\
+    &=\frac{\mu_0NIh}{2\pi}\ln\frac{D_1}{D_2}
+\end{aligned}$$
+\end{sol}\par
+
+\begin{sol}[2-22]
+    由对称性知磁感应强度与平面平行且与电流方向垂直，
+    取一穿过载流板的矩形回路则由安培环路定理知
+    $$B\cdot 2l=\mu_0\iota l$$
+    则$$B=\frac{\mu_0\iota}{2}$$
+\end{sol}\par
+
+\begin{sol}[2-32]
+  \begin{figure}[h]
+    \begin{tikzpicture}[scale=0.8]
+      \coordinate (p) at (2,-3);
+      \coordinate (o) at (0,0);
+      \coordinate (a) at (1,0);
+      \coordinate (b) at (-1,0);
+      \draw[->] (-5,0) --(5,0) node[right]{$x$};
+      \draw[->] (0,-5) --(0,5) node[right]{$y$};
+      \draw[->] (o) --(p) node[right]{$I_1$};
+      \draw[->] (a) --(p) ;
+      \draw[->] (b) --(p) ;
+      \node at(1,0.2) {$I_2$};
+      \node at(-1,0.2) {$-I_2$};
+      \pic["$\theta$", draw=red!40, <->, angle eccentricity=0.6, angle radius=0.7cm]
+      {angle=p--o--a};
+  \end{tikzpicture}
+  \end{figure}
+  (1)$$\begin{aligned}
+    \vec{F}_1&=\frac{\mu_0I_1I_2a}{\pi\sqrt{a^2+b^2-2ab\cos\theta}}\frac{(b\cos\theta-a)\hat{x}-b\sin\theta\hat{y}}{\sqrt{(b\cos\theta-a)^2+b^2\sin^2\theta}}\\
+    &=\frac{\mu_0I_1I_2a(b\cos\theta-a)}{\pi(a^2+b^2-2ab\cos\theta)}\hat{x}-\frac{\mu_0I_1I_2ab\sin\theta}{\pi (a^2+b^2-2ab\cos\theta)}\hat{y}
+  \end{aligned}$$
+  同理$$
+  \begin{aligned}
+    \vec{F}_2&=\frac{-\mu_0I_1I_2a}{\pi\sqrt{a^2+b^2+2ab\cos\theta}}\frac{(b\cos\theta+a)\hat{x}-b\sin\theta\hat{y}}{\sqrt{(b\cos\theta+a)^2+b^2\sin^2\theta}}\\
+    &=\frac{-\mu_0I_1I_2a(b\cos\theta+a)}{\pi(a^2+b^2+2ab\cos\theta)}\hat{x}+\frac{\mu_0I_1I_2ab\sin\theta}{\pi (a^2+b^2+2ab\cos\theta)}\hat{y}
+  \end{aligned}$$
+  故合力为
+  $$\begin{aligned}
+    \vec{F}&=\vec{F}_1+\vec{F}_2\\
+    &=\frac{\mu_0I_1I_2a}{\pi}\left (\frac{b\cos\theta-a}{a^2+b^2-2ab\cos\theta}-\frac{b\cos\theta+a}{a^2+b^2+2ab\cos\theta} \right )\hat{x}\\
+    &+\frac{\mu_0I_1I_2ab\sin\theta}{\pi}\left (\frac{1}{a^2+b^2+2ab\cos\theta}-\frac{1}{a^2+b^2-2ab\cos\theta}\right )\hat{y}
+  \end{aligned}$$
+  故合力矩为
+  $$\begin{aligned}
+    \vec{L}&=\vec{r}_1\times\vec{F}_1+\vec{r}_2\times\vec{F}_2\\
+    &=a\hat{x}\times\vec{F}_1-a\hat{x}\times\vec{F}_2\\
+    &=a\hat{x}\times\left (\vec{F}_1-\vec{F}_2\right )\\
+    &=a(F_{1y}-F_{2y})\hat{z}\\
+    &=\frac{-\mu_0I_1I_2a^2b\sin\theta}{\pi}\left ( \frac{1}{a^2+b^2+2ab\cos\theta}+\frac{1}{a^2+b^2-2ab\cos\theta}\right )\hat{z}
+  \end{aligned}$$
+  (2)欲使线圈平衡则$$L=0$$
+  即$\sin\theta=0$则
+  $$\theta=\left\{\begin{matrix}
+    0\\
+   \pi
+   \end{matrix}\right.$$
+   (3)$$\begin{aligned}
+    W&=\int_0^{\frac{\pi}{2}} L\d \theta\\
+    &=-\frac{\mu_0I_1I_2a}{\pi}\ln\frac{b-a}{b+a}
+   \end{aligned}$$
+\end{sol}\par
+
+\begin{sol}[2-33]
+  由对称性知线圈受力一定垂直于导线方向
+  $$\begin{aligned}
+    F&=\int \d F\cos\theta\\
+    &=2\int_0^\pi\frac{\mu_0I_1I_2\cos\theta\d \theta}{2\pi(l-r\cos\theta)}\\
+    &=\mu_0I_1I_2\left ( 1-\frac{l}{\sqrt{l^2-r^2}}\right )
+  \end{aligned}$$
+\end{sol}\par
+
+\begin{sol}[2-35]
+  (1)$$\begin{aligned}
+    L_\text{磁}&=NIBS\\
+    &=NIabB\\
+    &=1.0\times 10^{-6}\text{N}\cdot \text{m}
+  \end{aligned}$$
+  (2)$$\begin{aligned}
+    D&=\frac{L_\text{磁}}{\varphi}\\
+    &=1.9\times 10^{-6}\text{N}\cdot \text{m}
+  \end{aligned}$$
+\end{sol}\par
+\end{document}

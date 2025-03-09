@@ -1,0 +1,128 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 3,           % 设置课程次数
+  classname = 数学物理方法,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\renewcommand{\i}{\mathrm{i}}
+\makeatother
+
+
+\begin{document}
+
+\begin{sol}[1]
+(1)$$\begin{aligned}
+  I&=\int_{0}^{1}x\d x+\int_{0}^{1}(1-\i y)\i \d y\\
+  &=\frac{1}{2}+\i +\frac{1}{2}\\
+  &=1+\i
+\end{aligned}$$
+(2)$$\begin{aligned}
+  I&=\int_{0}^{1}-\i y(\i \d y)+\int_{0}^{1}(x-\i)\d x\\
+  &=\frac{1}{2}+\frac{1}{2}-\i\\
+  &=1-\i
+\end{aligned}$$
+(3)$$\begin{aligned}
+  I&=\int_{0}^{2\pi}e^{-\i \theta}\d e^{\i\theta}\\
+  &=\int_{0}^{2\pi}e^{-\i \theta}\i e^{\i\theta}\d \theta\\
+  &=\int_{0}^{2\pi}\i\d\theta\\
+  &=2\pi\i
+\end{aligned}$$
+(4)$$\begin{aligned}
+  I&=\int_{-1}^{1}(x-\i)\d x+\int_{-1}^{1}(1-\i y)\i\d y+\int_{1}^{-1}(x+i)\d x+\int_{1}^{-1}(-1-\i y)\i\d y\\
+  &=\int_{-1}^{1}-\i \d x+\int_{-1}^{1}\i \d y+\int_{1}^{-1}\i \d x+\int_{1}^{-1}-\i \d y\\
+  &=-2\i+2\i+-2\i+2\i\\
+  &=0
+\end{aligned}$$
+ \end{sol}\par
+
+\begin{sol}[2]
+  (1)$$\begin{aligned}
+    I&=\int_{0}^{2\pi}R\d \theta\\
+    &=2\pi R
+  \end{aligned}$$
+  (2)积分区域包含奇点$z=0$，由高阶导数公式知
+  $$\begin{aligned}
+    I&=\frac{2\pi \i}{2!}\frac{\d^2e^{iz}}{\d z^2}|_{z=0}\\
+    &=-\pi \i
+  \end{aligned}$$
+  (3)$$\begin{aligned}
+    I&=\oint\limits_{|z|=R}\frac{Re^z}{z^2}\d z\\
+    &=\frac{2\pi\i}{1!}R\frac{\d e^z}{\d z}|_{z=0}\\
+    &=2\pi\i R
+  \end{aligned}$$
+  (4)$$\begin{aligned}
+    I&=\int_{0}^{2\pi}(\ln R+\i\theta)\d Re^{\i\theta}\\
+    &=\int_{0}^{2\pi}(\ln R+\i\theta) R\i e^{\i\theta}\d\theta\\
+    &=\int_{0}^{2\pi}R\i\ln Re^{\i\theta}\d\theta-R\int_{0}^{2\pi}\theta e^{\i\theta}\d\theta\\
+    &=0-R(-\i\theta e^{\i\theta}+e^{\i\theta})|_{0}^{2\pi}\\
+    &=2\pi\i R
+  \end{aligned}$$
+ \end{sol}\par
+
+\begin{sol}[3]
+  在该积分路径上
+  $$\begin{aligned}
+    z&=be^{\i\theta}\\
+    \mathrm{d} z&=b\i e^{\i\theta}\d \theta\\
+    |\d z|&=b\d\theta\\
+    &=-\i b\frac{\d z}{z}
+  \end{aligned}$$
+  故
+  $$\begin{aligned}
+    I&=\oint\limits_{|z|=b}-\frac{\cos z}{(z-a)^2}\i b\frac{\d z}{z}\\
+    &=-\i b\oint\limits_{|z|=b}\frac{\cos z}{z(z-a)^2}\d z\\
+  \end{aligned}$$
+  当$b<a$时该曲线内部只有$z=0$一个奇点故此时
+  $$\begin{aligned}
+    I&=-\i b\oint\limits_{|z|=b}\frac{\cos z}{(z-a)^2}\frac{1}{z}\d z\\
+    &=-\i b2\pi \i\frac{\cos z}{(z-a)^2}|_{z=0}\\
+    &=\frac{2\pi b}{a^2}
+  \end{aligned}$$
+  当$b>a$时该曲线内部有$z=0,z=a$两个奇点故此时
+  $$\begin{aligned}
+    I&=-\i b[\oint\limits_{C_1}\frac{\cos z}{(z-a)^2}\frac{1}{z}\d z+\oint\limits_{C_2}\frac{1}{(z-a)^2}\frac{\cos z}{z}\d z]\\
+    &=-\i b2\pi \i\frac{\cos z}{(z-a)^2}|_{z=0}-\i b(\frac{2\pi\i}{1!}\frac{\d}{\d z}\frac{\cos z}{z})|_{z=a}\\
+    &=\frac{2\pi b}{a^2}+2\pi b\frac{-a\sin a-\cos a}{a^2}\\
+    &=\frac{2\pi b(1-a\sin a-\cos a)}{a^2}
+  \end{aligned}$$
+ \end{sol}\par
+
+\begin{sol}[4]
+  (1)该曲线内只有$z=0$一个奇点故此时
+  $$\begin{aligned}
+    I&=\frac{2\pi\i}{2!}\frac{\d^2}{\d z^2}\frac{1}{z^{10}-2}|_{z=0}\\
+    &=\pi \i\frac{10 z^8 \left(11 z^{10}+18\right)}{\left(z^{10}-2\right)^3}|_{z=0}\\
+    &=0
+  \end{aligned}$$
+  (2)被积函数有11个奇点，由于这些奇点均在曲线$|z|=2$内部，故取$R>2$则有
+  $$I=\oint\limits_{|z|=R}\frac{\d z}{z^3(z^{10}-2)}$$
+  又因为$R$是任取的，故令$R\to\infty$有
+  $$I=\lim_{R\to\infty}\oint\limits_{|z|=R}\frac{\d z}{z^3(z^{10}-2)}$$
+  因为$z\to\infty$时
+  $$z\frac{1}{z^3(z^{10}-2)}=\frac{1}{z^2(z^{10}-2)}$$
+  该式趋于0，故由大圆弧引理可知
+  $$I=0$$
+ \end{sol}\par
+ %$$\frac{g}{2}\cos\theta+\frac{l\cos^2\theta}{4}\ddot{\theta}+\frac{l}{6}\ddot{\theta}-\frac{l\sin\theta\cos\theta}{4}\dot{\theta}^2=0$$
+\end{document}

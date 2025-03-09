@@ -1,0 +1,48 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 16,           % 设置课程次数
+  classname = 电磁学,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+
+\begin{document}
+
+\begin{sol}[6-4]
+    $$S=\frac{1}{2}E_0H_0$$
+    可知$E_0=\sqrt{2S\sqrt{\frac{\mu\mu_0}{\varepsilon\varepsilon_0}}}=1.01\times10^3\text{V/m}$\\
+    故$$\sqrt{\overline{E^2}}=\frac{\sqrt{2}}{2}E_0=7.3\times10^2\text{V/m}$$\\
+    同理$$\sqrt{\overline{H^2}}=\frac{\sqrt{2}}{2}\sqrt{\frac{\varepsilon_0}{\mu_0}}E_0=1.9\text{A/m}$$
+\end{sol}\par
+
+\begin{sol}[6-9]
+    (1)$\vec{E}$竖直向下，$\vec{H}$与侧面相切，故$\vec{S}$垂直于侧面\\
+    (2)$$\begin{aligned}
+        P&=S\cdot 2\pi Rl\\
+        &=EH\cdot 2\pi Rl\\
+        &=\frac{q}{\varepsilon_0A}\frac{I}{2\pi R}\cdot 2\pi Rl\\
+        &=\frac{q}{C}\frac{\d q}{\d t}\\
+        &=\frac{\d }{\d t}(\frac{q^2}{2C})
+    \end{aligned}$$
+\end{sol}\par
+\end{document}

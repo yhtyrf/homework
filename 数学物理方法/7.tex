@@ -1,0 +1,214 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 7,           % 设置课程次数
+  classname = 数学物理方法,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\newcommand{\res}{\text{res}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\F}{\mathcal{F}}
+\allowdisplaybreaks[4]
+\makeatother
+
+
+\begin{document}
+
+\begin{sol}[1]
+    $$a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}(x^2+x)\d x=\frac{2\pi^2}{3}$$
+    \begin{align*}
+        a_n&=\frac{1}{\pi}\int_{-\pi}^{\pi}(x^2+x)\cos nx\d x\\
+        &=\frac{1}{\pi}\int_{-\pi}^{\pi}x^2\cos nx\d x\\
+        &=\frac{2}{\pi}\int_{0}^{\pi}x^2\cos nx\d x\\
+        &=\frac{4(-1)^n}{n^2}
+    \end{align*}
+    \begin{align*}
+        b_n&=\frac{1}{\pi}\int_{-\pi}^{\pi}(x^2+x)\sin nx\d x\\
+        &=\frac{1}{\pi}\int_{-\pi}^{\pi}x\sin nx\d x\\
+        &=\frac{2}{\pi}\int_{0}^{\pi}x\sin nx\d x\\
+        &=\frac{2(-1)^n}{n}
+    \end{align*}
+    故
+    $$g(x)=\frac{\pi^2}{3}+\sum_{n=0}^{\infty}(\frac{4(-1)^n}{n^2}\cos nx+\frac{2(-1)^n}{n}\sin nx)$$
+    $$g(\pi)=\frac{\pi^2}{3}+\sum_{n=0}^{\infty}\frac{4}{n^2}$$
+    又
+    \begin{align*}
+        g(\pi)&=\frac{1}{2}\lim_{\delta\to0^+}g(\pi+\delta)+\frac{1}{2}\lim_{\delta\to0^-} g(\pi+\delta)\\
+        &=\frac{\pi^2-\pi}{2}+\frac{\pi^2+\pi}{2}\\
+        &=\pi^2
+    \end{align*}
+    故
+    \begin{align*}
+        \frac{\pi^2}{3}+\sum_{n=0}^{\infty}\frac{4}{n^2} &=\pi^2\\
+        \sum_{n=0}^{\infty}\frac{4}{n^2} &=\frac{2}{3}\pi^2\\
+        \sum_{n=0}^{\infty}\frac{1}{n^2} &=\frac{1}{6}\pi^2\\
+    \end{align*}
+\end{sol}\par
+
+\begin{sol}[2]
+    (1)\begin{align*}
+        \F(\frac{1}{x^2+1})&=\int_{-\infty}^{\infty}\frac{e^{-\i kx}}{x^2+1}\d x\\
+        &=\int_{-\infty}^{\infty}\frac{e^{-\i kz}}{z^2+1}\d z
+    \end{align*}
+    因为
+    $$\lim_{z\to\infty}\frac{z}{z^2+1}=0$$\\
+    1.当$k>0$时，取积分围道为下半平面以原点为圆心的无穷大半圆，有
+    \begin{align*}
+        &\int_{-\infty}^{\infty}\frac{e^{-\i kz}}{z^2+1}\d z\\
+        =&-2\pi \i\res(\frac{e^{-\i kz}}{z^2+1},-\i)\\
+        =&-2\pi \i\lim_{z\to-\i}(z+\i)\frac{e^{-\i kz}}{z^2+1}\\
+        =&\pi e^{-k}
+    \end{align*}
+    2.当$k<0$时，取积分围道为上半平面以原点为圆心的无穷大半圆，有
+    \begin{align*}
+        &\int_{-\infty}^{\infty}\frac{e^{-\i kz}}{z^2+1}\d z\\
+        =&2\pi \i\res(\frac{e^{-\i kz}}{z^2+1},\i)\\
+        =&2\pi \i\lim_{z\to\i}(z-\i)\frac{e^{-\i kz}}{z^2+1}\\
+        =&\pi e^{k}
+    \end{align*}
+    综上
+    $$\F(\frac{1}{x^2+1})=\pi e^{-|k|}$$
+    故
+    \begin{align*}
+        \F(\frac{x}{x^2+1})&=\i\frac{\d }{\d k}(\pi e^{-|k|})\\
+        &=\left\{\begin{matrix}
+            \i\pi e^{k}&(k<0) \\
+            -\i\pi e^{-k}&(k>0)
+          \end{matrix}\right.
+    \end{align*}
+    (2)
+    \begin{align*}
+        \F(e^{-|x|})&=\int_{-\infty}^{\infty}e^{-|x|}e^{-\i kx}\d x\\
+        &=\int_{-\infty}^{0}e^{x}e^{-\i kx}\d x+\int_{0}^{\infty}e^{-x}e^{-\i kx}\d x\\
+        &=\int_{0}^{\infty}e^{-x}e^{\i kx}\d x+\int_{0}^{\infty}e^{-x}e^{-\i kx}\d \\
+        &=2\int_{0}^{\infty}e^{-x}\cos(kx)\d x\\
+        &=\frac{2}{k^2+1}
+    \end{align*}
+\end{sol}\par
+
+\begin{sol}[3]
+    令$g(x)=\frac{1}{x^2+a^2}$，有
+    $$f(x)*g(x)=\frac{1}{x^2+b^2}$$
+    对方程两边进行傅里叶变换得
+    \begin{align*}
+        \F(f(x))\F(g(x))&=\F(\frac{1}{x^2+b^2})\\
+        \F(f(x))&=\frac{\F(\frac{1}{x^2+b^2})}{\F(\frac{1}{x^2+a^2})}\\
+        f(x)&=\F^{-1}(\frac{\F(\frac{1}{x^2+b^2})}{\F(\frac{1}{x^2+a^2})})\\
+    \end{align*}
+    \begin{align*}
+        &\F(\frac{1}{x^2+b^2})\\
+        =&\int_{-\infty}^{\infty}\frac{1}{x^2+b^2}e^{-\i kx}\d x\\
+        =&\int_{-\infty}^{\infty}\frac{1}{z^2+b^2}e^{-\i kz}\d x\\
+    \end{align*}
+    因为
+    $$\lim_{z\to\infty}\frac{z}{z^2+b^2}=0$$\\
+    1.当$k>0$时，取积分围道为下半平面以原点为圆心的无穷大半圆，有
+    \begin{align*}
+        &\int_{-\infty}^{\infty}\frac{e^{-\i kz}}{z^2+b^2}\d z\\
+        =&-2\pi \i\res(\frac{e^{-\i kz}}{z^2+b^2},-b\i)\\
+        =&-2\pi \i\lim_{z\to-b\i}(z+b\i)\frac{e^{-\i kz}}{z^2+b^2}\\
+        =&\frac{\pi e^{-bk}}{b}
+    \end{align*}
+    2.当$k<0$时，取积分围道为上半平面以原点为圆心的无穷大半圆，有
+    \begin{align*}
+        &\int_{-\infty}^{\infty}\frac{e^{-\i kz}}{z^2+b^2}\d z\\
+        =&2\pi \i\res(\frac{e^{-\i kz}}{z^2+b^2},b\i)\\
+        =&2\pi \i\lim_{z\to b\i}(z-b\i)\frac{e^{-\i kz}}{z^2+b^2}\\
+        =&\frac{\pi e^{bk}}{b}
+    \end{align*}
+    综上
+    $$\F(\frac{1}{x^2+b^2})=\frac{\pi e^{-b|k|}}{b}$$
+    同理$$\F(\frac{1}{x^2+a^2})=\frac{\pi e^{-a|k|}}{a}$$
+    故
+    \begin{align*}
+        \F(f(x))&=\frac{a}{b}e^{-(b-a)|k|}\\
+        &=\frac{a}{b}\frac{\pi}{b-a}\frac{b-a}{\pi}e^{-(b-a)|k|}\\
+        &=\frac{a(b-a)}{b\pi}\F(\frac{1}{x+(b-a)^2})
+    \end{align*}
+    故
+    $$f(x)=\frac{a(b-a)}{b\pi[x+(b-a)^2]}$$
+\end{sol}\par
+
+\begin{sol}[4]
+    (1)\begin{align*}
+        \L(\sin2t\cos3t)&=\L(\frac{\sin5t-\sin t}{2})\\
+        &=\frac{1}{2}\L(\sin5t)-\frac{1}{2}\L(\sin t)\\
+    \end{align*}
+    \begin{align*}
+        &\int_{0}^{\infty}\sin ate^{-pt}\d t\\
+        =&\int_{0}^{\infty}\frac{e^{\i at}-e^{-\i at}}{2\i}e^{-pt}\d t\\
+        =&\frac{1}{2\i}(\int_{0}^{\infty}e^{\i at-pt}\d t-\int_{0}^{\infty}e^{-\i at-pt}\d t) \\
+        =&\frac{1}{2\i}(\frac{1}{p-a\i}-\frac{1}{p+a\i})\\
+        =&\frac{a}{p^2+a^2}
+    \end{align*}
+    故
+    \begin{align*}
+        &\frac{1}{2}\L(\sin5t)-\frac{1}{2}\L(\sin t)\\
+        =&\frac{1}{2}\frac{5}{p^2+25}-\frac{1}{2}\frac{1}{p^2+1}
+    \end{align*}
+    (2)\begin{align*}
+        \L(\sin^2 t)&=\int_{0}^{\infty}\sin^2te^{-pt}\d t\\
+        &=\int_{0}^{\infty}(\frac{1-\cos2t}{2})e^{-pt}\d t\\
+        &=\int_{0}^{\infty}\frac{1}{2}e^{-pt}\d t-\int_{0}^{\infty}\frac{\cos2t}{2}e^{-pt}\d t\\
+        &=\frac{1}{2}(\frac{1}{p}-\int_{0}^{\infty}\cos 2t\d t)\\
+        &=\frac{1}{2}(\frac{1}{p}-\int_{0}^{\infty}\frac{e^{\i 2t}+e^{-\i 2t}}{2}\d t)\\
+        &=\frac{1}{2}(\frac{1}{p}-\frac{p}{p^2+4})
+    \end{align*}
+    故$$\L(e^{-\lambda t}\sin^2 t)=\frac{1}{2}(\frac{1}{p+\lambda}-\frac{p+\lambda}{(p+\lambda)^2+4})$$
+\end{sol}\par
+
+\begin{sol}[5]
+    (1)\begin{align*}
+        \frac{1}{(p^2+\omega^2)(p^2+\nu^2)}&=\frac{1}{p^2+\omega^2}\frac{1}{p^2+\nu^2}\\
+        &=\frac{1}{\omega\nu}\L(\sin\omega t)\L(\sin\nu t)
+    \end{align*}
+    由卷积定理得
+    \begin{align*}
+        \frac{1}{\omega\nu}\L(\sin\omega t)\L(\sin\nu t)&=\frac{1}{\omega\nu}\L(\int_{0}^{t}\sin[\omega\tau]\sin[\nu(t-\tau)]\d\tau)\\
+        &=\frac{1}{\omega\nu}\L(\frac{\nu  \sin (t \omega )-\omega  \sin (\nu  t)}{\nu ^2-\omega ^2})
+    \end{align*}
+    故$$\L^{-1}(\frac{1}{(p^2+\omega^2)(p^2+\nu^2)})=\frac{1}{\omega\nu}\frac{\nu  \sin (t \omega )-\omega  \sin (\nu  t)}{\nu ^2-\omega ^2}$$
+    (2)\begin{align*}
+        \frac{1}{(p^2+\omega^2)(p^2+\nu^2)}&=\frac{p}{p^2+\omega^2}\frac{p}{p^2+\nu^2}\\
+        &=\L(\cos\omega t)\L(\cos\nu t)
+    \end{align*}
+    由卷积定理得
+    \begin{align*}
+        \L(\cos\omega t)\L(\cos\nu t)&=\L(\int_{0}^{t}\cos[\omega\tau]\cos[\nu(t-\tau)]\d\tau)\\
+        &=\L(\frac{\nu  \sin (\nu  t)-\omega  \sin (t \omega )}{\nu ^2-\omega ^2})
+    \end{align*}
+    故$$\L^{-1}(\frac{p^2}{(p^2+\omega^2)(p^2+\nu^2)})=\frac{\nu  \sin (\nu  t)-\omega  \sin (t \omega )}{\nu ^2-\omega ^2}$$
+\end{sol}\par
+
+\begin{sol}[5]
+    对方程两边进行拉普拉斯变换得
+    \begin{align*}
+        \L(y)&=a\frac{1}{p^2+1}-2\L(y)\frac{p}{p^2+1}\\
+        \L(y)&=a\frac{1}{(p+1)^2}\\
+        \L(y)&=a(-1)^1\frac{\d}{\d p}\frac{1}{p+1}\\
+        \L(y)&=a\L(te^{-t})\\
+        y&=\L^{-1}(a\L(te^{-t}))\\
+        y&=ate^{-t}
+    \end{align*}
+\end{sol}\par
+\end{document}

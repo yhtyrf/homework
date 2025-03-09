@@ -1,0 +1,93 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 9,           % 设置课程次数
+  classname = 电磁学,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+
+\begin{document}
+{\zihao{5}\heiti\color{red} 1-66}
+\begin{sol}
+    (1)$$j=\frac{I}{S}=\sigma E$$故
+    $$\begin{aligned}
+        E_1&=\frac{I}{\sigma_1 S}\\
+        E_2&=\frac{I}{\sigma_2 S}
+    \end{aligned}$$
+    (2)$$\begin{aligned}
+        U_{AB}&=E_1d_1=\frac{Id_1}{\sigma_1 S}\\
+        U_{AB}&=E_2d_2=\frac{Id_2}{\sigma_2 S}
+    \end{aligned}$$
+\end{sol}\par
+
+{\zihao{5}\heiti\color{red} 2-3(思考题)}
+\begin{sol}
+    $$\begin{aligned}
+        \vec{F}_{12}&=\frac{\mu_0}{4\pi}\oint\limits_{(L_1)}\oint\limits_{(L_2)}\frac{I_1I_2\d \vec{l}_1\times (\d \vec{l}_2\times\hat{\mathbf{r}}_{12})}{r_{12}^2}\\
+        &=\frac{\mu_0}{4\pi}\oint\limits_{(L_1)}\oint\limits_{(L_2)}\frac{I_1I_2[(\d \vec{l}_1\cdot \hat{\mathbf{r}}_{12})\d \vec{l}_2-(\d \vec{l}_1\cdot \d \vec{l}_2)\hat{\mathbf{r}}_{12}]}{r_{12}^2}\\
+        &=-\frac{\mu_0}{4\pi}\oint\limits_{(L_1)}\oint\limits_{(L_2)}\frac{I_1I_2(\d \vec{l}_1\cdot \d \vec{l}_2)\hat{\mathbf{r}}_{12}}{r_{12}^2}
+    \end{aligned}$$
+    又因为被积函数连续，故积分可交换顺序，即
+    $$\vec{F}_{12}=-\frac{\mu_0}{4\pi}\oint\limits_{(L_2)}\oint\limits_{(L_1)}\frac{I_1I_2(\d \vec{l}_1\cdot \d \vec{l}_2)\hat{\mathbf{r}}_{12}}{r_{12}^2}$$
+    同理
+    $$\vec{F}_{21}=-\frac{\mu_0}{4\pi}\oint\limits_{(L_2)}\oint\limits_{(L_1)}\frac{I_1I_2(\d \vec{l}_1\cdot \d \vec{l}_2)\hat{\mathbf{r}}_{21}}{r_{21}^2}$$
+    又因为$\hat{\mathbf{r}}_{21}=-\hat{\mathbf{r}}_{12}$,故
+    $$\vec{F}_{12}=-\vec{F}_{21}$$
+\end{sol}\par
+
+{\zihao{5}\heiti\color{red} 2-4}
+\begin{sol}
+    $$B=\frac{\mu_0}{2\pi d}\sqrt{I_1^2+I_2^2}=7.2\times 10^{-5}\text{T}$$
+    由两个分量组成，其中
+    $$B_1=\frac{\mu_0I_1}{2\pi d}=4.0\times 10^{-5}\text{T}$$
+    方向垂直纸面向里
+    $$B_2=\frac{\mu_0I_2}{2\pi d}=6.0\times 10^{-5}\text{T}$$
+    方向平行纸面向右
+\end{sol}\par
+
+{\zihao{5}\heiti\color{red} 2-5}
+\begin{sol}
+    (1)由系统对称性知，磁感应强度一定沿轴线方向，且三条边贡献相等
+    不妨设其中一条边为线段$(0,0,0)\to  (2a,0,0)$且其余两边都在$xOy$平面上
+    且均在第一象限则轴线上一点坐标为$(a,\sqrt{3}a,r_0)$,则位于点$(x,0,0)$处的电流元
+    在该点产生的磁感应强度为
+    $$\begin{aligned}
+        \d B&=\frac{\mu_0}{4\pi}\frac{I\d \mathbf{x}\times \hat{\mathbf{r}}}{r^2}\\
+        &=\frac{\mu_0I}{4\pi}\frac{-r_0\d x\vec{j}+\frac{\sqrt{3}}{2}a\d x\vec{k}}{\left [ (a-x)^2+\frac{3}{4}a^2+r_0^2  \right ] ^\frac{3}{2}}
+    \end{aligned}$$
+    我们只取沿轴线即$z$轴方向分量
+    则
+    $$\begin{aligned}
+        \vec{B}&=3\int_0^{2a}\frac{\mu_0I}{4\pi}\frac{\frac{\sqrt{3}}{2}a\vec{k}}{\left [ (a-x)^2+\frac{3}{4}a^2+r_0^2  \right ] ^\frac{3}{2}}\d x\\
+        &=\frac{9\mu_0Ia^2}{2\pi(3r_0^2+a^2)\sqrt{3r_0^2+4a^2}}\vec{k}
+    \end{aligned}$$
+    (2)当$r_0\gg a$时$B=\frac{\sqrt{3}\mu_0Ia^2}{2\pi r_0^3}$，而$S=\sqrt{3}a^2$
+    故
+    $$B=\frac{\mu_0m}{2\pi r_0^3}$$
+\end{sol}\par
+
+{\zihao{5}\heiti\color{red} 2-6}
+\begin{sol}
+    (1)将载流板分割为无数无限细无限长的载流导线，叠加得
+    $$B=\int \d B\cos\theta=\int_{-a}^a\frac{\mu_0}{4\pi}\frac{2(\frac{I}{2a})\d l}{\sqrt{x^2+l^2}}\frac{x}{\sqrt{x^2+l^2}}=\frac{\mu_0I}{2\pi a}\arctan\frac{a}{x}$$
+    (2)$$B=\frac{\mu_0\iota }{2}$$
+\end{sol}\par
+\end{document}

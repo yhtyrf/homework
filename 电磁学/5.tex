@@ -1,0 +1,99 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 5,           % 设置课程次数
+  classname = 电磁学,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+
+\begin{document}
+{\zihao{5}\heiti\color{red} 1-65}
+\begin{sol}
+由电像法可将电场分布视为两无限长导线产生的电场，以地面为$x=0$平面建立如图坐标系
+\begin{figure}[!h]
+  \begin{tikzpicture}
+        
+    \coordinate (a) at (1,0);
+    \coordinate (b) at (-1,0);
+    \draw[->] (-5,0) --(5,0) node[right]{$x$};
+    \draw[->] (0,-5) --(0,5) node[right]{$y$};
+    \filldraw (a) circle (.1)node[above]{$\lambda$};
+    \filldraw (b) circle (.1)node[above]{$-\lambda$};
+\end{tikzpicture}
+\end{figure}
+设地面电势为0，导线离地面距离为$a$，导线上电荷线密度为$\lambda$
+则
+$$U(x,y)=-\int_{a}^{\sqrt{(x-a)^2+y^2}}\frac{\lambda}{2\pi r\varepsilon_0}\d r+(-\int_{a}^{\sqrt{(x+a)^2+y^2}}\frac{-\lambda}{2\pi r\varepsilon_0}\d r)=
+\frac{\lambda}{4\pi\varepsilon_0}\ln \frac{(x+a)^2+y^2}{(x-a)^2+y^2}$$
+$$\begin{aligned}
+  \vec{E}&=-\nabla U\\
+  &=-\frac{\partial U}{\partial x}\hat{x}-\frac{\partial U}{\partial y}\hat{y}\\
+  &=\frac{\lambda}{2\pi\varepsilon_0}[\frac{x-a}{(x-a)^2+y^2}-\frac{x+a}{(x+a)^2+y^2}]\hat{x}+\frac{\lambda}{\pi\varepsilon_0}\frac{2axy}{[(x+a)^2+y^2][(x-a)^2+y^2]}\hat{y}
+\end{aligned}$$
+令$x=0$则
+$E=\frac{-\lambda a}{\pi\varepsilon_0(y^2+a^2)}$
+那么地面上的电荷密度为
+$$\sigma=E\varepsilon_0=\frac{-\lambda a}{\pi(y^2+a^2)}$$
+\end{sol}\par
+
+{\zihao{5}\heiti\color{red} 附加题1}
+\begin{sol}
+由电像法可将电场分布视为两点电荷产生的电场，以导体平面为$x=0$平面建立如图坐标系
+\begin{figure}[!h]
+  \begin{tikzpicture}
+        
+    \coordinate (a) at (1,0);
+    \coordinate (b) at (-1,0);
+    \draw[->] (-5,0) --(5,0) node[right]{$x$};
+    \draw[->] (0,-5) --(0,5) node[right]{$y$};
+    \filldraw (a) circle (.1)node[above]{$q$};
+    \filldraw (b) circle (.1)node[above]{$-q$};
+\end{tikzpicture}
+\end{figure}\par 
+则平面上场强分布为
+$$\begin{aligned}
+  E=2\frac{\sqrt{2}}{2}\frac{1}{4\pi\varepsilon_0}\frac{q}{a^2+y^2}\frac{a}{\sqrt{a^2+y^2}}=\frac{\sqrt{2}aq}{4\pi\varepsilon_0(a^2+y^2)^\frac{3}{2}}
+\end{aligned}$$
+则电荷分布为
+$$\sigma=\varepsilon_0E=\frac{\sqrt{2}aq}{4\pi(a^2+y^2)^\frac{3}{2}}$$
+\end{sol}\par
+
+{\zihao{5}\heiti\color{red} 附加题2}
+\begin{sol}
+由电像法可将电场分布视为四个点电荷产生的电场，以导体平面为$x=0$平面建立如图坐标系
+\begin{figure}[htbp]
+  \begin{tikzpicture}
+        
+    \coordinate (a) at (2,0);
+    \coordinate (b) at (-2,0);
+    \draw[->,scale=0.5] (-5,0) --(5,0) node[right]{$x$};
+    \draw[->,scale=0.5] (0,-5) --(0,5) node[right]{$y$};
+    \filldraw[scale=0.5] (a) circle (.1)node[above]{$q$};
+    \filldraw[scale=0.5] (b) circle (.1)node[above]{$-q$};
+    \filldraw[scale=0.5] (-1,2) circle (.1)node[above]{$q$};
+    \filldraw[scale=0.5] (1,2) circle (.1)node[above]{$-q$};
+\end{tikzpicture}
+\end{figure}\par 
+则电势分布为
+$$
+U=\frac{q}{4\pi\varepsilon_0}[\frac{1}{\sqrt{(x-d_2)^2+y^2}}+\frac{1}{\sqrt{(x+d_1)^2+(y-d_0)^2}}-\frac{1}{\sqrt{(x+d_2)^2+y^2}}-\frac{1}{\sqrt{(x-d_1)^2+(y-d_0)^2}}]
+$$
+\end{sol}\par
+\end{document}

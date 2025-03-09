@@ -1,0 +1,642 @@
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.7.5)  9 JAN 2025 19:48
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**作业合集
+(./作业合集.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-02-22> (c:/texlive/2023/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
+(c:/texlive/2023/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count181
+\c@section=\count182
+\c@subsection=\count183
+\c@subsubsection=\count184
+\c@paragraph=\count185
+\c@subparagraph=\count186
+\c@figure=\count187
+\c@table=\count188
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+) (c:/texlive/2023/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2022/12/19 v0.5x Insert pages of external PDF documents (AM)
+ (c:/texlive/2023/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+) (c:/texlive/2023/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count189
+\calc@Bcount=\count190
+\calc@Adimen=\dimen141
+\calc@Bdimen=\dimen142
+\calc@Askip=\skip50
+\calc@Bskip=\skip51
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count191
+\calc@Cskip=\skip52
+) (c:/texlive/2023/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
+\ESO@tempdima=\dimen143
+\ESO@tempdimb=\dimen144
+ (c:/texlive/2023/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+) (c:/texlive/2023/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+ (c:/texlive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 227.
+ (c:/texlive/2023/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
+) (c:/texlive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+)) (c:/texlive/2023/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (c:/texlive/2023/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+ (c:/texlive/2023/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (c:/texlive/2023/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 107.
+)
+\Gin@req@height=\dimen145
+\Gin@req@width=\dimen146
+)
+\AM@pagewidth=\dimen147
+\AM@pageheight=\dimen148
+\AM@fboxrule=\dimen149
+ (c:/texlive/2023/texmf-dist/tex/latex/pdfpages/ppxetex.def
+File: ppxetex.def 2022/12/19 v0.5x Pdfpages driver for XeTeX (AM)
+)
+\pdfpages@includegraphics@status=\count192
+\AM@pagebox=\box51
+\AM@global@opts=\toks17
+\AM@pagecnt=\count193
+\AM@toc@title=\toks18
+\AM@lof@heading=\toks19
+\c@AM@survey=\count194
+\AM@templatesizebox=\box52
+) (c:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+File: l3backend-xetex.def 2023-01-16 L3 backend support: XeTeX
+\g__graphics_track_int=\count195
+\l__pdf_internal_box=\box53
+\g__pdf_backend_object_int=\count196
+\g__pdf_backend_annotation_int=\count197
+\g__pdf_backend_link_int=\count198
+) (./作业合集.aux)
+\openout1 = `作业合集.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4.
+ (c:/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+ (c:/texlive/2023/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+ (c:/texlive/2023/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PDF (HO)
+ (c:/texlive/2023/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+) (c:/texlive/2023/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 98.
+))
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf>
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf>
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf, page 1>
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf, page 1>
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf, page 1>
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf, page 1>
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf, page 1>
+ [1
+
+]
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf, page 2>
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf, page 2>
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf, page 2>
+ [2]
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf, page 3>
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf, page 3>
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf, page 3>
+ [3]
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf, page 4>
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf, page 4>
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf, page 4>
+ [4]
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf, page 5>
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf, page 5>
+File: 1.pdf Graphic file (type pdf)
+<use 1.pdf, page 5>
+ [5]
+File: 2.pdf Graphic file (type pdf)
+<use 2.pdf>
+File: 2.pdf Graphic file (type pdf)
+<use 2.pdf>
+File: 2.pdf Graphic file (type pdf)
+<use 2.pdf, page 1>
+File: 2.pdf Graphic file (type pdf)
+<use 2.pdf, page 1>
+File: 2.pdf Graphic file (type pdf)
+<use 2.pdf, page 1>
+File: 2.pdf Graphic file (type pdf)
+<use 2.pdf, page 1>
+File: 2.pdf Graphic file (type pdf)
+<use 2.pdf, page 1>
+ [6]
+File: 2.pdf Graphic file (type pdf)
+<use 2.pdf, page 2>
+File: 2.pdf Graphic file (type pdf)
+<use 2.pdf, page 2>
+File: 2.pdf Graphic file (type pdf)
+<use 2.pdf, page 2>
+ [7]
+File: 2.pdf Graphic file (type pdf)
+<use 2.pdf, page 3>
+File: 2.pdf Graphic file (type pdf)
+<use 2.pdf, page 3>
+File: 2.pdf Graphic file (type pdf)
+<use 2.pdf, page 3>
+ [8]
+File: 3.pdf Graphic file (type pdf)
+<use 3.pdf>
+File: 3.pdf Graphic file (type pdf)
+<use 3.pdf>
+File: 3.pdf Graphic file (type pdf)
+<use 3.pdf, page 1>
+File: 3.pdf Graphic file (type pdf)
+<use 3.pdf, page 1>
+File: 3.pdf Graphic file (type pdf)
+<use 3.pdf, page 1>
+File: 3.pdf Graphic file (type pdf)
+<use 3.pdf, page 1>
+File: 3.pdf Graphic file (type pdf)
+<use 3.pdf, page 1>
+ [9]
+File: 3.pdf Graphic file (type pdf)
+<use 3.pdf, page 2>
+File: 3.pdf Graphic file (type pdf)
+<use 3.pdf, page 2>
+File: 3.pdf Graphic file (type pdf)
+<use 3.pdf, page 2>
+ [10]
+File: 3.pdf Graphic file (type pdf)
+<use 3.pdf, page 3>
+File: 3.pdf Graphic file (type pdf)
+<use 3.pdf, page 3>
+File: 3.pdf Graphic file (type pdf)
+<use 3.pdf, page 3>
+ [11]
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf>
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf>
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf, page 1>
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf, page 1>
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf, page 1>
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf, page 1>
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf, page 1>
+ [12]
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf, page 2>
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf, page 2>
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf, page 2>
+ [13]
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf, page 3>
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf, page 3>
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf, page 3>
+ [14]
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf, page 4>
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf, page 4>
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf, page 4>
+ [15]
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf, page 5>
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf, page 5>
+File: 4.pdf Graphic file (type pdf)
+<use 4.pdf, page 5>
+ [16]
+File: 5.pdf Graphic file (type pdf)
+<use 5.pdf>
+File: 5.pdf Graphic file (type pdf)
+<use 5.pdf>
+File: 5.pdf Graphic file (type pdf)
+<use 5.pdf, page 1>
+File: 5.pdf Graphic file (type pdf)
+<use 5.pdf, page 1>
+File: 5.pdf Graphic file (type pdf)
+<use 5.pdf, page 1>
+File: 5.pdf Graphic file (type pdf)
+<use 5.pdf, page 1>
+File: 5.pdf Graphic file (type pdf)
+<use 5.pdf, page 1>
+ [17]
+File: 5.pdf Graphic file (type pdf)
+<use 5.pdf, page 2>
+File: 5.pdf Graphic file (type pdf)
+<use 5.pdf, page 2>
+File: 5.pdf Graphic file (type pdf)
+<use 5.pdf, page 2>
+ [18]
+File: 5.pdf Graphic file (type pdf)
+<use 5.pdf, page 3>
+File: 5.pdf Graphic file (type pdf)
+<use 5.pdf, page 3>
+File: 5.pdf Graphic file (type pdf)
+<use 5.pdf, page 3>
+ [19]
+File: 6.pdf Graphic file (type pdf)
+<use 6.pdf>
+File: 6.pdf Graphic file (type pdf)
+<use 6.pdf>
+File: 6.pdf Graphic file (type pdf)
+<use 6.pdf, page 1>
+File: 6.pdf Graphic file (type pdf)
+<use 6.pdf, page 1>
+File: 6.pdf Graphic file (type pdf)
+<use 6.pdf, page 1>
+File: 6.pdf Graphic file (type pdf)
+<use 6.pdf, page 1>
+File: 6.pdf Graphic file (type pdf)
+<use 6.pdf, page 1>
+ [20]
+File: 6.pdf Graphic file (type pdf)
+<use 6.pdf, page 2>
+File: 6.pdf Graphic file (type pdf)
+<use 6.pdf, page 2>
+File: 6.pdf Graphic file (type pdf)
+<use 6.pdf, page 2>
+ [21]
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf>
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf>
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 1>
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 1>
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 1>
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 1>
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 1>
+ [22]
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 2>
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 2>
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 2>
+ [23]
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 3>
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 3>
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 3>
+ [24]
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 4>
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 4>
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 4>
+ [25]
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 5>
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 5>
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 5>
+ [26]
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 6>
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 6>
+File: 7.pdf Graphic file (type pdf)
+<use 7.pdf, page 6>
+ [27]
+File: 8.pdf Graphic file (type pdf)
+<use 8.pdf>
+File: 8.pdf Graphic file (type pdf)
+<use 8.pdf>
+File: 8.pdf Graphic file (type pdf)
+<use 8.pdf, page 1>
+File: 8.pdf Graphic file (type pdf)
+<use 8.pdf, page 1>
+File: 8.pdf Graphic file (type pdf)
+<use 8.pdf, page 1>
+File: 8.pdf Graphic file (type pdf)
+<use 8.pdf, page 1>
+File: 8.pdf Graphic file (type pdf)
+<use 8.pdf, page 1>
+ [28]
+File: 8.pdf Graphic file (type pdf)
+<use 8.pdf, page 2>
+File: 8.pdf Graphic file (type pdf)
+<use 8.pdf, page 2>
+File: 8.pdf Graphic file (type pdf)
+<use 8.pdf, page 2>
+ [29]
+File: 8.pdf Graphic file (type pdf)
+<use 8.pdf, page 3>
+File: 8.pdf Graphic file (type pdf)
+<use 8.pdf, page 3>
+File: 8.pdf Graphic file (type pdf)
+<use 8.pdf, page 3>
+ [30]
+File: 9.pdf Graphic file (type pdf)
+<use 9.pdf>
+File: 9.pdf Graphic file (type pdf)
+<use 9.pdf>
+File: 9.pdf Graphic file (type pdf)
+<use 9.pdf, page 1>
+File: 9.pdf Graphic file (type pdf)
+<use 9.pdf, page 1>
+File: 9.pdf Graphic file (type pdf)
+<use 9.pdf, page 1>
+File: 9.pdf Graphic file (type pdf)
+<use 9.pdf, page 1>
+File: 9.pdf Graphic file (type pdf)
+<use 9.pdf, page 1>
+ [31]
+File: 9.pdf Graphic file (type pdf)
+<use 9.pdf, page 2>
+File: 9.pdf Graphic file (type pdf)
+<use 9.pdf, page 2>
+File: 9.pdf Graphic file (type pdf)
+<use 9.pdf, page 2>
+ [32]
+File: 9.pdf Graphic file (type pdf)
+<use 9.pdf, page 3>
+File: 9.pdf Graphic file (type pdf)
+<use 9.pdf, page 3>
+File: 9.pdf Graphic file (type pdf)
+<use 9.pdf, page 3>
+ [33]
+File: 9.pdf Graphic file (type pdf)
+<use 9.pdf, page 4>
+File: 9.pdf Graphic file (type pdf)
+<use 9.pdf, page 4>
+File: 9.pdf Graphic file (type pdf)
+<use 9.pdf, page 4>
+ [34]
+File: 10.pdf Graphic file (type pdf)
+<use 10.pdf>
+File: 10.pdf Graphic file (type pdf)
+<use 10.pdf>
+File: 10.pdf Graphic file (type pdf)
+<use 10.pdf, page 1>
+File: 10.pdf Graphic file (type pdf)
+<use 10.pdf, page 1>
+File: 10.pdf Graphic file (type pdf)
+<use 10.pdf, page 1>
+File: 10.pdf Graphic file (type pdf)
+<use 10.pdf, page 1>
+File: 10.pdf Graphic file (type pdf)
+<use 10.pdf, page 1>
+ [35]
+File: 10.pdf Graphic file (type pdf)
+<use 10.pdf, page 2>
+File: 10.pdf Graphic file (type pdf)
+<use 10.pdf, page 2>
+File: 10.pdf Graphic file (type pdf)
+<use 10.pdf, page 2>
+ [36]
+File: 10.pdf Graphic file (type pdf)
+<use 10.pdf, page 3>
+File: 10.pdf Graphic file (type pdf)
+<use 10.pdf, page 3>
+File: 10.pdf Graphic file (type pdf)
+<use 10.pdf, page 3>
+ [37]
+File: 10.pdf Graphic file (type pdf)
+<use 10.pdf, page 4>
+File: 10.pdf Graphic file (type pdf)
+<use 10.pdf, page 4>
+File: 10.pdf Graphic file (type pdf)
+<use 10.pdf, page 4>
+ [38]
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf>
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf>
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf, page 1>
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf, page 1>
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf, page 1>
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf, page 1>
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf, page 1>
+ [39]
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf, page 2>
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf, page 2>
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf, page 2>
+ [40]
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf, page 3>
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf, page 3>
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf, page 3>
+ [41]
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf, page 4>
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf, page 4>
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf, page 4>
+ [42]
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf, page 5>
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf, page 5>
+File: 11.pdf Graphic file (type pdf)
+<use 11.pdf, page 5>
+ [43]
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf>
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf>
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf, page 1>
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf, page 1>
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf, page 1>
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf, page 1>
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf, page 1>
+ [44]
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf, page 2>
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf, page 2>
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf, page 2>
+ [45]
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf, page 3>
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf, page 3>
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf, page 3>
+ [46]
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf, page 4>
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf, page 4>
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf, page 4>
+ [47]
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf, page 5>
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf, page 5>
+File: 12.pdf Graphic file (type pdf)
+<use 12.pdf, page 5>
+ [48]
+File: 13.pdf Graphic file (type pdf)
+<use 13.pdf>
+File: 13.pdf Graphic file (type pdf)
+<use 13.pdf>
+File: 13.pdf Graphic file (type pdf)
+<use 13.pdf, page 1>
+File: 13.pdf Graphic file (type pdf)
+<use 13.pdf, page 1>
+File: 13.pdf Graphic file (type pdf)
+<use 13.pdf, page 1>
+File: 13.pdf Graphic file (type pdf)
+<use 13.pdf, page 1>
+File: 13.pdf Graphic file (type pdf)
+<use 13.pdf, page 1>
+ [49]
+File: 13.pdf Graphic file (type pdf)
+<use 13.pdf, page 2>
+File: 13.pdf Graphic file (type pdf)
+<use 13.pdf, page 2>
+File: 13.pdf Graphic file (type pdf)
+<use 13.pdf, page 2>
+ [50]
+File: 13.pdf Graphic file (type pdf)
+<use 13.pdf, page 3>
+File: 13.pdf Graphic file (type pdf)
+<use 13.pdf, page 3>
+File: 13.pdf Graphic file (type pdf)
+<use 13.pdf, page 3>
+ [51]
+File: 13.pdf Graphic file (type pdf)
+<use 13.pdf, page 4>
+File: 13.pdf Graphic file (type pdf)
+<use 13.pdf, page 4>
+File: 13.pdf Graphic file (type pdf)
+<use 13.pdf, page 4>
+ [52]
+File: 14.pdf Graphic file (type pdf)
+<use 14.pdf>
+File: 14.pdf Graphic file (type pdf)
+<use 14.pdf>
+File: 14.pdf Graphic file (type pdf)
+<use 14.pdf, page 1>
+File: 14.pdf Graphic file (type pdf)
+<use 14.pdf, page 1>
+File: 14.pdf Graphic file (type pdf)
+<use 14.pdf, page 1>
+File: 14.pdf Graphic file (type pdf)
+<use 14.pdf, page 1>
+File: 14.pdf Graphic file (type pdf)
+<use 14.pdf, page 1>
+ [53]
+File: 14.pdf Graphic file (type pdf)
+<use 14.pdf, page 2>
+File: 14.pdf Graphic file (type pdf)
+<use 14.pdf, page 2>
+File: 14.pdf Graphic file (type pdf)
+<use 14.pdf, page 2>
+ [54]
+File: 14.pdf Graphic file (type pdf)
+<use 14.pdf, page 3>
+File: 14.pdf Graphic file (type pdf)
+<use 14.pdf, page 3>
+File: 14.pdf Graphic file (type pdf)
+<use 14.pdf, page 3>
+ [55] (./作业合集.aux) ) 
+Here is how much of TeX's memory you used:
+ 2605 strings out of 478630
+ 43341 string characters out of 5847731
+ 1843012 words of memory out of 5000000
+ 22715 multiletter control sequences out of 15000+600000
+ 512295 words of font info for 33 fonts, out of 8000000 for 9000
+ 36 hyphenation exceptions out of 8191
+ 70i,17n,76p,217b,419s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on 作业合集.pdf (55 pages).

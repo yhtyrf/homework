@@ -1,0 +1,65 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 10,           % 设置课程次数
+  classname = 电磁学,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+
+\begin{document}
+{\zihao{5}\heiti\color{red} 附加题1}
+\begin{sol}
+    \begin{figure}[!h]
+        \begin{tikzpicture}
+              
+          \coordinate (a) at (1,0);
+          \coordinate (o) at (0,0);
+          \coordinate (b) at (2,3);
+          \coordinate (c) at (3,4.5);
+          \coordinate (d) at (2.8,2.2);
+          \draw[->] (o) --(5,0) ;
+          \draw[->] (o) --(b);
+          \pic["$\theta$", draw=green!40, <->, angle eccentricity=0.6, angle radius=0.5cm]
+            {angle=a--o--b};
+          \node at(1,2) {$\vec{r}$};
+          \draw[loosely dashed] (b)--(c);
+          \draw[->] (b)--(d)node[right]{$I\vec{\d l}$};
+          \pic["$\alpha$", draw=green!40, <->, angle eccentricity=0.6, angle radius=0.5cm]
+            {angle=d--b--c};
+      \end{tikzpicture}
+      \end{figure}\par
+      以中心为极点建立极坐标系设线圈边界方程为$r=r_0+\Delta r(\theta)$
+      由毕奥-萨伐尔定律知，在$\theta$附近的电流元在中心产生的磁感应强度为
+      $$\vec{\d B}=\frac{\mu_0I}{4\pi}\frac{\vec{r}\times \vec{\d l} }{r^3}$$
+      同一闭合回路的电流元在中心产生的磁感应强度方向相同故中心磁感应强度
+      的大小为
+      $$B=\int \frac{\mu _0I}{4\pi}\frac{r\sin \alpha}{r_0^3(1+\frac{\Delta r}{r_0})^3}\d l$$
+      又$r\sin \alpha \d l=2\d S$，且$\frac{\Delta r}{r_0}\ll 1$，故
+      $$B=\frac{\mu_0I}{4\pi r_0^3}\int\frac{2\d S}{1}=\frac{\mu_0IS}{2\pi r_0^3}=\frac{\mu_0 m}{2\pi r_0^3}$$
+\end{sol}\par
+
+{\zihao{5}\heiti\color{red} 附加题1}
+\begin{sol}
+$$\begin{aligned}
+  [A,B]
+\end{aligned}$$
+\end{sol}\par
+\end{document}

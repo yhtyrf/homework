@@ -1,0 +1,189 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 13,           % 设置课程次数
+  classname = 数学物理方法,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\newcommand{\res}{\text{res}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\F}{\mathcal{F}}
+\allowdisplaybreaks[4]
+\makeatother
+
+
+\begin{document}
+
+\begin{sol}[1]
+    \begin{align*}
+        \frac{\d}{\d x}(x^{-2}J_2(x))=-x^{-2}J_3(x)
+    \end{align*}
+    故
+    \begin{align*}
+        \int J_3(x)\d x&=-\int x^2 \frac{\d}{\d x}(x^{-2}J_2(x))\d x\\
+        &=-\left[J_2(x)-\int x^{-2}J_2(x)2x\d x\right]\\
+        &=-J_2(x)+2\int x^{-1}J_2(x)\d x\\
+        &=-J_2(x)-2\frac{J_1(x)}{x}+C
+    \end{align*}
+\end{sol}\par
+
+\begin{sol}[2]
+    定解条件为
+    \begin{align*}
+        \left\{
+        \begin{matrix}
+            \rho^2\Delta u-\frac{\partial u}{\partial t}=0\\
+            u|_{r=a}=0\\
+            u|_{r=0}\text{有限}\\
+            \frac{\partial u}{\partial z}|_{z=0}=\frac{\partial u}{\partial z}|_{z=h}=0\\
+            u|_{t=0}=u_0\\
+        \end{matrix}
+        \right.
+    \end{align*}
+    分离变量后径向方程为
+    \begin{align*}
+        r^2R''+rR'+\lambda_1R=0
+    \end{align*}
+    代入边界条件后可知本征值为
+    \begin{align*}
+        k_m^0=\frac{x_m^0}{a}=\sqrt{\lambda_1}
+    \end{align*}
+    $x_m^0$为方程$J_0(x)=0$的第$m$个非零根\\
+    通解为
+    \begin{align*}
+        J_0(k_m^0r)
+    \end{align*}
+    轴向方程为
+    \begin{align*}
+        Z''+\lambda_2Z=0
+    \end{align*}
+    本征值$\sqrt{\lambda_2}=\frac{n\pi}{h}$，代入边界条件
+    解为\begin{align*}
+        b\cos\frac{n\pi}{h}z
+    \end{align*}
+    时间方程为
+    \begin{align*}
+        T'+\rho^2(\lambda_1+\lambda_2)T=0
+    \end{align*}
+    解为$T=e^{-\rho^2(\lambda_1+\lambda_2)t}$
+    故
+    \begin{align}
+        u=\sum_{m,n}A_{m,n}J_0(\frac{x_m^0}{a}r)\cos\frac{n\pi}{h}ze^{-\rho^2[(\frac{x_m^0}{a})^2+(\frac{n\pi}{h})^2]t}
+    \end{align}
+    代入边界条件$u|_{t=0}=u_0$后得
+    \begin{align*}
+        A_{m,n}=\frac{2u_0}{x_m^0J_1(x_m^0)}\delta_{n,0}
+    \end{align*}
+    故\begin{align*}
+        u=\sum_{m,n}=\frac{2u_0}{x_m^0J_1(x_m^0)}\delta_{n,0}J_0(\frac{x_m^0}{a}r)\cos\frac{n\pi}{h}ze^{-\rho^2[(\frac{x_m^0}{a})^2+(\frac{n\pi}{h})^2]t}
+    \end{align*}
+\end{sol}\par
+
+\begin{sol}[3]
+    定解条件为
+    \begin{align*}
+        \left\{
+        \begin{matrix}
+            v^2\Delta u-\frac{\partial^2 u}{\partial t^2}=0\\
+            u|_{t=0}=0\\
+            \frac{\partial u}{\partial t}|_{t=0}=\frac{I}{\rho r}\delta(r-\frac{a}{2})\delta(\theta)\\
+            u|_{r=a}=0\\
+        \end{matrix}
+        \right.
+    \end{align*}
+    分离变量后角向方程为
+    \begin{align*}
+       \Theta''+m^2\Theta=0
+    \end{align*}
+    径向方程为
+    \begin{align*}
+        r^2R''+rR'+(k^2r^2-m^2)R=0
+    \end{align*}
+    时间方程为
+    \begin{align*}
+        T''-k^2v^2T=0
+    \end{align*}
+    代入边界条件后可知解为
+    \begin{align}
+        u=\sum_{m,n}\left(A_m\sin m\theta+B_m\cos m\theta\right)\sin\frac{x_m^nv}{a}tJ_n(\frac{x_m^n}{a}r)
+    \end{align}
+    $x_m^n$为方程$J_n(x)=0$的第$m$个非零根\\
+    代入边界条件$\frac{\partial u}{\partial t}|_{t=0}=\frac{I}{\rho r}\delta(r-\frac{a}{2})\delta(\theta)$后得
+    \begin{align*}
+        \sum_{m,n}\frac{x_m^nv}{a}\left(A_m\sin m\theta+B_m\cos m\theta\right)J_n(\frac{x_m^n}{a}r)=\frac{I}{\rho r}\delta(r-\frac{a}{2})\delta(\theta)\frac{I}{\rho r}\delta(r-\frac{a}{2})\delta(\theta)
+    \end{align*}
+    故\begin{align*}
+        \frac{x_m^nv}{a}\left(A_m\sin m\theta+B_m\cos m\theta\right)=\frac{I}{\frac{a^2}{2}J_{n+1}^2(x_m^n)\rho}\int_0^a\frac{1}{r}\delta(r-\frac{a}{2})\delta(\theta)J_n(\frac{x_m^n}{a}r)\d r
+    \end{align*}
+    故
+    \begin{align*}
+        A_m\sin m\theta+B_m\cos m\theta=\frac{2IJ_n(\frac{x_m^n}{2})I}{a^2J^2_{n+1}\rho x_m^nv}\delta(\theta)
+    \end{align*}
+    故
+    \begin{align*}
+        A_m=0\\
+        B_m=\frac{2IJ_n(\frac{x_m^n}{2})}{\pi\rho ax_m^nvJ_{n+1}^2(x_m^n)(1+\delta_{m,0})}
+    \end{align*}
+    故
+    \begin{align*}
+        u=\sum_{m,n}\frac{2IJ_n(\frac{x_m^n}{2})}{\pi\rho ax_m^nvJ_{n+1}^2(x_m^n)(1+\delta_{m,0})}\cos m\theta\sin\frac{x_m^nv}{a}tJ_n(\frac{x_m^n}{a}r)
+    \end{align*}
+\end{sol}\par
+
+\begin{sol}[4]
+    定解条件为
+    \begin{align*}
+        \left\{
+        \begin{matrix}
+            \Delta u=0\\
+            u|_{z=0}=u|_{z=h}=0\\
+            u|_{r=a}=u_0\sin\frac{2\pi}{h}z\\
+        \end{matrix}
+        \right.
+    \end{align*}
+    轴向方程为
+    \begin{align*}
+        Z''+\lambda Z=0
+    \end{align*}
+    径向方程为
+    \begin{align*}
+        r^2R''+rR'+-\lambda R=0
+    \end{align*}
+    代入边界条件后可知解为
+    \begin{align}
+        u=\sum_{m}A_mI_0(\frac{m\pi}{h}r)\sin\frac{m\pi}{h}z
+    \end{align}
+    代入边界条件$u|_{r=a}=u_0\sin\frac{2\pi}{h}z$后得
+    \begin{align*}
+        \sum_{m}A_mI_0(\frac{m\pi}{h}a)\sin\frac{m\pi}{h}z=u_0\sin\frac{2\pi}{h}z
+    \end{align*}
+    故\begin{align*}
+        A_m=\frac{\delta_{m,2}u_0}{I_0(\frac{2a\pi}{h})}
+    \end{align*}
+    故
+    \begin{align*}
+        u=\sum_{m}\frac{\delta_{m,2}u_0}{I_0(\frac{2a\pi}{h})}I_0(\frac{m\pi}{h}r)\sin\frac{m\pi}{h}z
+    \end{align*}
+    
+\end{sol}\par
+\end{document}

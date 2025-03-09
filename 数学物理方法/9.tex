@@ -1,0 +1,169 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 9,           % 设置课程次数
+  classname = 数学物理方法,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\newcommand{\res}{\text{res}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\F}{\mathcal{F}}
+\allowdisplaybreaks[4]
+\makeatother
+
+
+\begin{document}
+
+\begin{sol}[1]
+    定解条件为
+    \begin{align*}
+        \left\{
+            \begin{matrix}
+                \frac{\partial^2u}{\partial t^2}-a^2\frac{\partial^2u}{\partial x^2}=0\\
+                u|_{t=0}=0\\
+                \frac{\partial u}{\partial t}|_{t=0}=\frac{I}{\rho}\delta(x-x_0)
+            \end{matrix}\right.
+    \end{align*}
+    则\begin{align*}
+        u(x,t)&=\frac{1}{2a}\int_{x-at}^{x+at}\frac{I}{\rho}\delta(x-x_0)\d x\\
+        &=\frac{I}{2a\rho}\int_{x-at}^{x+at}\delta(x-x_0)\d x\\
+        &=\frac{I}{2a\rho}\left[H(x-x_0+at)-H(x-x_0-at)\right]
+    \end{align*}
+    其中$H(x)$为阶跃函数。
+\end{sol}\par
+
+\begin{sol}[2]
+    设
+    $$u(x,y,t)=X(x)Y(y)T(t)$$
+    由
+    $$\frac{\partial^2u}{\partial t^2}-a^2\nabla^2u=0$$
+    知
+    $$\frac{T''}{T}=a^2\left(\frac{X''}{X}+\frac{Y''}{Y}\right)$$
+    设\begin{align*}
+        \frac{X''}{X}&=\lambda_1\\
+        \frac{Y''}{Y}&=\lambda_2
+    \end{align*}
+    则关于$X$的定解条件为
+    \begin{align*}
+        \left\{\begin{matrix}
+            X''(x)+\lambda_1X=0\\
+            X(0)=0\\
+            X(l)=0\\
+        \end{matrix}\right.
+    \end{align*}
+    $\lambda_1=0$时通解为$X=ax+b$，代入边界条件后得$a=0,b=0$，但$X$不能恒为$0$，故舍去。\\
+    $\lambda_1\neq 0$时通解为
+    $$X=A\sin\sqrt{\lambda_1}x+B\cos\sqrt{\lambda_1}x$$
+    代入边界条件后得
+    $$\lambda_1=\left(\frac{n\pi}{l}\right)^2$$
+    故本征值与本征函数为
+    \begin{align*}
+        &\lambda_1=\left(\frac{n\pi}{l}\right)^2\\
+        &\sin\left(\frac{n\pi}{l}x\right)
+    \end{align*}
+    同理关于$Y$的本征值与本征函数为
+    \begin{align*}
+        &\lambda_2=\left(\frac{m\pi}{l}\right)^2\\
+        &\sin\left(\frac{m\pi}{l}y\right)
+    \end{align*}
+    关于$T$的方程为
+    $$T''+a^2(\lambda_1+\lambda_2)T=0$$
+    通解为
+    $$T=A\cos\sqrt{a^2(\lambda_1+\lambda_2)}t+B\sin\sqrt{a^2(\lambda_1+\lambda_2)}t$$
+    代入边界条件$T'(0)=0$后得$B=0$，故
+    $$u_{mn}=A_{mn}\cos(\frac{a\pi\sqrt{m^2+n^2}}{l}t)\sin\left(\frac{n\pi}{l}x\right)\sin\left(\frac{m\pi}{l}y\right)$$
+    故
+    $$u=\displaystyle\sum_{m,n}A_{mn}\cos\left(\frac{a\pi\sqrt{m^2+n^2}}{l}t\right)\sin\left(\frac{n\pi}{l}x\right)\sin\left(\frac{m\pi}{l}y\right)$$
+    代入初始条件$u|_{t=0}=Axy(l-x)(l-y)$得
+    $$\displaystyle\sum_{m,n}A_{mn}\sin\left(\frac{n\pi}{l}x\right)\sin\sin\left(\frac{m\pi}{l}y\right)=Axy(l-x)(l-y)$$
+    故\begin{align*}
+        A_{mn}&=\frac{A}{l^2}\int_{-l}^{l}x(l-x)\sin\left(\frac{n\pi}{l}x\right)\d x\int_{-l}^{l}y(l-y)\sin\left(\frac{m\pi}{l}y\right)\d y\\
+        &=\frac{4Al^4(-1)^{m+n}}{mn\pi^2}
+    \end{align*}
+    故
+    $$u=\displaystyle\sum_{m,n}\frac{4Al^4(-1)^{m+n}}{mn\pi^2}\cos\left(\frac{a\pi\sqrt{m^2+n^2}}{l}t\right)\sin\left(\frac{n\pi}{l}x\right)\sin\left(\frac{m\pi}{l}y\right)$$
+\end{sol}\par
+
+\begin{sol}[3]
+    设
+    $$u(x,y)=X(x)Y(y)$$
+    由
+    $$\nabla^2u=0$$
+    知
+    $$\frac{X''}{X}=-\frac{Y''}{Y}=-\lambda$$
+    故$X$通解为
+    $$X=a\sin\sqrt{\lambda}x+b\cos\sqrt{\lambda}x$$
+    代入边界条件$X(0)=0,X(a)=0$得$X$的本征值与本征函数为
+    \begin{align*}
+        &\lambda=\left(\frac{n\pi}{a}\right)^2\\
+        &\sin\left(\frac{n\pi}{a}x\right)
+    \end{align*}
+    $Y$通解为
+    $$Y=A\sinh\sqrt{\lambda}y+B\cosh\sqrt{\lambda}y$$
+    代入边界条件$Y(0)=0$得
+    $$Y=A\cosh\left(\frac{n\pi}{a}y\right)$$
+    故
+    $$u_n=A_n\cosh\left(\frac{n\pi}{a}y\right)\sin\left(\frac{n\pi}{a}x\right)$$
+    $$u=\displaystyle\sum_{n=1}^{\infty}A_n\cosh\left(\frac{n\pi}{a}y\right)\sin\left(\frac{n\pi}{a}x\right)$$
+    代入$u|_{y=b}=T$得
+    $$\displaystyle\sum_{n=1}^{\infty}A_n\cosh\left(\frac{n\pi b}{a}\right)\sin\left(\frac{n\pi}{a}x\right)=T$$
+    故\begin{align*}
+        A_n&=\frac{\frac{2}{a}\int_{0}^{a}T\sin\left(\frac{n\pi}{a}x\right)\d x}{\cosh\left(\frac{n\pi b}{a}\right)}\\
+        &=\frac{2T(1-\cos n\pi)}{n\pi\cosh\left(\frac{n\pi b}{a}\right)}\\
+        &=\left\{\begin{matrix}
+            \frac{4T}{n\pi\cosh\left(\frac{n\pi b}{a}\right)}&n\text{为奇数}\\
+            0&n\text{为偶数}
+        \end{matrix}\right.
+    \end{align*}
+    设$n=2m-1$，故
+    $$u=\displaystyle\sum_{m=1}^{\infty}\frac{4T}{(2m-1)\pi\cosh\left(\frac{(2m-1)\pi b}{a}\right)}\cosh\left(\frac{(2m-1)\pi}{a}y\right)\sin\left(\frac{(2m-1)\pi}{a}x\right)$$
+\end{sol}\par
+
+\begin{sol}[4]
+    设
+    $$u(x,t)=X(x)T(t)$$
+    由
+    $$\frac{\partial u}{\partial t}=a^2\frac{\partial^2u}{\partial x^2}$$
+    知
+    $$\frac{T'}{T}=a^2\frac{X''}{X}=-\lambda$$
+    故$X$通解为
+    $$X=a\sin\sqrt{\lambda}x+b\cos\sqrt{\lambda}x$$
+    代入边界条件$X(0)=0,a^2X''(l)=0$得$X$的本征值与本征函数为
+    \begin{align*}
+        &\lambda=\left(\frac{an\pi}{l}\right)^2\\
+        &\sin\left(\frac{n\pi}{l}x\right)
+    \end{align*}
+    $T$通解为
+    $$T=Ae^{-\lambda t}$$
+    故
+    $$u=\sum_{n=1}^{\infty}A_ne^{-\left(\frac{an\pi}{l}\right)^2 t}\sin\left(\frac{n\pi}{l}x\right)$$
+    代入边界条件$u|_{t=0}=x$得
+    $$x=\sum_{n=1}^{\infty}A_n\sin\left(\frac{n\pi}{l}x\right)$$
+    故\begin{align*}
+        A_n&=\frac{1}{l}\int_{-l}^{l}x\sin\left(\frac{n\pi}{l}x\right)\d x\\
+        &=\frac{2 l (-1)^n}{n\pi}
+    \end{align*}
+    故
+    $$u=\sum_{n=1}^{\infty}\frac{2 l (-1)^n}{n\pi}e^{-\left(\frac{an\pi}{l}\right)^2 t}\sin\left(\frac{n\pi}{l}x\right)$$
+\end{sol}\par
+\end{document}

@@ -1,0 +1,171 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 4,           % 设置课程次数
+  classname = 电磁学,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+
+\begin{document}
+{\zihao{5}\heiti\color{red} 1-45}
+\begin{sol}
+(1)$$\vec{E}_A=\frac{\sigma_e}{2\varepsilon_0}\hat{x}$$
+(2)$$\vec{E}_B=\frac{\sigma_e}{2\varepsilon_0}\hat{x}$$
+(3)$$\vec{E}=\vec{E}_A+\vec{E}_B=\frac{\sigma_e}{\varepsilon_0}\hat{x}$$
+(4)均匀分布在平板左右两侧
+$$E_A^{\prime}=\frac{\sigma_e}{2\varepsilon_0}\hat{x}$$
+\end{sol}\par
+
+{\zihao{5}\heiti\color{red} 1-46}
+\begin{sol}
+\begin{figure}[!h]
+    \begin{tikzpicture}
+        \draw (-2,5) --(-2,-5) node[below]{1};
+        \draw (-1,5) --(-1,-5) node[below]{2};
+        \draw (1,5) --(1,-5) node[below]{3};
+        \draw (3,5) --(3,-5) node[below]{4};
+        \draw (-1.5,4) rectangle (2,3);
+        \draw (4,-2) rectangle (-3,-1);
+        \draw (-1.5,-4) rectangle (-3,-3);
+        \draw (2,-4) rectangle (4,-3);
+        \node at(0,3.5){\Rmnum{1}};
+        \node at(3,-3.5){\Rmnum{4}};
+        \node at(-2.25,-3.5){\Rmnum{4}};
+        \node at(0.5,-1.5){\Rmnum{4}};
+    \end{tikzpicture}
+\end{figure}\par
+(1)取如$\Rmnum{1}$所示高斯面，因为导体内部电场为0，两平行板中间电场与高斯面平行，故该高斯面电通量为0。
+故其中没有静电荷即
+$$
+\sigma_2S+\sigma_3S=0\to \sigma_1=-\sigma_2
+$$
+即两平板相向两面的电荷面密度大小相等符号相反。\par
+(2)取如$\Rmnum{2}$所示高斯面，由场强叠加原理知该高斯面左右两侧场强大小相等，方向相反。
+故知$\Rmnum{3},\Rmnum{4}$两高斯面电通量相等，故两高斯面内静电荷量相等即
+$$\sigma_1S=\sigma_4S\to \sigma_1=\sigma_4$$
+即两平板相背两面的电荷面密度大小相等符号相反。\par
+(3)$$\left\{\begin{matrix}
+    \sigma_1+\sigma_2=3\\
+   \sigma_3+\sigma_4=7\\
+   \sigma_1=\sigma_4\\
+   \sigma_2+\sigma_3=0
+   \end{matrix}\right.$$
+   解得$$
+   \sigma_1=5\mu\mathrm{C/m^2},\sigma_2=-2\mu\mathrm{C/m^2},\sigma_3=2\mu\mathrm{C/m^2},\sigma_4=5\mu\mathrm{C/m^2}
+   $$
+\end{sol}\par
+
+{\zihao{5}\heiti\color{red} 1-52}
+\begin{sol}
+(1)
+$$U_2=\int_{\infty}^{R_3}\frac{q+Q}{4\pi\varepsilon_0r^2}\d r=\frac{q+Q}{4\pi\varepsilon_0R_3}$$
+$$U_1=U_2+\int_{R_2}^{R_1}\frac{q}{4\pi\varepsilon_0r^2}\d r=\frac{q+Q}{4\pi\varepsilon_0R_3}+\frac{q}{4\pi\varepsilon_0}(\frac{1}{R_1}-\frac{1}{R_2})$$
+\par
+(2)$$\Delta U=U_1-U_2=\frac{q}{4\pi\varepsilon_0}(\frac{1}{R_1}-\frac{1}{R_2})$$\par
+(3)$$U_1=U_2=\frac{q+Q}{4\pi\varepsilon_0R_3}$$
+$$\Delta U=0$$\par
+(4)情形(1):$$
+\begin{aligned}
+    U_2&=0\\
+    U_1&=U_2+\int_{R_2}^{R_1}\frac{q}{4\pi\varepsilon_0r^2}\d r=\frac{q}{4\pi\varepsilon_0}(\frac{1}{R_1}-\frac{1}{R_2})\\
+    \Delta U&=\int_{R_2}^{R_1}\frac{q}{4\pi\varepsilon_0r^2}\d r=\frac{q}{4\pi\varepsilon_0}(\frac{1}{R_1}-\frac{1}{R_2})
+\end{aligned}
+$$
+情形(2):$$
+\begin{aligned}
+    U_2&=0\\
+    U_1&=U_2=0\\
+    \Delta U&=0
+\end{aligned}
+$$\par
+(5)设平衡后球体所带电荷为$q^{\prime}$则球壳内表面所带电荷为$-q^{\prime}$，外表面所带电荷为$Q+q^{\prime}$则
+球壳电势为
+$$
+U_2=\int_{\infty}^{R_3}\frac{Q+q^{\prime}}{4\pi\varepsilon_0r^2}\d r=\frac{Q+q^{\prime}}{4\pi\varepsilon_0R_3}
+$$
+则球体电势为$$U_1=U_2+\int_{R_2}^{R_1}\frac{q^{\prime}}{4\pi\varepsilon_0r^2}\d r=\frac{Q+q^{\prime}}{4\pi\varepsilon_0R_3}+\frac{q^{\prime}}{4\pi\varepsilon_0}(\frac{1}{R_1}-\frac{1}{R_2})$$
+又因为球体接地，故
+$$U_1=0$$
+解得
+$$q^\prime=\frac{Q}{R_3}(\frac{1}{R_2}-\frac{1}{R_1}-\frac{1}{R_3})$$
+于是有
+$$
+\begin{aligned}
+    U_1&=0\\
+    U_2&=\frac{1}{4\pi\varepsilon_0}\frac{(R_2-R_1)Q}{R_1R_2+R_2R_3-R_3R_1}\\
+    \Delta U&=U_1-U_2=\frac{1}{4\pi\varepsilon_0}\frac{(R_1-R_2)Q}{R_1R_2+R_2R_3-R_3R_1}
+\end{aligned}
+$$
+\end{sol}\par
+
+{\zihao{5}\heiti\color{red} 1-57}
+\begin{sol}
+(1)
+设上极板带电$Q$,则中间导体上表面带电$-Q$,下表面带电$Q$,下极板带电$-Q$,则电容器中间除导体内部的区域的场强为
+$$E=\frac{Q}{\varepsilon_0S}$$
+则两极板电势差为$$U=E(d-t)$$
+故
+$$C=\frac{Q}{U}=\frac{\varepsilon_0S}{d-t}$$\par
+(2)上面讨论与极板位置无关，故远近无影响。
+\end{sol}\par
+
+{\zihao{5}\heiti\color{red} 1-62}
+\begin{sol}
+(1)
+$$\begin{aligned}
+    U&=\int_{R_1}^{R_2}\frac{Q}{4\pi\varepsilon_0r^2}\d r+\int_{R_3}^{R_4}\frac{Q}{4\pi\varepsilon_0r^2}\d r\\
+    &=\frac{Q}{4\pi\varepsilon_0}(\frac{1}{R_1}-\frac{1}{R_2}+\frac{1}{R_3}-\frac{1}{R_4})
+\end{aligned}$$\par
+(2)$$
+C=\frac{Q}{U}=\frac{4\pi\varepsilon_0}{\frac{1}{R_1}-\frac{1}{R_2}+\frac{1}{R_3}-\frac{1}{R_4}}
+$$
+\end{sol}\par
+
+{\zihao{5}\heiti\color{red} 附加题}
+\begin{sol}
+\begin{figure}[!h]
+    \begin{tikzpicture}
+        \draw[->] (-5,0) --(5,0) node[right]{$x$};
+        \draw[->] (0,-5) --(0,5) node[right]{$y$};
+        \filldraw (1,1) circle (.1)node[right]{B};
+        \filldraw (-1,1) circle (.1)node[left]{A};
+        \filldraw (1,-1) circle (.1)node[right]{C};
+        \filldraw (-1,-1) circle (.1)node[left]{D};
+    \end{tikzpicture}
+\end{figure}
+因为导线无限长由对称性可知，电荷在导线上均匀分布，设线密度大小为$\lambda$又电场方向向右，故AD带$-\lambda$，BC带$\lambda$。
+以A为电势零点则B电势为
+$$\begin{aligned}
+    U_B&=-E_0a+\frac{-\lambda}{2\pi\varepsilon_0}(\ln r-\ln a)+\frac{-\lambda}{2\pi\varepsilon_0}(\ln a-\ln \sqrt{2}a)+\frac{\lambda}{2\pi\varepsilon_0}(\ln \sqrt{2}a-\ln a)+\frac{\lambda}{2\pi\varepsilon_0}(\ln a-\ln r)\\
+    &=-E_0a+\frac{\lambda}{\pi\varepsilon_0}(\ln\sqrt{2}a-\ln r)
+\end{aligned}$$
+又因为$U_B=U_A=0$
+解得$$
+\lambda=\frac{\pi\varepsilon_0E_0a}{\ln\sqrt{2}a-\ln r}
+$$
+故$x$轴上场强分布为
+$$\begin{aligned}
+    E(x)&=E_0+2\frac{\lambda}{2\pi\varepsilon_0\sqrt{\frac{a^2}{4}+(x-\frac{a}{2})^2}}\frac{x-\frac{a}{2}}{\sqrt{\frac{a^2}{4}+(x-\frac{a}{2})^2}}-2\frac{\lambda}{2\pi\varepsilon_0\sqrt{\frac{a^2}{4}+(x-\frac{a}{2})^2}}\frac{x+\frac{a}{2}}{\sqrt{\frac{a^2}{4}+(x+\frac{a}{2})^2}}\\
+    &=E_0\left \{ 1+\frac{a(x-\frac{a}{2}) }{\ln \frac{\sqrt{2}a }{r}[\frac{a^2}{4}+(x-\frac{a}{2} )^2]  } -\frac{a(x+\frac{a}{2}) }{\ln \frac{\sqrt{2}a }{r}[\frac{a^2}{4}+(x+\frac{a}{2} )^2  ]} \right \} 
+\end{aligned}$$
+代入数值得
+$$E(x)=1+\frac{x-0.005}{\ln (100\sqrt{2})[0.25+(x-0.005 )^2]  } -\frac{x+0.005}{\ln (100\sqrt{2})[0.25+(x+0.005 )^2] }\mathrm{V/m}$$
+\end{sol}\par
+\end{document}

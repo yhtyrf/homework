@@ -1,0 +1,89 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 14,           % 设置课程次数
+  classname = 电磁学,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+
+\begin{document}
+
+\begin{sol}[5-31]
+    连接电源时有
+    $$\begin{aligned}
+        R_1i_1+L_1\frac{\d i_1}{\d t}+M\frac{\d i_2}{\d t}&=\mathscr{E}\\
+        R_2i_2+L_2\frac{\d i_2}{\d t}+M\frac{\d i_1}{\d t}&=0
+    \end{aligned}$$
+    换成短接时有
+    $$\begin{aligned}
+        R_1i_1+L_1\frac{\d i_1}{\d t}+M\frac{\d i_2}{\d t}&=0\\
+        R_2i_2+L_2\frac{\d i_2}{\d t}+M\frac{\d i_1}{\d t}&=0
+    \end{aligned}$$
+    由于这两组方程对应的齐次方程相同，故其时间常量相同，下面仅考虑短接时的情况。由短接的
+    第一个方程有
+    $$\frac{\d i_1}{\d t}=-\frac{M\frac{\d i_2}{\d t}+R_1i_1}{L_1}$$
+    代入第二个方程有
+    $$L_2\frac{\d i_2}{\d t}-\frac{M^2}{L_1}\frac{\d i_2}{\d t}-\frac{MR_1}{L_1}i_1+R_2i_2=0$$
+    引入无漏磁条件$M^2=L_1L_2$有
+    $$\begin{aligned}
+        -\frac{MR_1}{L_1}i_1+R_2i_2&=0\\
+        i_2&=\frac{MR_1}{L_1R_2}i_1\\
+        \frac{\d i_2}{\d t}&=\frac{MR_1}{L_1R_2}\frac{\d i_1}{\d t}
+    \end{aligned}$$
+    代入第一个方程有
+    $$\begin{aligned}
+        0&=L_1\frac{\d i_1}{\d t}+\frac{M^2R_1}{L_1R_2}\frac{\d i_1}{\d t}+R_1i_1\\
+        \frac{\d i_1}{\d t}&=-\frac{R_1R_2}{R_1L_2+R_2L_1}i_1\\
+    \end{aligned}$$
+    故时间常量为
+    $$\tau=\frac{1}{\frac{R_1R_2}{R_1L_2+R_2L_1}}=\frac{R_1L_2+R_2L_1}{R_1R_2}=\frac{L_1}{R_2}+\frac{L_2}{R_1}$$
+\end{sol}\par
+
+\begin{sol}[5-32]
+    (1)$$\begin{aligned}
+        \frac{q}{C}+L\frac{\d i}{\d t}&=0\\
+        \frac{q}{C}+L\frac{\d ^2i}{\d t^2}&=0\\
+        q&=C_1\sin(\frac{t}{\sqrt{CL}})+C_2\cos(\frac{t}{\sqrt{CL}})
+    \end{aligned}$$
+    初始条件为$t=0$时，$q=Q$、$i=0$。\par
+    故解为
+    $$q=Q\cos(\frac{t}{\sqrt{LC}})$$
+    欲令线圈磁场能等于电容中电能，即有
+    $$\begin{aligned}
+        \frac{q^2}{2C}&=\frac{LI^2}{2}\\
+        \frac{q^2}{2C}&=\frac{L}{2}(\frac{\d q}{\d t})^2\\
+        \frac{Q^2}{2C}\cos^2(\frac{t}{\sqrt{LC}})&=\frac{L}{2}\frac{Q^2}{LC}\cos^2(\frac{t}{\sqrt{LC}})\\
+        \tan^2(\frac{t}{\sqrt{LC}})&=1\\
+        t&=\frac{\pi}{4}\sqrt{LC}
+    \end{aligned}$$
+    (2)$$q=Q\cos(\frac{\pi}{4})=\frac{\sqrt{2}}{2}Q$$
+\end{sol}\par
+
+\begin{sol}[5-33]
+    (1)并联后总电容为$C'=2C=4\mu\text{F}$
+    $$\lambda=\frac{R}{2}\sqrt{\frac{C'}{L}}=1.58>1$$
+    故不振荡\\
+    (2)并联后总电容为$C'=\frac{C^2}{2C}=1\mu\text{F}$
+    $$\lambda=\frac{R}{2}\sqrt{\frac{C'}{L}}=0.79<1$$
+    故振荡
+\end{sol}\par
+\end{document}

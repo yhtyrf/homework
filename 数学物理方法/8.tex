@@ -1,0 +1,137 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 8,           % 设置课程次数
+  classname = 数学物理方法,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\newcommand{\res}{\text{res}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\pt}{\partial}
+\allowdisplaybreaks[4]
+\makeatother
+
+
+\begin{document}
+
+\begin{pf}[1]
+    (1)\begin{align*}
+        \text{原式}&=\varepsilon_{ijk}a_ib_j\varepsilon_{klm}c_ld_m\\
+        &=(\delta_{il}\delta_{jm}-\delta_{im}\delta_{jl})a_ib_jc_ld_m\\
+        &=\delta_{il}\delta_{jm}a_ib_jc_ld_m-\delta_{im}\delta_{jl}a_ib_jc_ld_m\\
+        &=(\vec{A}\cdot\vec{C})(\vec{B}\cdot\vec{D})-(\vec{A}\cdot\vec{D})(\vec{B}\cdot\vec{C})
+    \end{align*}
+
+(2)\begin{align*}
+    \text{原式}&=\varepsilon_{krm}\varepsilon_{ijk}a_ib_j\varepsilon_{pqr}c_pd_q\\
+    &=-\varepsilon_{pqr}\varepsilon_{rkm}\varepsilon_{ijk}a_ib_jc_pd_q\\
+    &=(\delta_{pm}\delta_{qk}-\delta_{pk}\delta_{qm})\varepsilon_{ijk}a_ib_jc_pd_q\\
+    &=\delta_{pm}\delta_{qk}\varepsilon_{ijk}a_ib_jc_pd_q-\delta_{pk}\delta_{qm}\varepsilon_{ijk}a_ib_jc_pd_q\\
+    &=\varepsilon_{ijk}a_ib_jc_md_k-\varepsilon_{ijk}a_ib_jc_kd_m\\
+    &=[\vec{A}\cdot(\vec{B}\times\vec{D})]\vec{C}-[\vec{A}\cdot(\vec{B}\times\vec{C})]\vec{D}
+\end{align*}
+
+(3)\begin{align*}
+    \text{右边}&=b_i\pt_ia_j+a_i\pt_ib_j-\varepsilon_{klm}b_l\varepsilon_{ijk}\pt_ia_j-\varepsilon_{klm}a_l\varepsilon_{ijk}\pt_ib_j\\
+    &=b_i\pt_ia_j+a_i\pt_ib_j+(\delta_{im}\delta_{jl}-\delta_{il}\delta_{jm})b_l\pt_ia_j+(\delta_{im}\delta_{jl}-\delta_{il}\delta_{jm})a_l\pt_ib_j\\
+    &=b_i\pt_ia_j+a_i\pt_ib_j+b_j\pt_ma_j-b_i\pt_ia_m+a_j\pt_mb_j-a_i\pt_ib_m\\
+    &=b_j\pt_ma_j+a_j\pt_mb_j\\
+    &=\text{左边}
+\end{align*}
+
+(4)由(3)知$\nabla(\vec{A}\cdot\vec{A})=2\vec{A}\cdot\nabla\vec{A}+2\vec{A}\times(\nabla\times\vec{A})$
+故
+$$\vec{A}\times(\nabla\times\vec{A})=\frac{1}{2}\nabla(\vec{A}\cdot\vec{A})-\vec{A}\cdot\nabla\vec{A}$$
+
+(5)\begin{align*}
+    \text{左边}&=\nabla(\vec{r}\cdot(\vec{A}\times\vec{B}))\\
+    &=\nabla\vec{r}\cdot(\vec{A}\times\vec{B})+\vec{r}\cdot\nabla(\vec{A}\times\vec{B})\\
+    &=\nabla\vec{r}\cdot(\vec{A}\times\vec{B})\\
+    &=\delta_{ij}\cdot(\vec{A}\times\vec{B})\\
+    &=\vec{A}\times\vec{B}
+\end{align*}
+
+(6)\begin{align*}
+    \text{左边}&=\vec{B}(\vec{A}\cdot\vec{C})-\vec{C}(\vec{A}\cdot\vec{B})+\vec{C}(\vec{B}\cdot\vec{A})-\vec{A}(\vec{B}\cdot\vec{C})+\vec{A}(\vec{C}\cdot\vec{B})-\vec{B}(\vec{C}\cdot\vec{A})\\
+    &=0
+\end{align*}
+\end{pf}\par
+
+\begin{sol}[2]
+    (1)\begin{align*}
+        \text{d} x&=a\sinh u\cos v\d u-a\cosh u\sin v\d v\\
+        \text{d} y&=a\cosh u\sin v\d u+a\sinh u\cos v\d v\\
+        \text{d} z&=\d z
+    \end{align*}
+    故
+    \begin{align*}
+        \text{d}s^2&=\d x^2+\d y^2+\d z^2\\
+        &=\frac{a^2}{2}(\cosh2u-\cos2v)\d u^2+\frac{a^2}{2}(\cosh2u-\cos2v)\d v^2+\d z^2
+    \end{align*}
+    没有交叉项，故是正交曲面。
+    (2)\begin{align*}
+        h_1&=\sqrt{(\frac{\partial x}{\partial u})^2+(\frac{\partial y}{\partial u})^2+(\frac{\partial z}{\partial u})^2}\\
+        &=\sqrt{a^2(\cosh^2u\sin^2v+\cos^2v\sinh^2u)}\\
+        h_2&=\sqrt{(\frac{\partial x}{\partial v})^2+(\frac{\partial y}{\partial v})^2+(\frac{\partial z}{\partial v})^2}\\
+        &=\sqrt{a^2(\cosh^2u\sin^2v+\cos^2v\sinh^2u)}\\
+        h_3&=\sqrt{(\frac{\partial x}{\partial z})^2+(\frac{\partial y}{\partial z})^2+(\frac{\partial z}{\partial z})^2}\\
+        &=1
+    \end{align*}
+    故
+    $$\nabla^2=\frac{1}{a^2(\cosh^2u\sin^2v+\cos^2v\sinh^2u)}[\frac{\partial^2}{\partial u^2}+\frac{\partial^2}{\partial v^2}+\frac{\partial}{\partial z}(a^2(\cosh^2u\sin^2v+\cos^2v\sinh^2u)\frac{\partial}{\partial z})]$$
+\end{sol}\par
+
+\begin{sol}[3]
+    \begin{align*}
+        \frac{\d T}{\d x}&=-\rho\omega^2x\\
+        T(l)&=0\\
+    \end{align*}
+    故
+    $$T=\frac{1}{2}\rho\omega^2(l^2-x^2)$$
+    又
+    $$(T\frac{\partial u}{\partial x})|_{x+\Delta x}-(T\frac{\partial u}{\partial x})|_{x}=\rho\Delta x\overline{\frac{\partial^2u}{\partial t^2}}$$
+    取$\Delta x\to 0$有
+    $$\frac{\omega^2}{2}\frac{\partial}{\partial x}((l^2-x^2)\frac{\partial u}{\partial x})=\frac{\partial^2u}{\partial t^2}$$
+\end{sol}\par
+
+\begin{sol}[4]
+    \begin{align*}
+        \frac{\partial u}{\partial t}-k\frac{\partial^2 u}{\partial x^2}&=0(0<x<l)\\
+        u|_{x=0}&=0\\
+        u_t|_{x=l}&=\frac{q}{k}\\
+        u|_{t=0}&=x(l-x)\\
+    \end{align*}
+        
+\end{sol}\par
+
+\begin{equation}
+    \left\{\begin{matrix}
+     \frac{d}{d\tau} \left( g_{\text{tt}}\frac{dt}{d\tau} + g_{t\phi}\frac{d\phi}{d\tau} \right) &= 0,\\
+     \frac{d}{d\tau} \left( g_{\phi\phi}\frac{dt}{d\tau} + g_{\phi t}\frac{d\phi}{d\tau} \right) &= 0,\\
+     \frac{d}{d\tau}\left( g_{\text{rr}}\frac{dr}{d\tau} \right) - \frac{1}{2} \frac{\partial g_{\mu\nu}}{\partial r} \frac{dx^{\mu}}{d\tau}\frac{dx^{\nu}}{d\tau} &= 0, \\
+     \frac{d}{d\tau}\left( g_{\theta\theta}\frac{d\theta}{d\tau} \right) - \frac{1}{2} \frac{\partial g_{\mu\nu}}{\partial \theta} \frac{dx^{\mu}}{d\tau}\frac{dx^{\nu}}{d\tau} &= 0.
+    \end{matrix}\right.
+    \end{equation}
+    
+\end{document}

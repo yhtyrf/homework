@@ -1,0 +1,113 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 15,           % 设置课程次数
+  classname = 电磁学,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+
+\begin{document}
+
+\begin{sol}[4-25]
+    $$M=\frac{m}{V}=\frac{4M}{\pi d^2l}$$
+    $$i'=M=\frac{4\times 12000}{\pi(0.025)^2\times0.075}=3.3\times 10^8\text{A/m}$$
+\end{sol}\par
+
+\begin{sol}[4-66]
+    $$\mathbf{D}=\varepsilon_0\mathbf{E}$$
+    电场能量密度为
+    $$\rho_E=\frac{\mathbf{D}\cdot \mathbf{E}}{2}=\frac{\varepsilon_0E^2}{2}$$
+    因为该电场在该空间处处均匀，故该空间电场能为
+    $$W_e=\frac{\varepsilon_0E^2V}{2}=4.43\times 10^{-5}\text{J}$$
+    $$\mathbf{H}=\frac{B}{\mu_0}$$
+    磁场能量密度为
+    $$\rho_B=\frac{\mathbf{B}\cdot \mathbf{H}}{2}=\frac{B^2}{2\mu_0}$$
+    因为该磁场在该空间处处均匀，故该空间电场能为
+    $$W_B=\frac{B^2V}{2\mu_0}=397.89\text{J}$$
+\end{sol}\par
+
+\begin{sol}[4-68]
+    由安培环路定理可知该同轴线产生的磁场分布为
+    $$B=\left\{\begin{matrix}
+        \frac{\mu_0rI}{2\pi a^2}  &0<r<a \\
+        \\
+         \frac{\mu_0I}{2\pi r} &a<r<b \\
+         \\
+         \frac{\mu_0I(c^2-r^2)}{2\pi r(c^2-b^2)} &b<r<c \\
+         \\
+         0&r>c
+       \end{matrix}\right.$$
+       (1)\\
+       \ding{172}导线内，即$0<r<a$处
+       $$\begin{aligned}
+        B&=\frac{\mu_0rI}{2\pi a^2}\\
+        H&=\frac{B}{\mu_0}=\frac{rI}{2\pi a^2}
+       \end{aligned}$$
+       故该处单位长度能量为
+       $$\begin{aligned}
+        W&=\iint\frac{\mathbf{B}\cdot \mathbf{H}}{2}\d S\\
+        &=\int_0^a\frac{\mu_0I^2r^2}{8\pi^2a^4}2\pi r\d r\\
+        &=\frac{\mu_0I^2}{16\pi}
+       \end{aligned}$$
+       \ding{173}导线和圆筒之间，即$a<r<b$处
+       $$\begin{aligned}
+        B&=\frac{\mu_0I}{2\pi r}\\
+        H&=\frac{B}{\mu_0}=\frac{I}{2\pi r}
+       \end{aligned}$$
+       故该处单位长度能量为
+       $$\begin{aligned}
+        W&=\iint\frac{\mathbf{B}\cdot \mathbf{H}}{2}\d S\\
+        &=\int_a^b\frac{\mu_0I^2}{8\pi^2r^2}2\pi r\d r\\
+        &=\frac{\mu_0I^2}{4\pi}\ln\frac{b}{a}       
+       \end{aligned}$$
+       \ding{174}圆筒内，即$b<r<c$处
+       $$\begin{aligned}
+        B&=\frac{\mu_0I(c^2-r^2)}{2\pi r(c^2-b^2)}\\
+        H&=\frac{I(c^2-r^2)}{2\pi r(c^2-b^2)}
+       \end{aligned}$$
+       故该处单位长度能量为
+       $$\begin{aligned}
+        W&=\iint\frac{\mathbf{B}\cdot \mathbf{H}}{2}\d S\\
+        &=\int_b^c\frac{\mu_0I^2(c^2-r^2)^2}{8\pi^2r^2(c^2-b^2)^2}2\pi r\d r\\
+        &=\frac{\mu_0I^2}{16\pi(c^2-b^2)^2}(4c^4\ln\frac{c}{b}-3c^4+4b^2c^2-b^4)
+       \end{aligned}$$
+       \ding{175}圆筒外，即$r>c$处
+       $$\begin{aligned}
+        B&=0\\
+        H&=0
+       \end{aligned}$$
+       故该处单位长度能量为
+       $$\begin{aligned}
+        W&=\iint\frac{\mathbf{B}\cdot \mathbf{H}}{2}\d S\\
+        &=0
+       \end{aligned}$$
+       (2)代入数值有
+       $$\begin{aligned}
+        W_1&=2.5\times10^{-6}\text{J}\\
+        W_2&=1.4\times10^{-5}\text{J}\\
+        W_3&=6.8\times10^{-7}\text{J}\\
+        W_4&=0 
+       \end{aligned}$$
+       
+\end{sol}\par
+\end{document}

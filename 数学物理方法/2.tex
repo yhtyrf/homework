@@ -1,0 +1,118 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 2,           % 设置课程次数
+  classname = 数学物理方法,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\renewcommand{\i}{\mathrm{i}}
+\makeatother
+
+
+\begin{document}
+
+\begin{sol}[1]
+   (1)$$\begin{aligned}
+    \frac{\partial u}{\partial x}&=2x\\
+    \frac{\partial u}{\partial y}&=2\\
+    \frac{\partial v}{\partial x}&=2x\\
+    \frac{\partial v}{\partial y}&=2y\\
+   \end{aligned}$$
+   由柯西黎曼条件知该函数在$(1,1)$处可导，全平面不解析。\par
+   (2)$$\begin{aligned}
+    \frac{\partial u}{\partial x}&=2x\\
+    \frac{\partial u}{\partial y}&=-2y\\
+    \frac{\partial v}{\partial x}&=2y\\
+    \frac{\partial v}{\partial y}&=2x\\
+   \end{aligned}$$
+   由柯西黎曼条件知该函数在全平面可导，全平面解析。\par
+   (3)$$\begin{aligned}
+    \frac{\partial u}{\partial x}&=2y\\
+    \frac{\partial u}{\partial y}&=2x\\
+    \frac{\partial v}{\partial x}&=2x\\
+    \frac{\partial v}{\partial y}&=2y\\
+   \end{aligned}$$
+   由柯西黎曼条件知该函数在$x=0$线上可导，全平面不解析。\par
+   (4)$$\begin{aligned}
+    \frac{\partial u}{\partial x}&=y^2\\
+    \frac{\partial u}{\partial y}&=2xy\\
+    \frac{\partial v}{\partial x}&=2xy\\
+    \frac{\partial v}{\partial y}&=x^2\\
+   \end{aligned}$$
+   由柯西黎曼条件知该函数在$(0,0)$处可导，全平面不解析。\par
+\end{sol}\par
+
+\begin{sol}[2]
+    (1)$$\begin{aligned}
+        \frac{\partial v}{\partial x}&=-\frac{\partial u}{\partial y}=\cos x\sinh y\\
+        \frac{\partial v}{\partial y}&=\frac{\partial u}{\partial x}=-\sin x\cosh y\\
+    \end{aligned}$$
+    取积分路径$(0,0)\to(x,0)\to(x,y)$，则虚部为
+    $$\begin{aligned}
+        v&=\int_{(0,0)}^{(x,y)}\frac{\partial v}{\partial x}\d x+\frac{\partial v}{\partial y}\d y\\
+        &=\int_0^x\cos x\sinh 0\d x-\int_0^y\sin x\cosh y\d y+C\\
+        &=-\sin x\sinh y+C'
+    \end{aligned}$$
+    故
+    $$f(z)=\cos x\cosh y+\i (-\sin x\sinh y+C')$$\par
+    (2)$$\begin{aligned}
+        \frac{\partial u}{\partial x}&=\frac{\partial v}{\partial y}=\frac{x}{x^2+y^2}\\
+        \frac{\partial u}{\partial y}&=-\frac{\partial v}{\partial x}=\frac{y}{x^2+y^2}\\
+    \end{aligned}$$
+    取积分路径$(1,1)\to(x,1)\to(x,y)$，则虚部为
+    $$\begin{aligned}
+        u&=\int_{(1,1)}^{(x,y)}\frac{\partial u}{\partial x}\d x+\frac{\partial u}{\partial y}\d y\\
+        &=\int_1^x\frac{1}{x \left(\frac{y^2}{x^2}+1\right)}\d x+\int_1^y\frac{y}{x^2 \left(\frac{y^2}{x^2}+1\right)}\d y+C\\
+        &=\frac{1}{2}\ln(x^2+y^2)+C'
+    \end{aligned}$$
+    故
+    $$f(z)=\frac{1}{2}\ln(x^2+y^2)+C'+\i (\arctan\frac{y}{x})$$
+ \end{sol}\par
+
+ \begin{sol}[3]
+    (1)$$\begin{aligned}
+        \frac{\partial v}{\partial x}&=-\frac{\partial u}{\partial y}=\frac{-2y}{x^2+y^2}\\
+        \frac{\partial v}{\partial y}&=\frac{\partial u}{\partial x}=\frac{2x}{x^2+y^2}\\
+    \end{aligned}$$
+    取积分路径$(1,1)\to(x,1)\to(x,y)$，则虚部为
+    $$\begin{aligned}
+        v&=\int_{(1,1)}^{(x,y)}\frac{\partial v}{\partial x}\d x+\frac{\partial v}{\partial y}\d y\\
+        &=\int_1^x\frac{-2y}{x^2+y^2}\d x-\int_1^y\frac{2x}{x^2+y^2}\d y+C\\
+        &=2\arctan\frac{y}{x}+C'
+    \end{aligned}$$
+    故
+    $$f(z)=\ln(x^2+y^2)+\i (2\arctan\frac{y}{x}+C')$$\par
+    (2)$$\begin{aligned}
+        \frac{\partial u}{\partial x}&=\frac{\partial v}{\partial y}=6x^2-6xy-6y^2\\
+        \frac{\partial u}{\partial y}&=-\frac{\partial v}{\partial x}=-(3x^2+12xy-3y^2)\\
+    \end{aligned}$$
+    取积分路径$(0,0)\to(x,0)\to(x,y)$，则虚部为
+    $$\begin{aligned}
+        u&=\int_{(0,0)}^{(x,y)}\frac{\partial u}{\partial x}\d x+\frac{\partial u}{\partial y}\d y\\
+        &=\int_0^x6x^2\d x-\int_0^y(3x^2+12xy-3y^2)\d y+C\\
+        &=2x^3-3x^2y-6xy^2+y^3+C'
+    \end{aligned}$$
+    故
+    $$f(z)=2x^3-3x^2y-6xy^2+y^3+C'+\i (x^3+6x^2y-3xy^2-2y^3)$$
+ \end{sol}\par
+\end{document}

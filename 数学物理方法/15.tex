@@ -1,0 +1,116 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 15,           % 设置课程次数
+  classname = 数学物理方法,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\newcommand{\res}{\text{res}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\F}{\mathcal{F}}
+\allowdisplaybreaks[4]
+\makeatother
+
+
+\begin{document}
+
+\begin{sol}[1]
+\begin{align*}
+    \frac{\d^2 g}{\d t^2}-k^2g=\delta(t-x)
+\end{align*}
+当$t<x$时，$g=a(x)e^{kt}+b(x)e^{-kt}$，
+当$t>x$时，$g=c(x)e^{kt}+d(x)e^{-kt}$
+代入$g(x,0)=A,\frac{\d g}{\d t}(x,0)=B$可得
+\begin{align*}
+    a&=\frac{kA+B}{2k}\\
+    b&=\frac{kA-B}{2k}
+\end{align*} 
+又要求函数值连续导函数差1有
+\begin{align*}
+  \left\{\begin{matrix}
+    ae^{kx}+be^{-kx}=ce^{kx}+de^{-kx}\\
+    ake^{kx}-bke^{-kx}=cke^{kx}-dke^{-kx}-1
+  \end{matrix}\right.
+\end{align*}
+解得
+\begin{align*}
+  c&=\frac{2ake^{kx}+1}{2ke^{kx}}\\
+  d&=\frac{2bke^{-kx}-1}{2ke^{kx}}
+\end{align*} 
+故\begin{align*}
+  y(t)=\int_{0}^{t}f(x)(ce^{kt}+de^{-kt})\d x+\int_{t}^{\infty}f(x)(ae^{kt}+be^{-kt})\d x
+\end{align*}
+\end{sol}\par
+
+\begin{sol}[2]
+  \begin{align*}
+    \frac{\d^2 g}{\d x^2}+k^2g=\delta(x-t)
+\end{align*}
+当$x<t$时，$g=a_1(t)\sin kx+a_2(t)\cos kx$，
+当$x>t$时，$g=b_1(t)\sin kx+b_2(t)\cos kx$
+代入$g(0,t)=A,g(1,t)=B$以及连续条件和跃度条件可得
+\begin{align*}
+  \left\{\begin{matrix}
+    a_2=A\\
+    b_1\sin k+b_2\cos k=B\\
+    (a_1-b_1)\sin kt+(a_2-b_2)\cos kt=0\\
+    (a_1-b_1)k\sin kt-k(a_2-b_2)\cos kt=-1\\
+  \end{matrix}\right.
+\end{align*}
+解得
+\begin{align*}
+  a_1&=\frac{B-A\cos k+\frac{\cos k}{2k\cos kt}}{\sin k}-\frac{1}{2k\sin kt }\\
+  a_2&=A\\
+  b_1&=\frac{B-A\cos k+\frac{\cos k}{2k\cos kt}}{\sin k}\\
+  b_2&=A-\frac{1}{2k\cos kt}
+\end{align*} 
+故\begin{align*}
+  y(x)=\int_{0}^{x}f(t)(b_1\sin kx+b_2\cos kx)\d t+\int_{x}^{1}f(t)(a_1\sin kx+a_2\cos kx)\d t
+\end{align*}
+\end{sol}\par
+
+\begin{sol}[3]
+  \begin{align*}
+    \nabla^2G&=-\delta(\vec{r}-\vec{r}_0)\\
+    G|_{r=a}=0
+\end{align*}
+由电像法可知，该方程解为
+\begin{align*}
+  G(M,M_0)=\frac{1}{4\pi}\left(\frac{1}{r_0^2+r^2-2rr_0\cos\gamma}-\frac{a}{\sqrt{r^2r_0^2+a^4-2a^2rr_0\cos\gamma}}\right)
+\end{align*}
+故
+\begin{align*}
+  u(\vec{r})=-\iiint\limits_{\Omega}Gf(\vec{r}_0)\d V_0-\iint\limits_{\Gamma} g(\vec{r}_0)\frac{\partial G}{\partial n_0}\d S_0
+\end{align*}
+在球面$\Gamma$上$\d S_0$的法线方向与径向相同，故
+\begin{align*}
+  \frac{\partial G}{\partial n_0}|_{\Gamma}=-\frac{1}{4\pi a}\frac{a^2-r^2}{(a^2+r^2-2ar\cos\gamma)^\frac{3}{2}}
+\end{align*}
+引入在无穷远处$u=0$的边界条件可消去另一积分，故在球坐标系中
+\begin{align*}
+  u(r,\theta,\phi)=&-\int_{a}^{\infty}\int_{0}^{\pi}\int_{0}^{2\pi}G(M,M_0)f(r_0,\theta_0,\phi_0)r_0^2\sin\theta_0\d r_0\d\theta_0\d\phi_0\\
+  &+\frac{a(a^2-r^2)}{4\pi}\int_{0}^{2\pi}\int_{0}^{\pi}\frac{g(a,\theta_0,\phi_0)}{(a^2+r^2-2ar\cos\gamma)^\frac{3}{2}}\sin\theta_0\d\theta_0\d\phi_0
+\end{align*}
+其中$\cos\gamma=\sin\theta\sin\theta_0\cos(\phi-\phi_0)+\cos\theta\cos\theta_0$
+\end{sol}\par
+\end{document}
