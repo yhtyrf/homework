@@ -33,6 +33,72 @@
 \begin{document}
 
 \begin{sol}[1]
-  
+  \begin{align*}
+    \frac{\d p}{\d t}&=\frac{\d }{\d t}\int_V\rho \vec{x}'\d V'\\
+    &=\int_V\frac{\d \rho \vec{x}'}{\d t}\d V'\\
+    &=\int_V(\frac{\partial \rho \vec{x}'}{\partial t}+\frac{\partial \rho \vec{x}'}{\partial \vec{x}'}\frac{\d \vec{x}'}{\d t})\d V'\\
+    &=\int_V\frac{\partial \rho}{\partial t}\vec{x}'\d V'\\
+    &=-\int_V\nabla'\cdot\vec{j}\vec{x}'\d V'
+  \end{align*}  
+  又因为
+  \begin{align*}
+    \nabla'\cdot (\vec{x}'\vec{j})&=\partial_ix'_jj_i\\
+    &=x'_j\partial_ij_i+j_i\partial_ix'_j\\
+    &=x'_j\partial_ij_i+j_i\delta_{ij}\\
+    &=x'_j\partial_ij_i+j_j\\
+    &=(\nabla'\cdot \vec{j})\vec{x'}+\vec{j}
+  \end{align*}
+  故\begin{align*}
+    -\int_V\nabla'\cdot\vec{j}\vec{x}'\d V'&=\int_V\vec{j}\d V'-\int_V \nabla'\cdot (\vec{x}'\vec{j})\d V'\\
+    &=\int_V\vec{j}\d V'-\int_{\partial V} \vec{x}'\vec{j}\cdot\d \vec{S}
+  \end{align*}
+  又体系电荷守恒，故在$\partial V$上$\vec{j}\cdot\d \vec{S}=0$，故
+  \begin{align*}
+    \nabla'\cdot (\vec{x}'\vec{j})=\int_V\vec{j}\d V'
+  \end{align*}
+\end{sol}\par
+
+\begin{sol}[2]
+  \begin{align*}
+    \nabla\times\vec{A}&=\nabla(\frac{1}{r^3})\times(\vec{m}\times\vec{r})+\frac{1}{r^3}\nabla\times(\vec{m}\times\vec{r})\\
+    &=\frac{-3\vec{r}}{r^5}\times(\vec{m}\times\vec{r})+\frac{1}{r^3}[(\vec{r}\cdot\nabla)\vec{m}+(\nabla\cdot\vec{r})\vec{m}-(\vec{m}\cdot\nabla)\vec{r}-(\nabla\cdot\vec{m})\vec{r}]\\
+    &=\frac{-3[r^2\vec{m}-(\vec{r}\cdot\vec{m})\vec{r}]}{r^5}+\frac{2\vec{m}}{r^3}\\
+    &=\frac{-3r^2\vec{m}}{r^3}+\frac{3(\vec{r}\cdot\vec{m})\vec{r}}{r^5}+\frac{2\vec{m}}{r^3}\\
+    &=\frac{3(\vec{r}\cdot\vec{m})\vec{r}}{r^5}-\frac{\vec{m}}{r^3}
+  \end{align*}
+  \begin{align*}
+    \nabla\varphi&=\frac{1}{r^3}\nabla(\vec{m}\cdot\vec{r})+(\vec{m}\cdot\vec{r})\nabla\frac{1}{r^3}\\
+    &=\frac{1}{r^3}[\vec{m}\times(\nabla\times\vec{r})+(\vec{m}\cdot\nabla)\vec{r}+\vec{r}\times(\nabla\times\vec{m})+(\vec{r}\cdot\nabla)\vec{m}]-\frac{3(\vec{m}\cdot\vec{r})\vec{r}}{r^5}\\
+    &=\frac{\vec{m}}{r^3}-\frac{3(\vec{r}\cdot\vec{m})\vec{r}}{r^5}
+  \end{align*}  
+  故
+  \begin{align*}
+    \nabla\times\vec{A}=-\nabla\varphi
+  \end{align*}
+\end{sol}\par
+
+\begin{sol}[4]
+  $$\begin{aligned}
+        \vec{F}_{12}&=\frac{\mu_0}{4\pi}\oint\limits_{(L_1)}\oint\limits_{(L_2)}\frac{I_1I_2\d \vec{l}_1\times (\d \vec{l}_2\times\hat{\mathbf{r}}_{12})}{r_{12}^2}\\
+        &=\frac{\mu_0}{4\pi}\oint\limits_{(L_1)}\oint\limits_{(L_2)}\frac{I_1I_2[(\d \vec{l}_1\cdot \hat{\mathbf{r}}_{12})\d \vec{l}_2-(\d \vec{l}_1\cdot \d \vec{l}_2)\hat{\mathbf{r}}_{12}]}{r_{12}^2}\\
+        &=-\frac{\mu_0}{4\pi}\oint\limits_{(L_1)}\oint\limits_{(L_2)}\frac{I_1I_2(\d \vec{l}_1\cdot \d \vec{l}_2)\hat{\mathbf{r}}_{12}}{r_{12}^2}
+    \end{aligned}$$
+    又因为被积函数连续，故积分可交换顺序，即
+    $$\vec{F}_{12}=-\frac{\mu_0}{4\pi}\oint\limits_{(L_2)}\oint\limits_{(L_1)}\frac{I_1I_2(\d \vec{l}_1\cdot \d \vec{l}_2)\hat{\mathbf{r}}_{12}}{r_{12}^2}$$
+    同理
+    $$\vec{F}_{21}=-\frac{\mu_0}{4\pi}\oint\limits_{(L_2)}\oint\limits_{(L_1)}\frac{I_1I_2(\d \vec{l}_1\cdot \d \vec{l}_2)\hat{\mathbf{r}}_{21}}{r_{21}^2}$$
+    又因为$\hat{\mathbf{r}}_{21}=-\hat{\mathbf{r}}_{12}$,故
+    $$\vec{F}_{12}=-\vec{F}_{21}$$
+\end{sol}\par
+
+\begin{sol}[3]
+  设抛物线方程为$y=ax^2(z=0)$，则其焦点为$(0,\frac{1}{4a},0)$。在其上一点$(x,ax^2,0)$的电流元为$I\d \vec{l}=(I\d x,I2ax\d x,0)$。
+  故其焦点处的磁感应强度为
+  \begin{align*}
+    \vec{B}&=\int\frac{\mu_0}{4\pi}\frac{I\d \vec{l}\times\vec{r}}{r^3}\\
+    &=-\int_{-\infty}^{\infty}\frac{\mu_0I}{4\pi}\frac{ax^2+\frac{1}{4a}}{\sqrt{x^2+(ax^2-\frac{1}{4a})^2}^3}\d x\vec{e}_z\\
+    &=-\frac{\mu_0I}{4\pi}4a\pi\vec{e}_z\\
+    &=-a\mu_0I\vec{e}_z
+  \end{align*}
 \end{sol}\par
 \end{document}
