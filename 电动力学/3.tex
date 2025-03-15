@@ -101,4 +101,78 @@
     &=-a\mu_0I\vec{e}_z
   \end{align*}
 \end{sol}\par
+
+\begin{sol}[4]
+   因为所有场量均只与$z,t$相关，故麦克斯韦方程组可简化为
+   \begin{align*}
+    \frac{\partial E_z}{\partial z}&=0\\
+    \frac{\partial E_y}{\partial z}\vec{e}_x-\frac{\partial E_x}{\partial z}\vec{e}_y&=\frac{\partial \vec{B}}{\partial t}\\
+    -\frac{\partial B_y}{\partial z}\vec{e}_x+\frac{\partial B_x}{\partial z}\vec{e}_y&=\mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}\\
+    \frac{\partial B_z}{\partial z}&=0
+   \end{align*}
+   因为$\frac{\partial E_z}{\partial z}=0,\frac{\partial B_z}{\partial z}=0$故$E_z$为常数，同理$B_z$为常数，不妨将$E_z,B_z$均取为0。
+   故可得到两组独立方程
+   \begin{align*}
+    \left\{\begin{matrix}
+      \frac{\partial E_y}{\partial z}=\frac{\partial B_x}{\partial t}\\
+      \frac{\partial B_x}{\partial z}=\mu_0\varepsilon_0\frac{\partial E_y}{\partial t}
+    \end{matrix}\right.\\
+    \left\{\begin{matrix}
+      -\frac{\partial E_x}{\partial z}=\frac{\partial B_y}{\partial t}\\
+      -\frac{\partial B_y}{\partial z}=\mu_0\varepsilon_0\frac{\partial E_x}{\partial t}
+    \end{matrix}\right.
+   \end{align*}
+   消去第一组方程中的$B_x$可得到
+   \begin{align*}
+    \mu_0\varepsilon_0\frac{\partial^2 E_y}{\partial t^2}=\frac{\partial^2 E_y}{\partial z^2}
+   \end{align*}
+   此是一波动方程，可解出$E_y$，再代入原式，可解出$B_x$。此是一组解。同理第二组方程可解出第二组解$(E_x,B_y)$。
+   故整个方程组的解由这两组独立的解组成。
+\end{sol}\par
+
+\begin{sol}[4]
+  \begin{align*}
+    \nabla\cdot\vec{E}'&=\cos\theta\nabla\cdot\vec{E}+c\sin\theta\nabla\cdot\vec{B}\\
+    &=0\\
+    \nabla\times\vec{E}'&=\cos\theta\nabla\times\vec{E}+c\sin\theta\nabla\times\vec{B}\\
+    &=-\cos\theta\frac{\partial \vec{B}}{\partial t}+c\mu_0\varepsilon_0\sin\theta\frac{\partial\vec{E}}{\partial t}\\
+    &=-\frac{\partial}{\partial t}(\cos\theta\vec{B}-c\mu_0\varepsilon_0\sin\theta\vec{E})\\
+    &=-\frac{\partial}{\partial t}(\cos\theta\vec{B}-\sqrt{\mu_0\varepsilon_0}\sin\theta\vec{E})\\
+    &=-\frac{\partial}{\partial t}(\cos\theta\vec{B}-\frac{1}{c}\sin\theta\vec{E})\\
+    &=-\frac{\partial \vec{B}'}{\partial t}\\
+    \nabla\cdot\vec{B}'&=\frac{-\sin\theta}{c}\nabla\cdot\vec{E}+\cos\theta\nabla\cdot\vec{B}\\
+    &=0\\
+    \nabla\times\vec{B}'&=\frac{-\sin\theta}{c}\nabla\times\vec{E}+\cos\theta\nabla\times\vec{B}\\
+    &=\frac{\sin\theta}{c}\frac{\partial\vec{B}}{\partial t}+\cos\theta\mu_0\varepsilon_0\frac{\partial \vec{E}}{\partial t}\\
+    &=\mu_0\varepsilon_0\frac{\partial}{\partial t}(\frac{\sin\theta}{\mu_0\varepsilon_0c}\vec{B}+\cos\theta\vec{E})\\
+    &=\mu_0\varepsilon_0\frac{\partial}{\partial t}(\frac{\sin\theta}{\sqrt{\mu_0\varepsilon_0}}\vec{B}+\cos\theta\vec{E})\\
+    &=\mu_0\varepsilon_0\frac{\partial}{\partial t}(c\sin\theta\vec{B}+\cos\theta\vec{E})\\
+    &=\mu_0\varepsilon_0\frac{\partial \vec{E}'}{\partial t}
+  \end{align*}
+\end{sol}\par
+
+\begin{sol}[4]
+  \begin{align*}
+    \vec{B}&=\nabla\times\vec{A}\\
+    &=(\nabla\frac{1}{r(r-\vec{r}\cdot\vec{n})})\times(\vec{r}\times\vec{n})+\frac{1}{r(r-\vec{r}\cdot\vec{n})}\nabla\times(\vec{r}\times\vec{n})\\
+    &=(\nabla\frac{1}{r^2}\frac{1}{1-\cos\theta})\times(\vec{r}\times\vec{n})-\frac{2\vec{n}}{r(r-\vec{r}\cdot\vec{n})}
+  \end{align*}
+  \begin{align*}
+    \nabla\frac{1}{r^2}\frac{1}{1-\cos\theta}&=\frac{1}{1-\cos\theta}\nabla\frac{1}{r^2}+\frac{1}{r^2}\nabla\frac{1}{1-\cos\theta}\\
+    &=\frac{1}{1-\cos\theta}\frac{-2\vec{r}}{r^4}+\frac{1}{r^2}\frac{1}{(1-\cos\theta)^2}\nabla\cos\theta\\
+    &=\frac{-2\vec{r}}{r^3(r-\vec{r}\cdot\vec{n})}+\frac{1}{(r-\vec{r}\cdot\vec{n})^2}\nabla\frac{\vec{r}\cdot\vec{n}}{r}
+  \end{align*}
+  \begin{align*}
+    \nabla\frac{\vec{r}\cdot\vec{n}}{r}&=\frac{1}{r}\nabla(\vec{r}\cdot\vec{n})+(\vec{r}\cdot\vec{n})\nabla\frac{1}{r}\\
+    &=\frac{1}{r}[\vec{n}\times(\nabla\times\vec{r})+(\vec{n}\cdot\nabla)\vec{r}+\vec{r}\times(\nabla\times\vec{n})+(\vec{r}\cdot\nabla)\vec{n}]-(\vec{r}\cdot\vec{n})\frac{\vec{r}}{r^3}\\
+    &=\frac{\vec{n}}{r}-\frac{(\vec{r}\cdot\vec{n})\vec{r}}{r^3}
+  \end{align*}
+  故
+  \begin{align*}
+    \vec{B}&=(\nabla\frac{1}{r^2}\frac{1}{1-\cos\theta})\times(\vec{r}\times\vec{n})-\frac{2\vec{n}}{r(r-\vec{r}\cdot\vec{n})}\\
+    &=(\frac{-2\vec{r}}{r^3(r-\vec{r}\cdot\vec{n})}+\frac{1}{(r-\vec{r}\cdot\vec{n})^2}\nabla\frac{\vec{r}\cdot\vec{n}}{r})\times(\vec{r}\times\vec{n})-\frac{2\vec{n}}{r(r-\vec{r}\cdot\vec{n})}\\
+    &=(\frac{-2\vec{r}}{r^3(r-\vec{r}\cdot\vec{n})}+\frac{1}{(r-\vec{r}\cdot\vec{n})^2}(\frac{\vec{n}}{r}-\frac{(\vec{r}\cdot\vec{n})\vec{r}}{r^3}))\times(\vec{r}\times\vec{n})-\frac{2\vec{n}}{r(r-\vec{r}\cdot\vec{n})}\\
+    &=\frac{(\vec{r}\cdot\vec{n}-2r)\vec{r}+r^2\vec{n}}{r^3(r-\vec{r}\cdot\vec{n})^2}\times(\vec{r}\times\vec{n})-\frac{2\vec{n}}{r(r-\vec{r}\cdot\vec{n})}
+  \end{align*}
+\end{sol}\par
 \end{document}
