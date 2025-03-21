@@ -1,0 +1,116 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[UTF8]{ctex}
+\usepackage{geometry}
+\geometry{a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+
+\title{第一章 热力学的基本规律}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{热力学系统}
+\begin{itemize}
+    \item \textbf{定义}：大量微观粒子构成的宏观物质系统
+    \item \textbf{分类}：
+    \begin{itemize}
+        \item 孤立系统（无物质/能量交换）
+        \item 闭系（无物质交换，有能量交换）
+        \item 开系（有物质/能量交换）
+    \end{itemize}
+    \item \textbf{特点}：
+    \begin{itemize}
+        \item 粒子数宏观有限，微观等效无穷大
+        \item 粒子持续无规则热运动
+    \end{itemize}
+\end{itemize}
+
+\section{热力学平衡态}
+\begin{itemize}
+    \item \textbf{定义}：孤立系统的宏观性质长时间不变
+    \item \textbf{关键概念}：
+    \begin{itemize}
+        \item 驰豫时间（达到平衡的特征时间）
+        \item 热动平衡（忽略涨落）
+        \item 准热平衡（非孤立系统近似）
+    \end{itemize}
+\end{itemize}
+
+\section{热平衡定律（第零定律）}
+\begin{itemize}
+    \item \textbf{内容}：若A与C、B与C热平衡，则A与B热平衡
+    \item \textbf{温度定义}：态函数$T$，通过温标量化
+    \item \textbf{温标类型}：
+    \begin{itemize}
+        \item 理想气体温标：
+        \begin{equation}
+            T = 273.16 \lim_{p_i \to 0} \frac{p}{p_t}
+        \end{equation}
+        \item 热力学温标（K）
+        \item 摄氏温标：$t = T - 273.15$
+    \end{itemize}
+\end{itemize}
+
+\section{物态方程}
+\begin{itemize}
+    \item \textbf{基本形式}：
+    \begin{equation}
+        f(p, V, T) = 0
+    \end{equation}
+    \item \textbf{关键方程}：
+    \begin{itemize}
+        \item 理想气体：
+        \begin{equation}
+            pV = nRT
+        \end{equation}
+        \item 范德瓦耳斯方程：
+        \begin{equation}
+            \left( p + \frac{an^2}{V^2} \right)(V - nb) = nRT
+        \end{equation}
+        \item 昂内斯方程（位力展开）：
+        \begin{equation}
+            P = \frac{nRT}{V} \left[ 1 + \frac{n}{V}B(T) + \cdots \right]
+        \end{equation}
+    \end{itemize}
+    \item \textbf{热力学系数}：
+    \begin{align}
+        \alpha &= \frac{1}{V} \left( \frac{\partial V}{\partial T} \right)_p \\
+        \kappa_T &= -\frac{1}{V} \left( \frac{\partial V}{\partial p} \right)_T \\
+        \alpha &= \kappa_T \beta p
+    \end{align}
+\end{itemize}
+
+\section{准静态过程与功}
+\begin{itemize}
+    \item \textbf{定义}：无限缓慢的过程，中间态均为平衡态
+    \item \textbf{功的计算}：
+    \begin{itemize}
+        \item 流体：
+        \begin{equation}
+            W = -\int_{V_A}^{V_B} p \, dV
+        \end{equation}
+        \item 表面薄膜：
+        \begin{equation}
+            dW = \sigma \, dA
+        \end{equation}
+        \item 电介质：
+        \begin{equation}
+            dW = V E \, dP
+        \end{equation}
+        \item 磁介质：
+        \begin{equation}
+            dW = \mu_0 V \mathcal{H} \, d\mathcal{M}
+        \end{equation}
+    \end{itemize}
+    \item \textbf{广义形式}：
+    \begin{equation}
+        dW = \sum Y_i \, dy_i
+    \end{equation}
+\end{itemize}
+
+% 后续章节按照相同模式继续添加...
+
+\end{document}
