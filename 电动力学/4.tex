@@ -1,0 +1,358 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 4,           % 设置课程次数
+  classname = 电动力学,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\renewcommand{\i}{\mathrm{i}}
+\makeatother
+\allowdisplaybreaks[4]%允许公式跨页
+
+
+\begin{document}
+
+\begin{sol}[1]
+  (1)易知在$0<r<r_1$处$\vec{E}=0$\\
+  在$r_1<r<r_2$处
+  \begin{align*}
+    4\pi r^2 D&=\frac{4\pi(r^3-r_1^3)\rho_f}{3}\\
+    D&=\frac{(r^3-r_1^3)\rho_f}{3r^2}\\
+    \varepsilon E&=\frac{(r^3-r_1^3)\rho_f}{3r^2}\\
+    E&=\frac{(r^3-r_1^3)\rho_f}{3\varepsilon r^2}\\
+  \end{align*}
+  故$\vec{E}=\frac{(r^3-r_1^3)\rho_f\vec{r}}{3r^3}$\\
+  在$r>r_2$处
+  \begin{align*}
+    4\pi r^2 D&=\frac{4\pi(r_2^3-r_1^3)\rho_f}{3}\\
+    D&=\frac{(r_2^3-r_1^3)\rho_f}{3r^2}\\
+    \varepsilon_0 E&=\frac{(r_2^3-r_1^3)\rho_f}{3r^2}\\
+    E&=\frac{(r_2^3-r_1^3)\rho_f}{3\varepsilon_0r^2}\\
+  \end{align*}
+  故$\vec{E}=\frac{(r_2^3-r_1^3)\rho_f\vec{r}}{3r^3}$\\
+  (2)易知只在$r_1<r<r_2$处有极化体电荷，有
+  \begin{align*}
+    \vec{P}&=\vec{D}-\varepsilon_0\vec{E}\\
+    &=\vec{D}-\varepsilon_0\frac{\vec{D}}{\varepsilon}\\
+    &=(1-\frac{\varepsilon_0}{\varepsilon})\vec{D}
+  \end{align*}
+  故
+  \begin{align*}
+    \rho_p&=\nabla\cdot\vec{P}\\
+    &=-(1-\frac{\varepsilon_0}{\varepsilon})\nabla\cdot\vec{D}\\
+    &=-(1-\frac{\varepsilon_0}{\varepsilon})\rho_f
+  \end{align*}
+  考虑内球壳，此时$r=r_1$。
+  \begin{align*}
+    \sigma_p=-\frac{(\varepsilon-\varepsilon_0)(r^3-r_1^3)\rho_f}{3\varepsilon r^2}|_{r=r_1}=0
+  \end{align*}
+  考虑外球壳，此时$r=r_2$。
+  \begin{align*}
+    \sigma_p=\frac{(\varepsilon-\varepsilon_0)(r^3-r_1^3)\rho_f}{3\varepsilon r^3}|_{r=r_2}=(1-\frac{\varepsilon_0}{\varepsilon})\frac{r_2^3-r_1^3}{3r^3_2}\rho_f
+  \end{align*}
+\end{sol}\par
+
+\begin{sol}[2]
+    易知在$0<r<r_1$处$\vec{B}=0$\\
+    在$r_1<r<r_2$处
+    \begin{align*}
+      2\pi rH&=j_f\pi(r^2-r_1^2)\\
+      H&=\frac{j_f(r^2-r_1^2)}{2r}\\
+      \frac{B}{\mu}&=\frac{j_f(r^2-r_1^2)}{2r}\\
+      B&=\frac{\mu j_f(r^2-r_1^2)}{2r}
+    \end{align*}
+    故$\vec{B}=\frac{\mu (r^2-r_1^2)\vec{j}_f\times\vec{r}}{2r^2}$\\
+    在$r>r_2$处
+    \begin{align*}
+        2\pi rH&=j_f\pi(r_2^2-r_1^2)\\
+        H&=\frac{j_f(r_2^2-r_1^2)}{2r}\\
+        \frac{B}{\mu_0}&=\frac{j_f(r_2^2-r_1^2)}{2r}\\
+        B&=\frac{\mu_0 j_f(r_2^2-r_1^2)}{2r}
+      \end{align*}
+      故$\vec{B}=\frac{\mu_0 (r_2^2-r_1^2)\vec{j}_f\times\vec{r}}{2r^2}$\\
+    易知只在$r_1<r<r_2$处有磁化电流，有
+    \begin{align*}
+      \vec{M}&=\frac{\vec{B}}{\mu_0}-\vec{H}\\
+      &=\frac{\mu\vec{H}}{\mu_0}-\vec{H}\\
+      &=(\frac{\mu}{\mu_0}-1)\vec{H}
+    \end{align*}
+    故
+    \begin{align*}
+      \vec{j}_m=\nabla\times\vec{M}\\
+      &=(\frac{\mu}{\mu_0}-1)\nabla\times\vec{H}\\
+      &=(\frac{\mu}{\mu_0}-1)\vec{j}_f
+    \end{align*}
+    在内表面，此时$r=r_1$。
+    \begin{align*}
+      \alpha_m=\vec{n}\times M|_{r=r_1}=0
+    \end{align*}
+    在外表面，此时$r=r_2$。
+    \begin{align*}
+        \alpha_m=-\vec{n}\times M|_{r=r_2}=-(\frac{\mu}{\mu_0}-1)\frac{r_2^2-r_1^2}{2r^2}\vec{j}_f
+    \end{align*}
+\end{sol}\par
+
+\begin{sol}[3]
+    (1)\begin{align*}
+        E_1l_1+E_2l_2&=\mathscr{E}\\
+        D_1&=D_2\\
+        D_1&=\varepsilon_1E_1\\
+        D_2&=\varepsilon_2E_2
+    \end{align*}
+    解得
+    \begin{align*}
+        D=\frac{\varepsilon_1\varepsilon_2E}{l_1\varepsilon_2+l2\varepsilon_1}
+    \end{align*}
+    故
+    \begin{align*}
+        \omega_{f2}=-\omega_{f1}=D=\frac{\varepsilon_1\varepsilon_2E}{l_1\varepsilon_2+l2\varepsilon_1}
+    \end{align*}
+    (2)
+    \begin{align*}
+        \omega_{f3}=0
+    \end{align*}
+    若介质漏电，设漏电电流为$\vec{j}_1,\vec{j}_2$
+    (1)\begin{align*}
+        \vec{n}\cdot(\vec{j}_2-\vec{j}_1)&=0\\
+        l_1\frac{\vec{j}_1}{\sigma_1}+l_2\frac{\vec{j}_2}{\sigma_2}&=\mathscr{E}
+    \end{align*}
+    解得
+    \begin{align*}
+        E_1&=\frac{\sigma_2\mathscr{E}}{l_1\sigma_2+l_2\sigma_1}\\
+        E_2&=\frac{\sigma_1\mathscr{E}}{l_1\sigma_2+l_2\sigma_1}
+    \end{align*}
+    故
+    \begin{align*}
+        \omega_{f1}&=D_1=\frac{\varepsilon_1\sigma_2\mathscr{E}}{l_1\sigma_2+l_2\sigma_1}\\
+        \omega_{f2}&=D_2=\frac{\varepsilon_2\sigma_1\mathscr{E}}{l_1\sigma_2+l_2\sigma_1}\\
+        \omega_{f3}&=D_2-D_1=\frac{\varepsilon_2\sigma_1\mathscr{E}-\varepsilon_1\sigma_2\mathscr{E}}{l_1\sigma_2+l_2\sigma_1}\\
+    \end{align*}
+\end{sol}\par
+
+\begin{sol}[4]
+    (1)由$\vec{D}$的法向连续条件知
+    \begin{align*}
+        D_1\cos\theta_1&=D_2\cos\theta_2\\
+        E_1\varepsilon_1\cos\theta_1&=E_2\varepsilon_2\cos\theta_2
+    \end{align*}
+    又由$\vec{E}$的切向连续条件知
+    \begin{align*}
+        E_1\sin\theta_1&=E_2\sin\theta_2
+    \end{align*}
+    故有
+    \begin{align*}
+        \frac{\tan\theta_2}{\tan\theta_1}=\frac{\varepsilon_2}{\varepsilon_1}
+    \end{align*}
+    (2)由$\vec{j}$的法向连续条件知
+    \begin{align*}
+        j_1\cos\theta_1&=j_2\cos\theta_2\\
+        E_1\sigma_1\cos\theta_1&=E_2\sigma_2\cos\theta_2
+    \end{align*}
+    又由$\vec{E}$的切向连续条件知
+    \begin{align*}
+        E_1\sin\theta_1&=E_2\sin\theta_2
+    \end{align*}
+    故有
+    \begin{align*}
+        \frac{\tan\theta_2}{\tan\theta_1}=\frac{\sigma_2}{\sigma_1}
+    \end{align*}
+\end{sol}\par
+
+\begin{sol}[5]
+    不妨设电场方程为
+    \begin{align*}
+        \vec{E}=\vec{E}_0\sin(\omega t-kx)
+    \end{align*}
+    则有
+    \begin{align*}
+        \frac{\partial \vec{B}}{\partial t}&=-\nabla\times\vec{E}\\
+        &=-\vec{E}_0\times\nabla(\sin(\omega t-kx))\\
+        &=-\vec{E}_0\times(-k\vec{e}_x\cos(\omega t-kx))\\
+        &=k\cos(\omega t-kx)\vec{E}_0\times\vec{e}_x
+    \end{align*}
+    故
+    \begin{align*}
+        \vec{B}&=\int \cos(\omega t-kx)\d tk\vec{E}_0\times\vec{e}_x\\
+    \end{align*}
+    略去不属于电磁波部分的常数后可得
+    \begin{align*}
+        \vec{B}=\frac{k}{\omega}\sin(\omega t-kx)\vec{E}_0\times\vec{e}_x
+    \end{align*}
+    则能量密度为
+    \begin{align*}
+        w&=\frac{1}{2}(\vec{E}\cdot\vec{D}+\vec{H}\cdot\vec{B})\\
+        &=\varepsilon_0E_0^2\sin^2(\omega t-kx)
+    \end{align*}
+    平均值为
+    \begin{align*}
+        \overline{w}&=\frac{1}{T}\int_{0}^{T}\varepsilon_0E_0^2\sin^2(\omega t-kx)\d t\\
+        &=\frac{1}{2}\varepsilon_0E_0^2
+    \end{align*}
+    坡印廷矢量的瞬时值为
+    \begin{align*}
+        \vec{S}&=\Re E\times\Re H\\
+        &=\vec{E}_0\cos(\omega t-kx-\frac{\pi}{2})\times(\frac{k}{\omega\mu_0}\cos(\omega t-kx-\frac{\pi}{2})\vec{E}_0\times\vec{e}_x)\\
+        &=\frac{k\vec{e}_x}{\omega\mu_0}E_0^2\cos^2(\omega t-kx-\frac{\pi}{2})
+    \end{align*}
+    则均值为
+    \begin{align*}
+        \overline{S}&=\frac{1}{T}\int_{0}^{T}\vec{S}\d t\\
+        &=\frac{E_0^2k\vec{e}_x}{2\omega\mu_0}
+    \end{align*}
+\end{sol}\par
+
+\begin{sol}[6]
+    (1)静电条件下，导体内部电场为0。
+    由$\vec{E}$的切向连续可知
+    \begin{align*}
+        \vec{n}\times\vec{E}_{\text{外}}=0
+    \end{align*}
+    故$\vec{E}_{\text{外}}$垂直于导体表面。\\
+    (2)稳恒电流条件下导体表面$\sigma_f=0$。故由$\vec{D}$的切向连续可知
+    \begin{align*}
+        \vec{n}\cdot(\vec{D}_{\text{内}}-\vec{D}_{\text{外}})=0
+    \end{align*}
+    又因为$\vec{D}_{\text{外}}=0$，故有
+    \begin{align*}
+        \vec{n}\cdot\vec{D}_{\text{内}}&=0\\
+        \vec{n}\cdot\vec{E}_{\text{内}}&=0
+    \end{align*}
+    即电场方向平行于导体平面
+\end{sol}\par
+
+\begin{sol}[7]
+    (1)由高斯定理知
+    \begin{align*}
+        \nabla\cdot\vec{D}=\rho_f
+    \end{align*}
+    代入电荷守恒方程可得
+    \begin{align*}
+        \nabla\cdot\vec{j}+\frac{\partial\nabla\cdot\vec{D}}{\partial t}&=0\\
+        \nabla\cdot(\vec{j}+\frac{\partial\vec{D}}{\partial t})&=0\\
+        \vec{j}+\frac{\partial\vec{D}}{\partial t}&=0
+    \end{align*}
+    (2)由高斯定理知
+    \begin{align*}
+        \vec{D}&=\frac{\lambda_f}{2\pi r}\vec{e}_r\\
+        \vec{E}&=\frac{\lambda_f}{2\pi\varepsilon r}\vec{e}_r
+    \end{align*}
+    又
+    \begin{align*}
+        \vec{j}+\frac{\partial\vec{D}}{\partial t}&=0\\
+        \sigma \vec{E}+\varepsilon\frac{\partial\vec{E}}{\partial t}&=0\\
+        \vec{E}&=\vec{E}_0e^{-\frac{\sigma}{\varepsilon}t}
+    \end{align*}
+    故
+    \begin{align*}
+        \frac{\lambda_f}{2\pi\varepsilon r}\vec{e}_r&=\frac{\lambda_{f0}}{2\pi\varepsilon r}e^{-\frac{\sigma}{\varepsilon}t}\vec{e}_r\\
+        \lambda_f&=\lambda_{f0}e^{-\frac{\sigma}{\varepsilon}t}
+    \end{align*}
+    (3)\begin{align*}
+        w&=\vec{j}^2\rho\\
+        &=\sigma^2E^2\frac{1}{\sigma}\\
+        &=(\frac{\lambda_f}{2\pi\varepsilon r})^2\sigma
+    \end{align*}
+    (4)\begin{align*}
+        P&=\int_{a}^{b}(\frac{\lambda_f}{2\pi\varepsilon r})^2\sigma2\pi rl\d r\\
+        &=\frac{\lambda_f^2\sigma l}{2\pi\varepsilon^2}\ln\frac{b}{a}
+    \end{align*}
+    静电能
+    \begin{align*}
+        W&=\int\frac{\vec{E}\cdot\vec{D}}{2}\d V\\
+        &=\int_{a}^{b}\frac{\lambda_f^2l}{4\pi\varepsilon r}\d r\\
+        &=\frac{\lambda_f^2l}{4\pi\varepsilon}\ln\frac{b}{a}
+    \end{align*}
+    \begin{align*}
+        -\frac{\d W}{\d t}&=-\frac{\lambda_f l}{2\pi\varepsilon}\ln\frac{b}{a}\frac{\d \lambda_f}{\d t}\\
+        &=\frac{\lambda_f^2\sigma l}{2\pi\varepsilon^2}\ln\frac{b}{a}
+    \end{align*}
+\end{sol}\par
+
+\begin{sol}[8]
+    (1)\begin{align*}
+        \rho_p&=-\nabla\cdot\vec{P}\\
+        &=-[(\nabla\frac{K}{r^2})\cdot\vec{r}+\frac{K}{r^2}(\nabla\cdot\vec{r})]\\
+        &=-(\frac{K}{r^2}+3\frac{K}{r^2})\\
+        &=-\frac{K}{r^2}
+    \end{align*}
+    \begin{align*}
+        \sigma_p&=-\vec{n}\cdot(\vec{P}_2-\vec{P}_1)|_{r=R}\\
+        &=\vec{n}\cdot\vec{P}_1|_{r=R}\\
+        &=\vec{n}\cdot K\frac{\vec{r}}{r^2}|_{r=R}\\
+        &=\frac{K}{R}
+    \end{align*}
+    (2)由
+    \begin{align*}
+        \vec{D}&=\varepsilon_0\vec{E}+\vec{P}\\
+        \vec{D}&=\varepsilon\vec{E}
+    \end{align*}
+    可得
+    \begin{align*}
+        \vec{D}&=\frac{\varepsilon\vec{P}}{\varepsilon-\varepsilon_0}
+    \end{align*}
+    故
+    \begin{align*}
+        \rho_f&=\nabla\cdot\vec{D}\\
+        &=\frac{\varepsilon}{\varepsilon-\varepsilon_0}\nabla\cdot\vec{P}\\
+        &=\frac{\varepsilon}{\varepsilon-\varepsilon_0}\frac{K}{r^2}\\
+        &=\frac{\varepsilon K}{(\varepsilon-\varepsilon_0)r^2}
+    \end{align*}
+    (3)在球内部
+    \begin{align*}
+        \vec{E}&=\frac{\vec{P}}{\varepsilon-\varepsilon_0}\\
+        &=\frac{K\vec{r}}{(\varepsilon-\varepsilon_0)r^2}
+    \end{align*}
+    球外部
+    \begin{align*}
+        4\pi r^2E&=\int_{0}^{R}4\pi r^2\frac{\rho_f}{\varepsilon_0}\d r\\
+        4\pi r^2E&=\int_{0}^{R}4\pi r^2\frac{\varepsilon K}{\varepsilon_0(\varepsilon-\varepsilon_0)r^2}\d r\\
+        4\pi r^2E&=\frac{4\pi\varepsilon KR}{\varepsilon_0(\varepsilon-\varepsilon_0)}\\
+        E&=\frac{\varepsilon KR}{\varepsilon_0(\varepsilon-\varepsilon_0)r^2}
+    \end{align*}
+    故
+    \begin{align*}
+        \vec{E}=\frac{\varepsilon KR}{\varepsilon_0(\varepsilon-\varepsilon_0)r^3}\vec{r}
+    \end{align*}
+    故
+    \begin{align*}
+        \varphi&=\int_{\infty}^{r}\frac{\varepsilon KR}{\varepsilon_0(\varepsilon-\varepsilon_0)r^3}\vec{r}\cdot\d \vec{r}\\
+        &=\frac{\varepsilon KR}{(\varepsilon-\varepsilon_0)\varepsilon_0r}
+    \end{align*}
+    在球内部
+    \begin{align*}
+        \vec{E}&=\frac{\vec{P}}{\varepsilon-\varepsilon_0}\\
+        &=\frac{K\vec{r}}{(\varepsilon-\varepsilon_0)r^2}
+    \end{align*}
+    故
+    \begin{align*}
+        \varphi&=\varphi(R)+\int_{R}^{r}\frac{K\vec{r}}{(\varepsilon-\varepsilon_0)r^2}\cdot\d\vec{r}\\
+        &=\frac{K}{\varepsilon-\varepsilon_0}(\ln\frac{R}{r}+\frac{\varepsilon}{\varepsilon_0})
+    \end{align*}
+    (4)\begin{align*}
+        W&=\int_{0}^{R}\frac{\varepsilon E^2}{2}4\pi r^2\d r+\int_{R}^{\infty}\frac{\varepsilon_0 E^2}{2}4\pi r^2\d r\\
+        &=\int_{0}^{R}\frac{2\pi\varepsilon K^2}{(\varepsilon-\varepsilon_0)}\d r+\int_{R}^{\infty}\frac{2\pi\varepsilon^2K^2R}{\varepsilon_0(\varepsilon-\varepsilon_0)^2r^2}\d r\\
+        &=2\pi\varepsilon R(\frac{K}{\varepsilon-\varepsilon_0})^2+\frac{2\pi\varepsilon^2RK^2}{\varepsilon_0(\varepsilon-\varepsilon_0)^2}\\
+        &=2\pi\varepsilon R(1+\frac{\varepsilon}{\varepsilon_0})(\frac{K}{\varepsilon-\varepsilon_0})^2
+    \end{align*}
+\end{sol}\par
+\end{document}
