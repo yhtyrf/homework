@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.7.5)  26 MAR 2025 13:57
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.7.5)  1 APR 2025 22:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**4
-(./4.tex
+**5
+(./5.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (c:/texlive/2023/texmf-dist/tex/latex/phyasgn/phyasgn.cls (c:/texlive/2023/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
@@ -757,8 +757,8 @@ File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfdecorationsegmentlength=\dimen332
 )
 \tikz@lib@dec@box=\box124
-) (c:/texlive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (./4.aux)
-\openout1 = `4.aux'.
+) (c:/texlive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (./5.aux)
+\openout1 = `5.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
@@ -893,19 +893,19 @@ Package fontspec Info: Font family 'SimHei(0)' created for font 'SimHei' with
 (fontspec)             <->"SimHei/OT:script=hani;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
-LaTeX Font Info:    Trying to load font information for U+txmia on input line 36.
+LaTeX Font Info:    Trying to load font information for U+txmia on input line 37.
 (c:/texlive/2023/texmf-dist/tex/latex/phyasgn/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
  (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
  (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 36.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 37.
  (c:/texlive/2023/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
@@ -937,16 +937,19 @@ File: logo1.png Graphic file (type bmp)
  [8]
 File: logo1.png Graphic file (type bmp)
 <logo1.png>
- [9] 
+ [9]
+File: logo1.png Graphic file (type bmp)
+<logo1.png>
+ [10] 
 enddocument/afterlastpage: lastpage setting LastPage.
-(./4.aux) ) 
+(./5.aux) ) 
 Here is how much of TeX's memory you used:
  26351 strings out of 478630
  597370 string characters out of 5847731
- 1861012 words of memory out of 5000000
+ 1863012 words of memory out of 5000000
  46004 multiletter control sequences out of 15000+600000
  520790 words of font info for 87 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 102i,19n,117p,479b,623s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,19n,117p,479b,547s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 4.pdf (9 pages).
+Output written on 5.pdf (10 pages).

@@ -1,0 +1,458 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 5,           % 设置课程次数
+  classname = 电动力学,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\renewcommand{\i}{\mathrm{i}}
+\makeatother
+\allowdisplaybreaks[4]%允许公式跨页
+
+
+\begin{document}
+
+\begin{sol}[1]
+  (1)选用球坐标系，以外电场方向为极轴，选取地面为势能零点则定解条件为
+  \begin{align*}
+    \left\{\begin{matrix}
+      \frac{1}{r^2}\partial_r(r^2\partial_r \varphi)+\frac{1}{r^2\sin\theta}\partial_\theta(\sin\theta\partial_\theta \varphi)=0(r>R_0)\\
+      \varphi|_{r=R_0}=\phi_0\\
+      \lim_{r\to\infty}\varphi=-E_0r\cos\theta+\varphi_0
+    \end{matrix}\right.
+  \end{align*}
+  其中$\varphi_0$为为放入导体球时原点处的电势。\\
+  分离变量$\varphi=R(r)\Theta(\theta)$得
+  \begin{align*}
+    \left\{\begin{matrix}
+      r^2R''+2rR'-l(l+1)R=0\\
+      \Theta''+\cot\theta\Theta+l(l+1)\Theta=0
+    \end{matrix}\right.
+  \end{align*}
+  通解为
+  \begin{align*}
+    \left\{\begin{matrix}
+      R=A_lr^l+B_lr^{-l-1}\\
+      \Theta=P_l(\cos\theta)
+    \end{matrix}\right.
+  \end{align*}
+  则\begin{align*}
+    \varphi=\sum_{l=0}^{\infty}P_l(\cos\theta)(A_lr^l+B_lr^{-l-1})
+  \end{align*}
+  代入无穷远处边界条件得
+  \begin{align*}
+    \lim_{r\to\infty}\sum_{l=0}^{\infty}P_l(\cos\theta)(A_lr^l+B_lr^{-l-1})&=-E_0r\cos\theta+\varphi_0
+  \end{align*}
+  对比系数得到
+  \begin{align*}
+    A_0&=\varphi_0\\
+    A_1&=-E_0\\
+    A_l&=0(l>1)
+  \end{align*}
+  故
+  \begin{align*}
+    \varphi=\varphi_0-E_0r\cos\theta+\sum_{l=0}^{\infty}B_lr^{-l-1}
+  \end{align*}
+  代入导体表面边界条件有
+  \begin{align*}
+    \varphi_0-E_0R_0\cos\theta+\sum_{l=0}^{\infty}B_lR_0^{-l-1}P_l(\cos\theta)=\phi_0
+  \end{align*}
+  由于勒让德级数是正交的，故等式两端相同幂次的$\cos\theta$的系数相等
+  对比系数得到
+  \begin{align*}
+    \left\{\begin{matrix}
+      \varphi_0+\frac{B_0}{R_0}=\phi_0\\
+      -E_0R_0+\frac{B_1}{R_0^2}=0\\
+      B_l=0(l>1)
+    \end{matrix}\right.
+  \end{align*}
+  解得
+  \begin{align*}
+    B_0&=R_0(\phi_0-\varphi_0)\\
+    B_1&=E_0R_0^3\\
+    B_l&=0(l>1)
+  \end{align*}
+  故
+  \begin{align*}
+    \varphi=-E_0r\cos\theta+\varphi_0+\frac{R_0(\phi_0-\varphi_0)}{r}+\frac{E_0R_0^3\cos\theta}{r^2}
+  \end{align*}
+  (2)定解条件变为
+  \begin{align*}
+    \left\{\begin{matrix}
+      \frac{1}{r^2}\partial_r(r^2\partial_r \varphi)+\frac{1}{r^2\sin\theta}\partial_\theta(\sin\theta\partial_\theta \varphi)=0(r>R_0)\\
+      \frac{1}{r^2}\partial_r(r^2\partial_r \varphi)+\frac{1}{r^2\sin\theta}\partial_\theta(\sin\theta\partial_\theta \varphi)=0(r<R_0)\\
+      \lim_{r\to\infty}\varphi=-E_0r\cos\theta+\varphi_0\\
+      \lim_{r\to0}\varphi\text{有限}\\
+      \lim_{r\to R_0^+}\varphi=\lim_{r\to R_0^-}\varphi\\
+      -\oint\limits_{S}\varepsilon_0\frac{\partial \varphi}{\partial r}\d S=Q
+    \end{matrix}\right.
+  \end{align*}
+  故可得满足边界条件的解为
+  \begin{align*}
+    \varphi=\left\{\begin{matrix}
+      \sum_{l=0}^{\infty}a_lr^lP_l(\cos\theta)&(r<R_0)\\
+      \varphi_0-E_0r\cos\theta+\sum_{l=0}^{\infty}b_lr^{-l-1}P_l(\cos\theta)&(r>R_0)
+    \end{matrix}\right.
+  \end{align*}
+  又因为导体处于静电平衡，故$r<R_0$时，$\varphi$为常数，故$a_l=0(l>0)$。同时球表面等势，有
+  \begin{align*}
+    \varphi_0-E_0R_0\cos\theta+\sum_{l=0}^{\infty}b_lR_0^{-l-1}P_l(\cos\theta)=a_0
+  \end{align*}
+  解得
+  \begin{align*}
+    b_0&=R_0(a_0-\varphi_0)\\
+    b_1&=E_0R_0^3\\
+    b_l&=0(l>1)
+  \end{align*}
+  故
+  \begin{align*}
+    \varphi=\left\{\begin{matrix}
+      a_0&(r<R_0)\\
+      \varphi_0-E_0r\cos\theta+\frac{R_0(a_0-\varphi_0)}{r}+\frac{E_0R_0^3\cos\theta}{r^2}&(r>R_0)
+    \end{matrix}\right.
+  \end{align*}
+  故
+  \begin{align*}
+    \frac{\partial \varphi}{\partial r}|_{r=R_0}&=(-E_0\cos\theta-\frac{R_0(a_0-\varphi_0)}{r^2}-\frac{2E_0R_0^3}{r^3}\cos\theta)|_{r=R_0}\\
+    &=-E_0\cos\theta-\frac{a_0-\varphi_0}{R_0}-2E_0\cos\theta\\
+  \end{align*}
+  \begin{align*}
+    -\oint\limits_{S}\varepsilon_0\frac{\partial \varphi}{\partial r}\d S&=-\int_{0}^{2\pi}\d \varphi\int_{0}^{\pi}\varepsilon_0(-E_0\cos\theta-\frac{a_0-\varphi_0}{R_0}-2E_0\cos\theta)R_0^2\sin\theta\d\theta\\
+    &=4\pi\varepsilon_0R_0(a_0-\varphi_0)
+  \end{align*}
+  \begin{align*}
+    4\pi\varepsilon_0R_0(a_0-\varphi_0)&=Q\\
+    a_0&=\frac{Q}{4\pi\varepsilon_0R_0}+\varphi_0
+  \end{align*}
+  故
+  \begin{align*}
+    \varphi=\left\{\begin{matrix}
+    \frac{Q}{4\pi\varepsilon_0R_0}+\varphi_0&(r<R_0)\\
+      \varphi_0-E_0r\cos\theta+\frac{Q}{4\pi \varepsilon_0 r}+\frac{E_0R_0^3\cos\theta}{r^2}&(r>R_0)
+    \end{matrix}\right.
+  \end{align*}
+\end{sol}\par
+
+\begin{sol}[2]
+  由对称性分析知，电势只依赖于$r$。
+  即
+  \begin{align*}
+    \varphi=\varphi(r)
+  \end{align*}
+  又由叠加原理知，该电势可由中心电荷与球壳电荷叠加得到，即
+  \begin{align*}
+    \varphi&=\varphi_q+\varphi_s\\
+    &=\frac{Q_f}{4\pi\varepsilon r}+\varphi_s
+  \end{align*}
+  又易知$\varphi_s$的通解为
+  \begin{align*}
+    \varphi_s=\left\{\begin{matrix}
+      a+\frac{b}{r}&(r<R)\\
+      c+\frac{d}{r}&(r>R)
+    \end{matrix}\right.
+  \end{align*}
+  
+  无穷远处电势为0有
+  \begin{align*}
+    \lim_{r\to\infty}\frac{Q_f}{4\pi\varepsilon r}+c+\frac{d}{r}&=0\\
+    c&=0
+  \end{align*}
+  又球壳电荷均匀分布，
+  故$b=0$。
+  即
+  \begin{align*}
+    \varphi_s=\left\{\begin{matrix}
+      a&(r<R)\\
+      \frac{d}{r}&(r>R)
+    \end{matrix}\right.
+  \end{align*}
+  又在$R$处
+  \begin{align*}
+    a+\frac{Q_f}{4\pi\varepsilon R}&=\frac{Q_f}{4\pi\varepsilon R}+\frac{d}{R}\\
+    a&=\frac{d}{R}\\
+  \end{align*}
+  \begin{align*}
+    D_1&=D_2\\
+    \frac{-\varepsilon Q_f}{4\pi\varepsilon R^2}&=\frac{-\varepsilon_0Q_f}{4\pi\varepsilon R^2}-\frac{\varepsilon_0d}{R^2}\\
+    d&=\frac{ Q_f}{4\pi }(\frac{1}{\varepsilon_0}-\frac{1}{\varepsilon})\\
+  \end{align*}
+  故
+  \begin{align*}
+    \varphi_s=\left\{\begin{matrix}
+      \frac{ Q_f}{4\pi R }(\frac{1}{\varepsilon_0}-\frac{1}{\varepsilon})&(r<R)\\
+      \frac{Q_f}{4\pi r}(\frac{1}{\varepsilon_0}-\frac{1}{\varepsilon})&(r>R)
+    \end{matrix}\right.
+  \end{align*}
+  即
+  \begin{align*}
+    \varphi=\left\{\begin{matrix}
+      \frac{Q_f}{4\pi\varepsilon r}+\frac{ Q_f}{4\pi R }(\frac{1}{\varepsilon_0}-\frac{1}{\varepsilon})&(r<R)\\
+      \frac{Q_f}{4\pi r}\frac{1}{\varepsilon_0}&(r>R)
+    \end{matrix}\right.
+  \end{align*}
+  这与使用高斯定理的结果是一致的。
+\end{sol}\par
+
+\begin{sol}[3]
+  该电势可由电偶极子电势与球面极化电荷电势叠加得到，即
+  \begin{align*}
+    \varphi&=\varphi_p+\varphi_s\\
+    &=\frac{\vec{p}_f\cdot\vec{r}}{4\pi\varepsilon_1r^3}+\varphi_s
+  \end{align*}
+  以$\vec{p}$方向为极轴选取球坐标系，
+  则$\varphi_s$满足拉普拉斯方程，且由对称性知，电势与$\phi$无关。
+  又由物理边界条件(电势有限)知
+  \begin{align*}
+    \varphi_s=\left\{\begin{matrix}
+      \sum_{l=0}^{\infty}a_lr^lP_l(\cos\theta)&(r<R)\\
+      \sum_{l=0}^{\infty}b_lr^{-l-1}P_l(\cos\theta)&(r>R)
+    \end{matrix}\right.
+  \end{align*}
+  又
+  \begin{align*}
+    \varphi_{in}(R,\theta)&=\varphi_{out}(R,\theta)\\
+    \varepsilon_1\frac{\partial \varphi_{in}}{\partial r}&=\varepsilon_1\frac{\partial \varphi_{out}}{\partial r}
+  \end{align*}
+  对比$P_l(\cos\theta)$的系数得到
+  \begin{align*}
+    a_l&=0(l\neq1)\\
+    b_l&=0(l\neq1)\\
+    a_1&=\frac{(\varepsilon_1-\varepsilon_2)p}{2\pi\varepsilon_1(\varepsilon_1+\varepsilon_2)R^3}\\
+    b_1&=R^3a_1
+  \end{align*}
+  故
+  \begin{align*}
+    \varphi=\left\{\begin{matrix}
+      \frac{\vec{p}_f\cdot\vec{r}}{4\pi\varepsilon_1r^3}+\frac{(\varepsilon_1-\varepsilon_2)p_fr\cos\theta}{2\pi\varepsilon_1(\varepsilon_1+\varepsilon_2)R^3}&(r<R)\\
+      \frac{\vec{p}_f\cdot\vec{r}}{4\pi\varepsilon_1r^3}+\frac{(\varepsilon_1-\varepsilon_2)p_f\cos\theta}{2\pi\varepsilon_1(\varepsilon_1+\varepsilon_2)r^2}=\frac{3p\cos\theta}{4\pi(\varepsilon_1+2\varepsilon_2)r^2}&(r>R)\\
+    \end{matrix}\right.
+  \end{align*}
+  介质内部没有电荷的地方便没有极化电荷，故球心有极化偶极子
+  \begin{align*}
+    \vec{p}_p=(\frac{\varepsilon}{\varepsilon_0}-1)\vec{p}_f
+  \end{align*}
+  球面极化电荷密度为
+  \begin{align*}
+    \sigma_p&=-(\varepsilon_1-\varepsilon_0)\frac{\partial \varphi_{in}}{\partial r}|_{r=R}+(\varepsilon_2-\varepsilon_0)\frac{\partial \varphi_{out}}{\partial r}|_{r=R}\\
+    &=\frac{3(\varepsilon_1-\varepsilon_2)\varepsilon_0p_f\cos\theta}{2\pi\varepsilon_1(\varepsilon_1+2\varepsilon_2)R^3}
+  \end{align*}
+\end{sol} 
+
+\begin{sol}[4]
+  设
+  \begin{align*}
+    \varphi=\left\{\begin{matrix}
+      \varphi_1&(r<R_1)\\
+      \varphi_2&(R_1<r<R_2)\\
+      \varphi_3&(r>R_2)
+    \end{matrix}\right.
+  \end{align*}
+  易知
+  \begin{align*}
+    \varphi_2&=\frac{Q}{4\pi\varepsilon_0R_2}\\
+    \varphi_3&=\frac{Q}{4\pi\varepsilon_0r}
+  \end{align*}
+  设
+  \begin{align*}
+    \varphi_1&=\frac{\vec{p}\cdot\vec{r}}{4\pi\varepsilon_0r^3}+\varphi'
+  \end{align*}
+  则$\varphi'$满足拉普拉斯方程，取$\vec{p}$的方向为极轴，可且对称性知，电势与$\phi$无关。
+  又在$r\to0$时，电势应取为偶极子电势，故
+  \begin{align*}
+    \varphi'=\sum_{l=0}^{\infty}a_lr^lP_l(\cos\theta)+\frac{b_0}{r}
+  \end{align*}
+  又
+  \begin{align*}
+    \varphi_1|_{r=R_1}&=\varphi_2|_{r=R_1}\\
+    \frac{p\cos\theta}{4\pi\varepsilon_0R_1^2}+\sum_{l=0}^{\infty}a_lR_1^lP_l(\cos\theta)+\frac{b_0}{r}&=\frac{Q}{4\pi\varepsilon_0R_2}\\
+  \end{align*}
+  对比系数得到
+  \begin{align*}
+    a_l&=0(l>1)\\
+    a_0+\frac{b_0}{R_1}&=\frac{Q}{4\pi\varepsilon_0R_2}\\
+    a_1&=\frac{-p}{4\pi\varepsilon_0R_1^3}
+  \end{align*}
+  则
+  \begin{align*}
+    \varphi_1&=\frac{p\cos\theta}{4\pi\varepsilon_0r^2}+a_0-\frac{pr\cos\theta}{4\pi\varepsilon_0R_1^3}+\frac{b_0}{r}
+  \end{align*}
+  又由高斯定理知球壳内表面电荷量为0即
+  \begin{align*}
+    \oint\limits_{S}\frac{\partial \varphi_1}{\partial r}\d S&=\oint\limits_{S}\frac{-p\cos\theta}{2\pi\varepsilon_0r^3}-\frac{p\cos\theta}{4\pi\varepsilon_0R_1^3}+\frac{b_0}{r^2}\d S\\
+    &=0
+  \end{align*}
+  解得$b_0=0$，故$a_0=\frac{Q}{4\pi\varepsilon_0R_2}$，故
+  \begin{align*}
+    \varphi_1&=\frac{p\cos\theta}{4\pi\varepsilon_0r^2}+\frac{Q}{4\pi\varepsilon_0R_2}-\frac{pr\cos\theta}{4\pi\varepsilon_0R_1^3}
+  \end{align*}
+  即
+  \begin{align*}
+    \varphi=\left\{\begin{matrix}
+      \frac{p\cos\theta}{4\pi\varepsilon_0r^2}+\frac{Q}{4\pi\varepsilon_0R_2}-\frac{pr\cos\theta}{4\pi\varepsilon_0R_1^3}&(r<R_1)\\
+      \frac{Q}{4\pi\varepsilon_0R_2}&(R_1<r<R_2)\\
+      \frac{Q}{4\pi\varepsilon_0r}&(r>R_2)
+    \end{matrix}\right.
+  \end{align*}
+  故在$r=R_1$处
+  \begin{align*}
+    \sigma&=\varepsilon_0\frac{\partial \varphi_1}{\partial r}|_{r=R_1}\\
+    &=-\frac{3p\cos\theta}{4\pi R_1^3}
+  \end{align*}
+  在$r=R_1$处
+  \begin{align*}
+    \sigma&=-\varepsilon_0\frac{\partial \varphi_3}{\partial r}|_{r=R_2}\\
+    &=\frac{Q}{4\pi R_2^2}
+  \end{align*}
+\end{sol} 
+
+\begin{sol}[5]
+  定解条件为
+  \begin{align*}
+    \left\{\begin{matrix}
+      \nabla^2\varphi_{in}=-\frac{\rho_f}{\varepsilon}\\
+      \nabla^2\varphi_{out}=0\\
+      \varphi_{in}|_{r=R}=\varphi_{out}|_{r=R}\\
+    \varepsilon\frac{\partial\varphi_{in}}{\partial r}|_{r=R}=\varepsilon_0\frac{\partial\varphi_{out}}{\partial r}|_{r=R}\\
+    \lim_{r\to\infty}\varphi_{out}=-E_0r\cos\theta\\
+    \lim_{r\to0}\varphi_{in}\text{有限}
+    \end{matrix}\right.
+  \end{align*}
+  设
+  \begin{align*}
+    \varphi_{in}&=\varphi_1+\varphi_1'\\
+    \varphi_{out}&=\varphi_2+\varphi_2'
+  \end{align*}
+  由高斯定理可导出球对称部分的特解
+  \begin{align*}
+    \varphi_1&=\frac{\rho_f(R^2-r^2)}{6\varepsilon}+\frac{\rho_fR^2}{3\varepsilon_0}\\
+    \varphi_2&=\frac{\rho_fR^3}{3\varepsilon_0r}
+  \end{align*}
+  则剩下的$\varphi_1',\varphi_2'$满足拉普拉斯方程则
+  \begin{align*}
+    \varphi_1'&=\sum_{l=0}^{\infty}a_lr^lP_l(\cos\theta)\\
+    \varphi_2'&=\sum_{l=0}^{\infty}b_lr^{-l-1}P_l(\cos\theta)+d_1r\cos\theta\\
+  \end{align*}
+  又
+  \begin{align*}
+    \lim_{r\to\infty}\varphi_{out}&=-E_0r\cos\theta\\
+  \end{align*}
+  得到$d_1=-E_0$。
+  \begin{align*}
+    \frac{\rho_fR^2}{3\varepsilon_0}+\sum_{l=0}^{\infty}a_lR^lP_l(\cos\theta)+c_0&=\frac{\rho_fR^2}{3\varepsilon_0}+\sum_{l=0}^{\infty}b_lR^{-l-1}P_l(\cos\theta)+d_0-E_0R\cos\theta\\
+    \varepsilon\frac{\partial\varphi_{in}}{\partial r}|_{r=R}=\varepsilon_0\frac{\partial\varphi_{out}}{\partial r}|_{r=R}
+  \end{align*}
+  联立解得
+  \begin{align*}
+    a_1&=-\frac{3\varepsilon_0E_0}{\varepsilon+2\varepsilon_0}\\
+    b_1&=\frac{(\varepsilon-\varepsilon_0)E_0R^3}{\varepsilon+2\varepsilon_0}\\
+    a_l&=0(l>1)\\
+    b_l&=0(l>1)\\
+  \end{align*}
+  故
+  \begin{align*}
+    \varphi=\left\{\begin{matrix}
+      \frac{\rho_f(R^2-r^2)}{6\varepsilon}+\frac{\rho_fR^2}{3\varepsilon_0}-\frac{3\varepsilon_0E_0r\cos\theta}{\varepsilon+2\varepsilon_0}&r<R\\
+      \frac{\rho_fR^3}{3\varepsilon_0r}-E_0r\cos\theta+\frac{(\varepsilon-\varepsilon_0)E_0R^3\cos\theta}{(\varepsilon+2\varepsilon_0)r^2}&r>R
+    \end{matrix}\right.
+  \end{align*}
+\end{sol} 
+
+\begin{sol}[6]
+  取$\vec{j}_{f0}$为轴向，球心为原点，在稳恒情况下，电势仍满足拉普拉斯方程。
+  故可得解为
+  \begin{align*}
+    \varphi_1&=\sum_{l=0}^{\infty}a_lr^lP_l(\cos\theta)\\
+    \varphi_2&=\sum_{l=0}^{\infty}b_lr^{-l-1}P_l(\cos\theta)-\frac{j_0r\cos\theta}{\sigma_2}
+  \end{align*}
+  选取$r=0$处为势能零点故$a_0=0$。
+  在球面上有
+  \begin{align*}
+    \varphi_1|_{r=R}&=\varphi_2|_{r=R}\\
+    \sigma_2\frac{\partial\varphi_2}{\partial r}|_{r=R}&=\sigma_1\frac{\partial\varphi_1}{\partial r}|_{r=R}
+  \end{align*}
+  解得
+  \begin{align*}
+    a_l&=0(l>1)\\
+    b_l&=0(l>1)\\
+    a_1&=\frac{3j_0}{\sigma_1+2\sigma_2}\\
+    b_1&=\frac{(\sigma_1-\sigma_2)j_0R^3}{(\sigma_1+2\sigma_2)\sigma_2}
+  \end{align*}
+  故
+  \begin{align*}
+    \varphi_1&=-\frac{3j_0r\cos\theta}{\sigma_1+2\sigma_2}\\
+    \varphi_2&=-\frac{j_0r\cos\theta}{\sigma_2}+\frac{(\sigma_1-\sigma_2)j_0R^3\cos\theta}{(\sigma_1+2\sigma_2)\sigma_2r^2}
+  \end{align*}
+  \begin{align*}
+    \vec{j}_1&=\sigma_1\vec{E}_1\\
+    &=-\sigma_1\nabla\varphi_1\\
+    &=\frac{3\sigma_1}{\sigma_1+2\sigma_2}\vec{j}_0
+  \end{align*}
+  同理
+  \begin{align*}
+    \vec{j}_2&=\vec{j}_0+\frac{(\sigma_1-\sigma_2)R^3}{\sigma_1+2\sigma_2}(\frac{3(\vec{j}_0\cdot\vec{r})\vec{r}}{r^5}-\frac{\vec{j}_0}{r^3})
+  \end{align*}
+  故
+  \begin{align*}
+    \vec{j}=\left\{\begin{matrix}
+      \frac{3\sigma_1}{\sigma_1+2\sigma_2}\vec{j}_0&r<R\\
+      \vec{j}_0+\frac{(\sigma_1-\sigma_2)R^3}{\sigma_1+2\sigma_2}(\frac{3(\vec{j}_0\cdot\vec{r})\vec{r}}{r^5}-\frac{\vec{j}_0}{r^3})&r>R
+    \end{matrix}\right.
+  \end{align*}
+  故交界面电荷密度为
+  \begin{align*}
+    \sigma&=\vec{e}_r\cdot(\vec{D}_2-\vec{D}_1)\\
+    &=\vec{e}_r\cdot(\varepsilon_0\vec{E}_2-\varepsilon_0\vec{E}_1)\\
+    &=\varepsilon_0\vec{e}_r\cdot(\frac{\vec{j}_1}{\sigma_1}-\frac{\vec{j}_2}{\sigma_2})\\
+    &=\frac{3(\sigma_1-\sigma_2)\varepsilon_0j_0\cos\theta}{(\sigma_1+2\sigma_2)\sigma_2}
+  \end{align*}
+  当$\sigma_1\gg \sigma_2$时
+  \begin{align*}
+    \vec{j}=\left\{\begin{matrix}
+      3\vec{j}_0&r<R\\
+      \vec{j}_0+\frac{R^3}{r^3}(\frac{3(\vec{j}_0\cdot\vec{r})\vec{r}}{r^2}-\vec{j}_0)&r>R
+    \end{matrix}\right.
+  \end{align*}
+  \begin{align*}
+    \sigma=\frac{3\varepsilon_0j_0\cos\theta}{\sigma_2}
+  \end{align*}
+  当$\sigma_1\ll  \sigma_2$时
+  \begin{align*}
+    \vec{j}=\left\{\begin{matrix}
+      0&r<R\\
+      \vec{j}_0-\frac{R^3}{2r^3}(\frac{3(\vec{j}_0\cdot\vec{r})\vec{r}}{r^2}-\vec{j}_0)&r>R
+    \end{matrix}\right.
+  \end{align*}
+  \begin{align*}
+    \sigma=\frac{-3\varepsilon_0j_0\cos\theta}{2\sigma_2}
+  \end{align*}
+\end{sol} 
+
+\begin{sol}[7]
+  选取圆环轴向为$z$轴所处平面为$x-y$平面，则空间中电势为
+  \begin{align*}
+    \varphi(x,y,z)&=\int_{0}^{2\pi}\frac{\lambda R\d\theta}{4\pi\varepsilon_0\sqrt{(x-R\cos\theta)^2+(y-R\sin\theta)^2+z^2}}\\
+    &=\frac{\lambda R}{4\pi\varepsilon_0}\int_{0}^{2\pi}\frac{\d\theta}{\sqrt{(x-R\cos\theta)^2+(y-R\sin\theta)^2+z^2}}\\
+  \end{align*}
+  其中积分$\int_{0}^{2\pi}\frac{\d\theta}{\sqrt{(x-R\cos\theta)^2+(y-R\sin\theta)^2+z^2}}$是一椭圆积分，无解析解。
+\end{sol}
+\end{document}
