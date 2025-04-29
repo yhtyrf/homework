@@ -1,0 +1,297 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 3,           % 设置课程次数
+  classname = 热力学和统计物理,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{mathrsfs}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\renewcommand{\i}{\mathrm{i}}
+\makeatother
+\allowdisplaybreaks[4]%允许公式跨页
+\renewcommand{\d}{\mathrm{d}}
+\usepackage{pdfpages}
+
+\begin{document}
+
+\begin{sol}[1]
+    (a)物体自发发生虚变动的条件为
+    \begin{align*}
+        \d U<T\d S-p\d V\\
+    \end{align*}
+    此处$S$，$V$不变，故有
+    \begin{align*}
+        \d U<0
+    \end{align*}
+    因此若物体达到了内能的极小值，$\d U>0$，不可能自发变化，亦即达到了平衡态。
+
+    (b)\begin{align*}
+        \d U&<T\d S-p\d V\\
+        \d H&<T\d S+V\d p\\
+    \end{align*}
+    此处$S$，$p$不变，故有
+    \begin{align*}
+        \d H<0
+    \end{align*}
+    因此若物体达到了焓的极小值，$\d H>0$，不可能自发变化，亦即达到了平衡态。
+
+    (c)\begin{align*}
+        \d U&<T\d S-p\d V\\
+        \d H&<T\d S+V\d p\\
+        \d S&>\frac{\d H}{T}-\frac{V\d p}{T}
+    \end{align*}
+    此处$H$，$p$不变，故有
+    \begin{align*}
+        \d S>0
+    \end{align*}
+    因此若物体达到了熵的极大值，$\d S<0$，不可能自发变化，亦即达到了平衡态。
+
+    (d)\begin{align*}
+        \d U&<T\d S-p\d V\\
+        \d F&<-S\d T-p\d V\\
+        -\d F&>S\d T+p\d V\\
+        \d T&<\frac{-\d F}{S}-\frac{p}{S}\d V
+    \end{align*}
+    此处$F$，$V$不变，故有
+    \begin{align*}
+        \d T<0
+    \end{align*}
+    因此若物体达到了温度的极小值，$\d T>0$，不可能自发变化，亦即达到了平衡态。
+
+    (e)\begin{align*}
+        \d U&<T\d S-p\d V\\
+        \d G&<-S\d T+V\d p\\
+        -S\d T&>\d G-V\d p\\
+        \d T&<\frac{V}{S}\d p-\frac{\d G}{S}
+    \end{align*}
+    此处$p$，$G$不变，故有
+    \begin{align*}
+        \d T<0
+    \end{align*}
+    因此若物体达到了温度的极小值，$\d T>0$，不可能自发变化，亦即达到了平衡态。
+
+    (f)\begin{align*}
+        \d U&<T\d S-p\d V\\
+        \d V&<\frac{T}{p}\d S-\frac{\d U}{p}
+    \end{align*}
+    此处$U$，$S$不变，故有
+    \begin{align*}
+        \d V<0
+    \end{align*}
+    因此若物体达到了体积的极小值，$\d V>0$，不可能自发变化，亦即达到了平衡态。
+
+    (f)\begin{align*}
+        \d U&<T\d S-p\d V\\
+        \d F&<-S\d T-p\d V\\
+        -\d F&>S\d T+p\d V\\
+        \d V&<-\frac{\d F}{p}-\frac{S}{p}\d T
+    \end{align*}
+    此处$F$，$T$不变，故有
+    \begin{align*}
+        \d V<0
+    \end{align*}
+    因此若物体达到了体积的极小值，$\d V>0$，不可能自发变化，亦即达到了平衡态。
+\end{sol}\par
+
+\begin{sol}[2]
+    \begin{align*}
+        \delta S_1&=\frac{\delta U_1}{T_1}+\frac{p_1\delta V_1}{T_1}\\
+        \delta S_2&=\frac{\delta U_2}{T_2}+\frac{p_2\delta V_2}{T_2}\\
+    \end{align*}
+    故
+    \begin{align*}
+        \delta S&=\delta S_1+\delta S_2\\
+        &=\frac{\delta U_1}{T_1}+\frac{p_1\delta V_1}{T_1}+\frac{\delta U_2}{T_2}+\frac{p_2\delta V_2}{T_2}
+    \end{align*}
+    又因为
+    \begin{align*}
+        \delta U_1+\delta U_2&=0\\
+        \delta V_1+\delta V_2&=0
+    \end{align*}
+    故得
+    \begin{align*}
+        T_1&=T_2\\
+        p_1&=p_2\\
+    \end{align*}
+    \begin{align*}
+        \delta^2S&=\delta^2S_1+\delta^2S_2\\
+        &=\sum_{\alpha=1}^{2}\left[-\frac{C_V^\alpha}{T^2}(\delta T)^2+\frac{1}{T}(\frac{\partial p}{\partial V^\alpha})_T(\delta V^\alpha)^2\right]\\
+        &=\sum_{\alpha=1}^{2}n^\alpha\left[-\frac{C_{V,m}^\alpha}{T^2}(\delta T)^2+\frac{1}{T}(\frac{\partial p}{\partial V_m^\alpha})_T(\delta V_m^\alpha)^2\right]\\
+    \end{align*}
+    故欲使
+    \begin{align*}
+        \delta^2S<0
+    \end{align*}
+    又$n^\alpha$是广延量，由于平衡只取决于强度量，即无论$n^\alpha$取何值，该式总成立，故
+    \begin{align*}
+        -\frac{C_{V,m}^\alpha}{T^2}(\delta T)^2+\frac{1}{T}(\frac{\partial p}{\partial V_m^\alpha})_T(\delta V_m^\alpha)^2<0(\alpha=1,2)
+    \end{align*}
+    又$\delta V_m^\alpha$与$\delta T$独立，故
+    \begin{align*}
+        C_{V,m}^\alpha>0,(\frac{\partial p}{\partial V_m^\alpha})_T<0(\alpha=1,2)
+    \end{align*}
+\end{sol}\par
+
+\begin{sol}[3]
+    (1)\begin{align*}
+        \d F&=-S\d T-p\d V+\mu\d n\\
+    \end{align*}
+    故
+    \begin{align*}
+        \frac{\partial^2 F}{\partial n\partial T}&=\frac{\partial^2 F}{\partial T\partial n}\\
+        (\frac{\partial \mu}{\partial T})_{V,n}&=-(\frac{\partial S}{\partial n})_{V,T}
+    \end{align*}
+
+    (2)\begin{align*}
+        \d G&=-S\d T+V\d p+\mu\d n\\
+    \end{align*}
+    故
+    \begin{align*}
+        \frac{\partial^2 G}{\partial n\partial p}&=\frac{\partial^2 G}{\partial p\partial n}\\
+        (\frac{\partial \mu}{\partial p})_{T,n}&=(\frac{\partial V}{\partial n})_{p,T}
+    \end{align*}
+\end{sol}\par
+
+\begin{sol}[4]
+    \begin{align*}
+        \d U&=T\d S-p\d V+\mu\d n\\
+        &=T(\frac{\partial S}{\partial n})_{T,V}\d n+T(\frac{\partial S}{\partial T})_{n,V}\d T+T(\frac{\partial S}{\partial V})_{n,T}\d V-p\d V+\mu\d n
+    \end{align*}
+    故
+    \begin{align*}
+        (\frac{\partial U}{\partial n})_{T,V}&=T(\frac{\partial S}{\partial n})_{T,V}+\mu\\
+        (\frac{\partial U}{\partial n})_{T,V}-\mu&=T(\frac{\partial S}{\partial n})_{T,V}\\
+        (\frac{\partial U}{\partial n})_{T,V}-\mu&=-T(\frac{\partial \mu}{\partial T})_{V,n}
+    \end{align*}
+\end{sol}\par
+
+\begin{sol}[5]
+    平衡相变过程中$T$、$p$不变，故有
+    \begin{align*}
+        \Delta U_m&=\Delta H_m-p\Delta V_m\\
+        \Delta H_m&=L
+    \end{align*}
+    又由克拉伯龙方程知
+    \begin{align*}
+        \frac{\d p }{\d T}=\frac{L}{T\Delta V_m}
+    \end{align*}
+    故
+    \begin{align*}
+        \Delta V_m=\frac{L\d T}{T\d p}
+    \end{align*}
+    故
+    \begin{align*}
+        \Delta U_m&=L-p\frac{L\d T}{T\d p}\\
+        &=L\left(1-\frac{p\d T}{T\d p}\right)
+    \end{align*}
+    对于理想气体至凝聚相的相变过程而言
+    \begin{align*}
+        \Delta V_m=\frac{RT}{p}
+    \end{align*}
+    故
+    \begin{align*}
+        \frac{\d p }{\d T}&=\frac{L}{T\frac{RT}{p}}\\
+        &=\frac{Lp}{RT^2}
+    \end{align*}
+    故
+    \begin{align*}
+        \Delta U_m
+        &=L\left(1-\frac{pRT^2}{TLp}\right)\\
+        &=L\left(1-\frac{RT}{L}\right)
+    \end{align*}
+\end{sol}\par
+
+\begin{sol}[6]
+    \begin{align*}
+        L&=H_m^\beta-H_m^\alpha\\
+        \frac{\d L}{\d T}&=(\frac{\partial H_m^\beta}{\partial T})_p+(\frac{\partial H_m^\beta}{\partial p})_T\frac{\d p}{\d T}-(\frac{\partial H_m^\alpha}{\partial T})_p-(\frac{\partial H_m^\alpha}{\partial p})_T\frac{\d p}{\d T}\\
+        &=C_p^\beta-C_p^\alpha+\frac{L}{T(V_m^\beta-V_m^\alpha)}\left[(\frac{\partial H_m^\beta}{\partial p})_T-(\frac{\partial H_m^\alpha}{\partial p})_T\right]\\
+        &=C_p^\beta-C_p^\alpha+\frac{L}{T(V_m^\beta-V_m^\alpha)}\left[V_m^\beta-T(\frac{\partial V_m^\beta}{\partial T})_p-V_m^\alpha+T(\frac{\partial V_m^\alpha}{\partial T})_p\right]\\
+        &=C_p^\beta-C_p^\alpha+\frac{L}{T}-\frac{L}{V_m^\beta-V_m^\alpha}\left[(\frac{\partial V_m^\beta}{\partial T})_p-(\frac{\partial V_m^\alpha}{\partial T})_p\right]
+    \end{align*}
+    若$\beta$相是气相$\alpha$相是凝聚相则可略去$V_m^\alpha$及$T(\frac{\partial V_m^\alpha}{\partial T})_p$且$pV_m^\beta=RT$，则
+    \begin{align*}
+        (\frac{\partial V_m^\beta}{\partial T})_p=\frac{R}{p}
+    \end{align*}
+    故
+    \begin{align*}
+        \frac{\d L}{\d T}&=C_p^\beta-C_p^\alpha+\frac{L}{T}-\frac{RL}{pV_m^\beta}\\
+        &=C_p^\beta-C_p^\alpha+\frac{L}{T}-\frac{L}{T}\\
+        &=C_p^\beta-C_p^\alpha
+    \end{align*}
+\end{sol}\par
+
+\begin{sol}[7]
+    \begin{align*}
+        p&=\frac{RT}{V_m-b}-\frac{a}{V_m^2}\\
+        (\frac{\partial p}{\partial V_m})_T&=\frac{-RT}{(V_m-b)^2}+\frac{2a}{V_m^3}
+    \end{align*}
+    等温线极大值点和极小值点满足
+    \begin{align*}
+        (\frac{\partial p}{\partial V_m})_T&=0\\
+        \frac{-RT}{(V_m-b)^2}+\frac{2a}{V_m^3}&=0\\
+        \frac{RT}{(V_m-b)^2}&=\frac{2a}{V_m^3}
+    \end{align*}
+    联立此式与状态方程可得
+    \begin{align*}
+        p=\frac{2a(V_m-b)}{V_m^3}-\frac{a}{V_m^2}
+    \end{align*}
+    故
+    \begin{align*}
+        pV_m^3=a(V_m-2b)
+    \end{align*}
+    区域一、三满足$(\frac{\partial p}{\partial V_m})_T<0$，虽然化学势较高，但是仍可作为亚稳态以单相存在。C应处于气液不分的临界态，区域二中各点除C外
+    均不满足平衡稳定性的要求，因此只能两相共存存在。
+\end{sol}\par
+
+\begin{sol}[8]
+    \begin{align*}
+        \d s&=(\frac{\partial s}{\partial p})_T\d p+(\frac{\partial s}{\partial T})_p\d T\\
+        &=-\frac{\partial^2\mu}{\partial T\partial p}\d p+(\frac{\partial s}{\partial T})_p\d T\\
+        &=-v\alpha\d p+\frac{c_p}{T}\d T
+    \end{align*}
+    相变点处
+    \begin{align*}
+        \d s^{(1)}&=\d s^{(2)}\\
+        -v^{(1)}\alpha^{(1)}\d p+\frac{c_p^{(1)}}{T}\d T&=-v^{(2)}\alpha^{(1)}\d p+\frac{c_p^{(2)}}{T}\d T
+    \end{align*}
+    又因为$v^{(1)}=v^{(2)}=v$，故
+    \begin{align*}
+        \frac{\d p}{\d T}=\frac{c_p^{(2)}-c^{(1)}_p}{Tv(\alpha^{(2)}-\alpha^{(1)})}
+    \end{align*}
+    \begin{align*}
+        \d v&=(\frac{\partial v}{\partial p})_T\d p+(\frac{\partial v}{\partial T})_p\d T\\
+        &=-v\kappa_T\d p+\alpha v\d T
+    \end{align*}
+    相变点处
+    \begin{align*}
+        \d v^{(1)}&=\d v^{(2)}\\
+        -v^{(1)}\kappa_T^{(1)}\d p+\alpha^{(1)}v^{(1)}\d T&=-v^{(2)}\kappa_T^{(2)}\d p+\alpha^{(2)}v^{(2)}\d T
+    \end{align*}
+    又因为$v^{(1)}=v^{(2)}=v$，故
+    \begin{align*}
+        \frac{\d p}{\d T}=\frac{\alpha^{(2)}-\alpha^{(1)}}{\kappa_T^{(2)}-\kappa_T^{(1)}}
+    \end{align*}
+\end{sol}\par
+\end{document}
