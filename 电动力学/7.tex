@@ -1,0 +1,283 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 7,           % 设置课程次数
+  classname = 电动力学,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{float}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\renewcommand{\i}{\mathrm{i}}
+\makeatother
+\allowdisplaybreaks[4]%允许公式跨页
+
+
+\begin{document}
+
+\begin{sol}[1]
+  该区域的格林函数可以取为
+  \begin{align*}
+    G(\vec{r},\vec{r}')=\frac{1}{4\pi\varepsilon_0}\left(\frac{1}{\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}-\frac{1}{\sqrt{(x-x')^2+(y+y')^2+(z-z')^2}}\right)
+  \end{align*}
+  又该空间没有电荷分布，故
+  \begin{align*}
+    \varphi&=-\iint\limits_SV\frac{\partial G}{\partial y'}\d x'\d z'\\
+    &=\frac{V}{4\pi\varepsilon_0}\iint\limits_S\frac{y-y'}{\left((x-x')^2+(y-y')^2+(z-z')^2\right)^{3/2}}+\frac{y+y'}{\left((x-x')^2+(y+y')^2+(z-z')^2\right)^{3/2}}\d x'\d z'\\
+    &=\frac{V}{4\pi\varepsilon_0}\iint\limits_S\frac{y}{\left((x-x')^2+y^2+(z-z')^2\right)^{3/2}}+\frac{y}{\left((x-x')^2+y^2+(z-z')^2\right)^{3/2}}\d x'\d z'\\
+    &=\frac{V}{4\pi\varepsilon_0}\int_{-\infty}^{\infty}\d z'\int_{-a}^{a}\frac{y}{\left((x-x')^2+y^2+(z-z')^2\right)^{3/2}}+\frac{y}{\left((x-x')^2+y^2+(z-z')^2\right)^{3/2}}\d x'\\
+    &=\frac{V}{4\pi\varepsilon_0}4 \left[\arctan\left(\frac{a-x}{y}\right)+\arctan\left(\frac{a+x}{y}\right)\right]\\
+    &=\frac{V}{\pi\varepsilon_0}\left[\arctan\left(\frac{a-x}{y}\right)+\arctan\left(\frac{a+x}{y}\right)\right]
+  \end{align*}
+  故
+  \begin{align*}
+    \vec{E}&=\nabla\varphi\\
+    &=\frac{V}{\pi\varepsilon_0}\left[\frac{1}{y \left(\frac{(a+x)^2}{y^2}+1\right)}-\frac{1}{y \left(\frac{(a-x)^2}{y^2}+1\right)}\right]\vec{e}_x\\
+    &+\frac{V}{\pi\varepsilon_0}\left[-\frac{a-x}{y^2 \left(\frac{(a-x)^2}{y^2}+1\right)}-\frac{a+x}{y^2 \left(\frac{(a+x)^2}{y^2}+1\right)}\right]\vec{e}_y
+  \end{align*}
+\end{sol}
+
+\begin{sol}[2]
+    取轴向为$z$轴，由对称性有
+    \begin{align*}
+        D_{xx}&=D_{yy}\\
+        D_{xz}&=D_{yz}
+    \end{align*}
+    \begin{align*}
+        D_{xx}&=\iiint r\left(3r^2\cos^2\theta-r^2\right)\frac{q}{2\pi a}\delta(r-a)\delta(z)\d r\d \theta\d z\\
+        &=-\frac{a^2q}{2\pi}
+    \end{align*}
+    \begin{align*}
+        D_{xy}&=\iiint r(3r^2\cos\theta\sin\theta)\frac{q}{2\pi a}\delta(r-a)\delta(z)\d r\d \theta\d z\\
+        &=0
+    \end{align*}
+    \begin{align*}
+        D_{xz}&=\iiint r(3r\cos\theta z)\frac{q}{2\pi a}\delta(r-a)\delta(z)\d r\d \theta\d z\\
+        &=0
+    \end{align*}
+    故
+    \begin{align*}
+        &D_{xx}=D_{yy}=-\frac{a^2q}{2\pi}\\
+        &D_{zz}=-(D_{xx}+D_{yy})=\frac{a^2q}{\pi}\\
+        &\text{其余元素均为0}
+    \end{align*}
+    其在远处产生的电势为
+    \begin{align*}
+        \varphi&=\frac{1}{24\pi\varepsilon_0}\left(D_{xx}\frac{\partial^2}{\partial x^2}\frac{1}{r}+D_{yy}\frac{\partial^2}{\partial x^2}\frac{1}{r}+D_{zz}\frac{\partial^2}{\partial x^2}\frac{1}{r}\right)\\
+        &=\frac{-a^2q}{48\pi^2\varepsilon_0}\frac{3 \left(x^2+y^2-2 z^2\right)}{\left(x^2+y^2+z^2\right)^{5/2}}
+    \end{align*}
+\end{sol}
+
+\begin{sol}[3]
+    取轴向为$z$轴，由对称性有
+    \begin{align*}
+        D_{xx}&=D_{yy}\\
+        D_{xz}&=D_{yz}
+    \end{align*}
+    \begin{align*}
+        D_{xx}&=\iiint r\left(3r^2\cos^2\theta-r^2\right)\frac{q}{\pi a^2}\delta(z)\d r\d \theta\d z\\
+        &=-\frac{a^2q}{4\pi}
+    \end{align*}
+    \begin{align*}
+        D_{xy}&=\iiint r(3r^2\cos\theta\sin\theta)\frac{q}{\pi a^2}\delta(z)\d r\d \theta\d z\\
+        &=0
+    \end{align*}
+    \begin{align*}
+        D_{xz}&=\iiint r(3r\cos\theta z)\frac{q}{\pi a^2}\delta(z)\d r\d \theta\d z\\
+        &=0
+    \end{align*}
+    故
+    \begin{align*}
+        &D_{xx}=D_{yy}=-\frac{a^2q}{4\pi}\\
+        &D_{zz}=-(D_{xx}+D_{yy})=\frac{a^2q}{2\pi}\\
+        &\text{其余元素均为0}
+    \end{align*}
+    其在远处产生的电势为
+    \begin{align*}
+        \varphi&=\frac{1}{24\pi\varepsilon_0}\left(D_{xx}\frac{\partial^2}{\partial x^2}\frac{1}{r}+D_{yy}\frac{\partial^2}{\partial x^2}\frac{1}{r}+D_{zz}\frac{\partial^2}{\partial x^2}\frac{1}{r}\right)\\
+        &=\frac{-a^2q}{96\pi^2\varepsilon_0}\frac{3 \left(x^2+y^2-2 z^2\right)}{\left(x^2+y^2+z^2\right)^{5/2}}
+    \end{align*}
+\end{sol}
+
+\begin{sol}[4]
+    由对称性知$\vec{A}$只与$r$有关，取$\vec{A}=A(r)\vec{e}_z$在柱坐标下求解定解条件为
+    \begin{align*}
+        \nabla^2 A_{in}&=-\mu_0 j\\
+        \nabla^2 A_{out}&=0\\
+        A_{in}|_{r=a}&=A_{out}|_{r=a}\\
+        A_{in}|_{r=0}&\text{有限}\\
+        \frac{1}{\mu_0}\nabla\times\vec{A}_{in}&=\frac{1}{\mu}\nabla\times\vec{A}_{out}
+    \end{align*}
+    故可得解系为
+    \begin{align*}
+        A_{in}&=-\frac{1}{4}\mu jr^2+C_1\ln r+C_2\\
+        A_{out}&=C_3\ln r+C_4
+    \end{align*}
+    由$A_{in}|_{r=0}\text{有限}$得$C_1=0$，由$\frac{1}{\mu_0}\nabla\times\vec{A}_{in}=\frac{1}{\mu}\nabla\times\vec{A}_{out}$得
+    $C_3=-\frac{\mu ja^2}{2}$。
+    又$A_{in}|_{r=a}=A_{out}|_{r=a}$故$C_2=\frac{\mu_0ja^2}{4}$，$C_4=\frac{\mu ja^2\ln a}{2}$。
+    故
+    \begin{align*}
+        \vec{A}_{in}&=\left(-\frac{1}{4}\mu jr^2+\frac{\mu_0ja^2}{4}\right)\vec{e}_z\\
+        \vec{A}_{out}&=\left(-\frac{\mu ja^2}{2}\ln r+\frac{\mu ja^2\ln a}{2}\right)\vec{e}_z
+    \end{align*}
+\end{sol}
+
+\begin{sol}[5]
+    取$\vec{H}_0$方向为轴向建立球坐标得定解条件
+    \begin{align*}
+        \nabla^2\varphi_1&=0\\
+        \nabla^2\varphi_2&=0\\
+        \varphi_1|_{r=R_0}&=\varphi_2|_{r=R_0}\\
+        \mu\frac{\partial \varphi_1}{\partial r}|_{r=R_0}&=\mu_0\frac{\partial \varphi_2}{\partial r}|_{r=R_0}\\
+        \varphi_1|_{r=0}&\text{有限}\\
+        \varphi_2|_{r\to\infty}&=-H_0r\cos\theta(\text{将未放球体之前的原点记为零点})
+    \end{align*}
+    解得
+    \begin{align*}
+        \varphi_1&=\sum_{l=0}^{\infty}a_lr^lP_l(\cos\theta)\\
+        \varphi_2&=-H_0r\cos\theta+\sum_{l=0}^{\infty}b_lr^{-l-1}P_l(\cos\theta)
+    \end{align*}
+    代入$\varphi_1|_{r=R_0}=\varphi_2|_{r=R_0}$得
+    \begin{align*}
+        \sum_{l=0}^{\infty}a_lR_0^lP_l(\cos\theta)=-H_0R_0\cos\theta+\sum_{l=0}^{\infty}b_lR_0^{-l-1}P_l(\cos\theta)
+    \end{align*}
+    代入$\mu\frac{\partial \varphi_1}{\partial r}|_{r=R_0}=\mu_0\frac{\partial \varphi_2}{\partial r}|_{r=R_0}$得
+    \begin{align*}
+        \mu\sum_{l=0}^{\infty}la_lR_0^{l-1}P_l(\cos\theta)=\mu_0(-H_0\cos\theta+\sum_{l=0}^{\infty}(-l-1)b_lR_0^{-l-1}P_l(\cos\theta))
+    \end{align*}
+    对比$P_l(\cos\theta)$系数有
+    \begin{align*}
+        a_1&=-\frac{3\mu_0H_0}{\mu+2\mu_0}\\
+        b_1&=\frac{\mu-\mu_0}{\mu+2\mu_0}H_0R_0^3\\
+        a_l&=b_l=0(l\neq 1)
+    \end{align*}
+    故
+    \begin{align*}
+        \varphi_1&=-\frac{3\mu_0}{\mu+2\mu_0}H_0r\cos\theta\\
+        \varphi_2&=-H_0r\cos\theta+\frac{\mu-\mu_0}{\mu+2\mu_0}\frac{R_0^3H_0}{r^2}\cos\theta
+    \end{align*}
+    故
+    \begin{align*}
+        \vec{B}_1&=-\mu\nabla\varphi_1\\
+        &=\frac{3\mu\mu_0}{\mu+2\mu_0}\vec{H}_0
+    \end{align*}
+    \begin{align*}
+        \vec{B}_2&=-\mu_0\nabla\varphi_2\\
+        &=\mu_0\vec{H}_0+\frac{\mu-\mu_0}{\mu+2\mu_0}\mu_0R_0^3\left[\frac{3(\vec{H}_0\cdot\vec{r})\vec{r}}{r^5}-\frac{\vec{H}_0}{r^3}\right]
+    \end{align*}
+    $\varphi_2$中的第二项$\frac{\mu-\mu_0}{\mu+2\mu_0}\frac{R_0^3H_0}{r^2}\cos\theta$可视为一磁偶极子产生的势
+    故
+    \begin{align*}
+        \frac{\vec{m}\cdot\vec{r}}{4\pi r^3}&=\frac{\mu-\mu_0}{\mu+2\mu_0}\frac{R_0^3H_0}{r^2}\cos\theta\\
+        \vec{m}&=4\pi\frac{\mu-\mu_0}{\mu+2\mu_0}R_0^3\vec{H}_0
+    \end{align*}
+\end{sol}
+
+\begin{sol}[6]
+    以$\vec{H}_0$为极轴建立球坐标系，由对称性知，磁标势与$\phi$无关则定解条件为
+    \begin{align*}
+        \nabla^2\varphi_1&=0\\
+        \nabla^2\varphi_2&=0\\
+        \nabla^2\varphi_3&=0\\
+        \varphi_1|_{r=R_1}&=\varphi_2|_{r=R_1}\\
+        \mu_0\frac{\partial \varphi_1}{\partial r}|_{r=R_1}&=\mu\frac{\partial \varphi_2}{\partial r}|_{r=R_1}\\
+        \varphi_2|_{r=R_2}&=\varphi_3|_{r=R_2}\\
+        \mu\frac{\partial \varphi_2}{\partial r}|_{r=R_2R_2}&=\mu_0\frac{\partial \varphi_3}{\partial r}|_{r=R_2}\\
+        \varphi_1|_{r\to 0}\text{有限}\\
+        \varphi_3|{r\to\infty}=-H_0r\cos\theta(\text{已将未放入时的原点取为势零点})
+    \end{align*}
+    解得
+    \begin{align*}
+        \varphi_1&=\sum_{l=0}^{\infty}a_lr^lP_l(\cos\theta)\\
+        \varphi_2&=\sum_{l=0}^{\infty}(c_lr^l+d^lr^{-l-1})P_l(\cos\theta)\\
+        \varphi_3&=\sum_{l=0}^{\infty}b_lr^{-l-1}P_l(\cos\theta)-H_0r\cos\theta
+    \end{align*}
+    代入边界条件有
+    \begin{align*}
+        \sum_{l=0}^{\infty}a_lR_1^lP_l(\cos\theta)&=\sum_{l=0}^{\infty}(c_lR_1^l+d_lR_1^{-l-1})P_l(\cos\theta)\\
+        \mu_0\sum_{l=0}^{\infty}la_lR_1^{l-1}P_l(\cos\theta)&=\mu\sum_{l=0}^{\infty}(lc_lR_1^{l-1}-(l+1)d_lR_1^{-l-2})P_l(\cos\theta)\\
+        \sum_{l=0}^{\infty}(c_lR_2^l+d_lR_2^{-l-1})P_l(\cos\theta)&=\sum_{l=0}^{\infty}b_lR_2^{-l-1}P_l(\cos\theta)-H_0R_2\cos\theta\\
+        \mu\sum_{l=0}^{\infty}(lc_lR_2^{l-1}-(l+1)d_lR_2^{-l-2})P_l(\cos\theta)&=-\mu_0\sum_{l=0}^{infty}(l+1)b_lR_2^{-l-2}P_l(\cos\theta)-\mu_0H_0\cos\theta
+    \end{align*}
+    对比$P_l(\cos\theta)$系数可得
+    \begin{align*}
+        a_1R_1&=b_1R_1+\frac{c_1}{R_1^2}\\
+        \mu_0a_1&=\mu(b_1-\frac{2c_1}{R_1^3})\\
+        b_1R_2+\frac{c_1}{R_2^2}&=\frac{d_1}{R_2^2}-H_0R_2\\
+        \mu\left(b_1-\frac{2c_1}{R_2^3}\right)&=\mu_0\left(\frac{-2d_1}{R_2^3}-H_0\right)
+    \end{align*}
+    解得
+    \begin{align*}
+        a_1=\frac{-H_0}{\frac{2(\mu-\mu_0)^2}{9\mu\mu_0}\left[\frac{(\mu+2\mu_0)(2\mu+\mu_0)}{2(\mu-\mu_0)^2}-\left(\frac{R_1}{R_2}\right)^2\right]}
+    \end{align*}
+    故
+    \begin{align*}
+        \varphi_1&=a_1r\cos\theta\\
+        \vec{B}_1&=-\mu_0\nabla\varphi_1\\
+        &=-a_1\mu_0\nabla\left(r\cos\theta\right)\\
+        &=-a_1\mu_0\vec{e}_z\\
+        &=\frac{\mu_0H_0\vec{e}_z}{\frac{2(\mu-\mu_0)^2}{9\mu\mu_0}\left[\frac{(\mu+2\mu_0)(2\mu+\mu_0)}{2(\mu-\mu_0)^2}-\left(\frac{R_1}{R_2}\right)^2\right]}
+    \end{align*}
+    当$\mu\ll \mu_0$时，$\vec{B}_1\to0$，接近电场中的导体屏蔽作用。
+\end{sol}
+
+\begin{sol}[7]
+    以$\vec{M}_0$方向为轴向建立球坐标得定解条件
+    \begin{align*}
+        \nabla^2\varphi_1&=0\\
+        \nabla^2\varphi_2&=0\\
+        \varphi_1|_{r=R_0}&=\varphi_2|_{r=R_0}\\
+        -\mu\frac{\partial \varphi_1}{\partial r}+\mu_0M_0\cos\theta&=-\mu'\frac{\partial \varphi_2}{\partial r}\\
+        \varphi_1|_{r\to0}&\text{有限}\\
+        \varphi_2|_{r\to\infty}&=0
+    \end{align*}
+    通解为
+    \begin{align*}
+        \varphi_1&=\sum_{l=0}^{\infty}a_lr^lP_l(\cos\theta)\\
+        \varphi_2&=\sum_{l=0}^{\infty}b_lr^{-l-1}P_l(\cos\theta)
+    \end{align*}
+    代入边界条件得
+    \begin{align*}
+        \sum_{l=0}^{\infty}a_lR_0^lP_l(\cos\theta)&=\sum_{l=0}^{\infty}b_lR_0^{-l-1}P_l(\cos\theta)\\
+        -\mu\sum_{l=0}^{\infty}la_lR_0^{l-1}P_l(\cos\theta)+\mu_0M_0\cos\theta&=\mu'\sum_{l=0}^{\infty}(l+1)b_lR_0^{-l-2}P_l(\cos\theta)
+    \end{align*}
+    解得
+    \begin{align*}
+        a_1&=\frac{\mu_0M_0}{2\mu'+\mu}\\
+        b_1&=\frac{\mu_0M_0}{2\mu'+\mu}R_0^3\\
+        a_l&=b_l=0(l\neq0)
+    \end{align*}
+    \begin{align*}
+        \varphi_1&=\frac{\mu_0M_0}{2\mu'+\mu}r\cos\theta\\
+        \varphi_2&=\frac{\mu_0M_0R_0^3}{(2\mu'+\mu)r^2}\cos\theta
+    \end{align*}
+    故
+    \begin{align*}
+        \vec{B_1}&=-\mu\nabla\varphi_1+\mu_0\vec{M}_0\\
+        &=\frac{2\mu'\mu_0}{2\mu'+\mu}\vec{M}_0\\
+        \vec{B}_2&=-\mu'\nabla\varphi_2\\
+        &=\frac{\mu'\mu_0R_0^3}{2\mu'+\mu}\left[\frac{3(\vec{M}_0\cdot\vec{r})\vec{r}}{r^5}-\frac{\vec{M}_0}{r^3}\right]\\
+        \vec{\alpha}_M&=\frac{\vec{n}\times(\vec{B_2}-\vec{B}_1)}{\mu_0}|_{r=R_0}-\vec{\alpha}\\
+        &=-\frac{3\mu'}{2\mu'+\mu_0}M_0\sin\theta\vec{e}_\phi
+    \end{align*}
+\end{sol}
+\end{document}
