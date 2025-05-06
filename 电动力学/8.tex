@@ -1,0 +1,118 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 8,           % 设置课程次数
+  classname = 电动力学,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{float}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\renewcommand{\i}{\mathrm{i}}
+\makeatother
+\allowdisplaybreaks[4]%允许公式跨页
+
+
+\begin{document}
+
+\begin{sol}[1]
+    以自转轴方向为轴向建立球坐标得定解条件
+    \begin{align*}
+        \nabla^2\varphi_1&=0\\
+        \nabla^2\varphi_2&=0\\
+        \frac{1}{R_0}\left(\frac{\partial\varphi_2}{\partial\theta}-\frac{\partial\varphi_1}{\partial\theta}\right)&  =-\frac{Q\omega\sin\theta}{4\pi R_0}|_{r=R_0}\\
+        \frac{\partial\varphi_1}{\partial r}&=\frac{\partial \varphi_2}{\partial r}\\
+        \varphi_1|_{r\to0}&\text{有限}\\
+        \varphi_2|_{r\to\infty}&=0
+    \end{align*}
+    通解为
+    \begin{align*}
+        \varphi_1&=\sum_{l=0}^{\infty}a_lr^lP_l(\cos\theta)\\
+        \varphi_2&=\sum_{l=0}^{\infty}b_lr^{-l-1}P_l(\cos\theta)
+    \end{align*}
+    代入边界条件得
+    \begin{align*}
+        \frac{1}{R_0}(\sum_{l=0}^{\infty}a_lR_0^l\frac{l\cos\theta P_l(\cos\theta)-lP_{l-1}(\cos\theta)}{\sin\theta}-\sum_{l=0}^{\infty}b_lR_0^{-l-1}\frac{l\cos\theta P_l(\cos\theta)-lP_{l-1}(\cos\theta)}{\sin\theta})&  =-\frac{Q\omega\sin\theta}{4\pi R_0}\\
+        \sum_{l=0}^{\infty}la_lR_0^{l-1}P_l(\cos\theta)&=\sum_{l=0}^{\infty}(l+1)b_lR_0^{-l-2}P_l(\cos\theta)
+    \end{align*}
+    解得
+    \begin{align*}
+        a_1&=\frac{-Q\omega}{6\pi R_0}\\
+        b_1&=\frac{Q\omega R_0^2}{12\pi}\\
+        a_l&=b_l=0(l\neq1)
+    \end{align*}
+    \begin{align*}
+        \varphi_1&=\frac{-Q\omega}{6\pi R_0}r\cos\theta\\
+        \varphi_2&=\frac{Q\omega R_0^2}{12\pi r^2}\cos\theta
+    \end{align*}
+    故
+    \begin{align*}
+        \vec{B_1}&=-\mu_0\nabla\varphi_1\\
+        &=\frac{Q\vec{\omega}}{6\pi R_0}\\
+        \vec{B}_2&=-\mu_0\nabla\varphi_2\\
+        &=\frac{\mu_0}{4\pi}\left[\frac{3(\vec{m}\cdot\vec{r})\vec{r}}{r^5}-\frac{\vec{m}}{r^3}\right]
+    \end{align*}
+\end{sol}
+
+\begin{sol}[2]
+    (1)
+    \begin{align*}
+        \vec{m}&=\frac{1}{2}\iiint\vec{r}\times\vec{j}\d V\\
+        &=\frac{1}{2}\iiint\vec{r}\times\frac{3Q}{4\pi R_0^3}(\omega\times r)\d V\\
+        &=\frac{1}{2}\frac{3Q}{4\pi R_0^2}\iiint\vec{r}\times(\vec{\omega}\times\vec{r})r^2\sin\theta\d r\d\theta\d\phi\\
+        &=\frac{1}{2}\frac{3Q}{4\pi R_0^2}\iiint(\vec{e}_r\times\vec{e}_\phi)r^4\sin\theta\d r\d\theta\d\phi\\
+        &=-\frac{1}{2}\frac{3Q}{4\pi R_0^2\omega}\iiint\vec{e}_\theta r^4\sin\theta\d r\d\theta\d\phi\\
+        &=\frac{3Q\omega}{8\pi R_0^2}\iiint\left[\sin\theta\vec{e}_z+\cos\theta(-\cos\phi\vec{e}_x-\sin\phi\vec{e}_y)\right] r^4\sin\theta\d r\d\theta\d\phi\\
+        &=\frac{3Q\omega}{8\pi R_0^2}\vec{e}_z\int_{0}^{2\pi}\int_{0}^{\pi}\int_{0}^{R_0}r^4\sin^3\theta\d r\d\theta\d\phi\\
+        &=\frac{QR_0^2\vec{\omega}}{5}
+    \end{align*}
+    (2)
+    \begin{align*}
+        \vec{L}&=I\vec{\omega}\\
+        &=\frac{2m_0R_0^2}{5}\vec{\omega}\\
+        \frac{m}{L}&=\frac{\frac{QR_0^2\omega}{5}}{\frac{2m_0R_0^2}{5}\omega}\\
+        &=\frac{Q}{2m_0}
+    \end{align*}
+\end{sol}
+
+\begin{sol}[2]
+    该问题近似于电偶极子在无穷大导体平面边界的问题，故可使用电像法。令介质平面为$z=0$平面。$\vec{m}$距其$d$，与$z$轴夹角$\theta$得到镜像磁矩$\vec{m}'$产生的磁标势为
+    \begin{align*}
+        \varphi'=\frac{\vec{m}'\cdot\vec{r}}{4\pi r^3}
+    \end{align*}
+    故
+    \begin{align*}
+        \vec{B}'&=\mu_0(-\nabla\varphi')\\
+        &=\frac{\mu_0}{4\pi}\left[\frac{3(\vec{m}'\cdot\vec{r})\vec{r}}{r^5}-\frac{\vec{m}'}{r^3}\right]
+    \end{align*}
+    则在$\vec{m}$处产生的磁感应强度为
+    \begin{align*}
+        \vec{B}'=\frac{\mu_0}{4\pi z^3}(3m'\cos\theta\vec{e}_z-\vec{m}')
+    \end{align*}
+    故
+    \begin{align*}
+        \vec{F}&=-\nabla(-\vec{m}\cdot\vec{B}')\\
+        &=\nabla[\frac{\mu_0m^2}{4\pi z^3}(1+\cos^2\alpha)]\\
+        &=\vec{e}_z\frac{\partial\frac{\mu_0m^2}{4\pi z^3}(1+\cos^2\theta)}{\partial z}\\
+        &=\frac{-3\mu_0m^2}{64\pi d^4}(1+\cos^2\theta)\vec{e}_z
+    \end{align*}
+\end{sol}
+\end{document}
