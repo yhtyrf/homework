@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.7.5)  6 MAY 2025 23:06
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.7.5)  13 MAY 2025 19:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**8
-(./8.tex
+**9
+(./9.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (c:/texlive/2023/texmf-dist/tex/latex/phyasgn/phyasgn.cls (c:/texlive/2023/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
@@ -764,8 +764,8 @@ File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfdecorationsegmentlength=\dimen332
 )
 \tikz@lib@dec@box=\box126
-) (c:/texlive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (./8.aux)
-\openout1 = `8.aux'.
+) (c:/texlive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (./9.aux)
+\openout1 = `9.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
 LaTeX Font Info:    ... okay on input line 34.
@@ -901,26 +901,24 @@ Package fontspec Info: Font family 'SimHei(0)' created for font 'SimHei' with
 (fontspec)             <->"SimHei/OT:script=hani;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
-LaTeX Font Info:    Trying to load font information for U+txmia on input line 38.
+LaTeX Font Info:    Trying to load font information for U+txmia on input line 37.
 (c:/texlive/2023/texmf-dist/tex/latex/phyasgn/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 38.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
  (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 38.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
  (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 38.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 37.
  (c:/texlive/2023/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Overfull \hbox (45.70668pt too wide) detected at line 55
-[]
- []
-
+Missing character: There is no ̣ ("323) in font cmmi10!
+Missing character: There is no ̣ ("323) in font cmmi10!
 File: logo1.png Graphic file (type bmp)
 <logo1.png>
 [1
@@ -933,14 +931,14 @@ File: logo1.png Graphic file (type bmp)
 <logo1.png>
  [3] 
 enddocument/afterlastpage: lastpage setting LastPage.
-(./8.aux) ) 
+(./9.aux) ) 
 Here is how much of TeX's memory you used:
- 26409 strings out of 478630
- 598369 string characters out of 5847731
- 1865012 words of memory out of 5000000
- 46058 multiletter control sequences out of 15000+600000
- 520790 words of font info for 87 fonts, out of 8000000 for 9000
+ 26418 strings out of 478630
+ 599046 string characters out of 5847731
+ 1862012 words of memory out of 5000000
+ 46068 multiletter control sequences out of 15000+600000
+ 520782 words of font info for 86 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 102i,19n,117p,479b,540s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,19n,117p,479b,612s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 8.pdf (3 pages).
+Output written on 9.pdf (3 pages).

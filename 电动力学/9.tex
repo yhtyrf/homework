@@ -1,0 +1,138 @@
+\documentclass{phyasgn}
+\phyasgn{
+  stuname = 姚昊廷,           % 设置学生姓名
+  stunum = 22322091,      % 设置学号
+  setasgnnum = 9,           % 设置课程次数
+  classname = 电动力学,     % 设置课程名称
+}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{t-angles}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{pifont}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{float}
+%\usepackage{autobreak} 
+%\usepackage{fixdif} 
+\usetikzlibrary{quotes,angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\lstset{numbers=left,basicstyle=\ttfamily,columns=flexible}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\renewcommand{\i}{\mathrm{i}}
+\makeatother
+\allowdisplaybreaks[4]%允许公式跨页
+
+
+\begin{document}
+
+\begin{sol}[1]
+    (1)\begin{align*}
+        \vec{A}_1&=\vec{A}_0\cos\left(k_1z-\omega_1 t\right)\\
+        \vec{A}_2&=\vec{A}_0\cdot\cos\left(k_2z-\omega_2 t\right)
+    \end{align*}
+    故
+    \begin{align*}
+        \vec{A}_1+\vec{A}_2&=\vec{A}_0\cdot2\left(\cos\left(k_1z-\omega_1 t\right)+\cos\left(k_2z-\omega_2 t\right)\right)\\
+        &=\vec{A}_0\cdot2\cos\frac{\left(k_1-k_2\right)z-\left(\omega_1-\omega_2\right)t}{2}\cos\frac{\left(k_1+k_2\right)z-\left(\omega_1+\omega_2\right)t}{2}
+    \end{align*}
+    又
+    \begin{align*}
+        k_1&=k+\d k\\
+        k2&=k-\d k\\
+        \omega_1&=\omega+\d \omega\\
+        \omega_2&=\omega+\d \omega
+    \end{align*}
+    故
+    \begin{align*}
+        \vec{A}&=\vec{A}_0\cdot2\cos\left(\d k\cdot z-\d \omega\cdot t\right)\cos\left(k\cdot z-\omega\cdot t\right)\\
+        &=\vec{A}_0\cdot2\cos\left(\d k\cdot z-\d \omega\cdot t\right)e^{\i \left(kz-\omega t\right)}
+    \end{align*}
+    (2)相速度：
+    \begin{align*}
+        kx-\omega t&=0\\
+        v_p&=\frac{\omega}{k}
+    \end{align*}
+    群速度：
+    \begin{align*}
+        \d kx-\d \omega t&=0\\
+        v_g&=\frac{\d \omega}{\d k}
+    \end{align*}
+\end{sol}
+
+\begin{sol}[2]
+    (1)
+    \begin{align*}
+        \nabla\cdot\vec{B}&=0\\
+        \i \vec{k}\cdot\vec{B}&=0\\
+        \vec{k}\cdot\vec{B}&=0\\
+        \nabla\cdot\vec{D}&=0\\
+        \i \vec{k}\cdot\vec{D}&=0\\
+        \vec{k}\cdot\vec{D}&=0\\
+        \nabla\times\vec{E}&=-\frac{\partial \vec{B}}{\partial t}\\
+        \i\vec{k}\times\vec{E}&=\i\omega\vec{B}\\
+        \vec{B}&=\frac{\vec{k}\times\vec{E}}{\omega}\\
+        \vec{B}\cdot\vec{E}&=0\\
+        \nabla\times\vec{H}&=\frac{\partial \vec{D}}{\partial t}\\
+        \i\vec{k}\times\vec{H}&=-\i\omega\vec{D}\\
+        \vec{D}&=\frac{-\vec{k}\times\vec{B}}{\omega\mu}
+    \end{align*}
+    故
+    \begin{align*}
+        \vec{k}\cdot\vec{B}=\vec{k}\cdot\vec{B}=\vec{B}\cdot\vec{D}=\vec{B}\cdot\vec{D}=\vec{B}\cdot\vec{E}=0
+    \end{align*}
+    \begin{align*}
+        \nabla\cdot\vec{E}&=\frac{\rho}{\varepsilon_0}\\
+        \i\vec{k}\cdot\vec{E}&=\frac{\rho}{\varepsilon_0}\\
+        \vec{k}\cdot\vec{E}&=\frac{\rho}{\i\varepsilon_0}
+    \end{align*}
+    而介质中由于极化电荷的存在$\rho$一般不为0。故一般$\vec{k}\cdot\vec{E}\neq0$。
+
+    (2)\begin{align*}
+        \vec{D}&=\frac{-\vec{k}\times\vec{B}}{\omega\mu}\\
+        &=\frac{-\vec{k}\times\frac{\vec{k}\times\vec{E}}{\omega}}{\omega\mu}\\
+        &=\frac{-\vec{k}\times(\vec{k}\times\vec{E})}{\omega^2\mu}\\
+        &=\frac{k^2\vec{E}-(\vec{k}\cdot\vec{E})\vec{k}}{\omega^2\mu}
+    \end{align*}
+
+    (3)\begin{align*}
+        \vec{S}&=\vec{E}\times\vec{H}\\
+        &=\vec{E}\times\frac{\vec{k}\times\vec{E}}{\mu\omega}\\
+        &=\frac{E^2\vec{k}-(\vec{k}\vec{E})\vec{E}}{\mu\omega}
+    \end{align*}
+    若要令$\vec{k}$与$\vec{S}$在同一方向那么就要使$(\vec{k}\vec{E})\vec{E}=0$，一般不满足。
+\end{sol}
+
+\begin{sol}[3]
+    \begin{align*}
+        A_x&=A_0\cos\left(kz-\omega t\right)\\
+        A_y&=A_0\cos\left(kz-\omega t+\frac{\pi}{2}\right)
+    \end{align*}
+    故
+    \begin{align*}
+        A_x^2+A_y^2=A_0^2
+    \end{align*}
+    即圆偏振
+\end{sol}
+
+\begin{sol}[4]
+    \begin{align*}
+        \vec{A}_1&=\left(a\cos\left(kz-\omega t\right),a\cos\left(kz-\omega t+\frac{\pi}{2}\right)\right)\\
+        \vec{A}_2&=\left(b\cos\left(kz-\omega t\right),-b\cos\left(kz-\omega t+\frac{\pi}{2}\right)\right)
+    \end{align*}
+    故
+    \begin{align*}
+        \vec{A}&=\left(a\cos\left(kz-\omega t\right)+b\cos\left(kz-\omega t\right),a\cos\left(kz-\omega t+\frac{\pi}{2}\right)-b\cos\left(kz-\omega t+\frac{\pi}{2}\right)\right)\\
+        &=\left((a+b)\cos\left(kz-\omega t\right),(a-b)\cos\left(kz-\omega t+\frac{\pi}{2}\right)\right)\\
+    \end{align*}
+    若$\frac{a}{b}=\pm 1$，则线偏振。\\
+    若$\frac{a}{b}\neq\pm 1$，则椭圆偏振。
+\end{sol}
+\end{document}
